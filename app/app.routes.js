@@ -2,18 +2,17 @@
 
 angular
   .module('mentors4me')
-  .config(function($routerProvider){
-    $routerProvider.when('/', {
-      templateUrl : 'components/home/home.html'
-      controller : 'components/home/home.controller.js'
+  .config('$locationProvider', '$routeProvider' ,function($locationProvider, $routeProvider){
+    $locationProvider.hashPrefix('!');
+    console.log("ASASASASASASAFDFVD");
+    $routeProvider.when('/', {
+      templateUrl : 'app/components/home/home.html'
     })
     .when('/page1', {
-      templateUrl : 'components/page1/page1.html'
-      controller : 'components/page1/page1.controller.js'
+      templateUrl : 'app/components/page1/page1.html'
     })
     .when('/page2', {
-      templateUrl : 'components/page2/page2.html'
-      controller : 'components/page2/page2.controller.js'
+      templateUrl : 'app/components/page2/page2.html'
     })
     .otherwise('/');
   })
