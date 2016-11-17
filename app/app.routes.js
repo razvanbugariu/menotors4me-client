@@ -1,9 +1,8 @@
-'use strict'
+'use strict';
 
 angular
   .module('mentors4me')
-  .config('$locationProvider', '$routeProvider' ,function($locationProvider, $routeProvider){
-    $locationProvider.hashPrefix('!');
+  .config(function($routeProvider){
     console.log("ASASASASASASAFDFVD");
     $routeProvider.when('/', {
       templateUrl : 'app/components/home/home.html'
