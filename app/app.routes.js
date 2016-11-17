@@ -7,8 +7,8 @@ angular
     $routeProvider.when('/', {
       templateUrl : 'app/components/home/home.html'
     })
-    .when('/page1', {
-      templateUrl : 'app/components/page1/page1.html'
+    .when('/mentor', {
+      templateUrl : 'app/components/mentor/mentor.html'
     })
     .when('/page2', {
       templateUrl : 'app/components/page2/page2.html'
