@@ -4,13 +4,14 @@ angular
 	.module('mentors4me')
 	.controller('loginController', loginController);
 
-function loginController($scope, $location, loginService, $cookies) {
+function loginController($scope, $location, loginService, $cookies, $rootScope) {
 
   $scope.login = login;
   $scope.validateInputs = validateInputs;
 
-  function handleLoginSuccess(token){
-    $cookies.put("authentication", token);
+  function handleLoginSuccess(response){
+    $cookies.put("authentication", response.data.data.auth_token);
+		$rootScope.loggedIn = true;
 		$location.path("/mentor");
 	}
 
@@ -31,7 +32,7 @@ function loginController($scope, $location, loginService, $cookies) {
       email : $scope.user.email,
       password : $scope.user.password
     };
-    loginService.login(user).then(handleLoginSuccess, handleLoginError);
+    loginService.logout(user).then(handleLoginSuccess, handleLoginError);
   }
 
   function validateInputs(){
