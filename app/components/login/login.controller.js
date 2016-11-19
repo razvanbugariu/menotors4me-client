@@ -10,11 +10,13 @@ function loginController($scope, $location, loginService, $cookies) {
   $scope.validateInputs = validateInputs;
 
   function handleLoginSuccess(token){
+		console.log("ADADADA");
     $cookies.put("authentication", token);
 		$location.path("/mentor");
 	}
 
 	function handleLoginError(){
+		console.log("NUNUNUNUNU");
     $location.path("/login");
 	}
 
