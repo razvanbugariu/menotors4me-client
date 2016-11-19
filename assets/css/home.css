@@ -1,0 +1,27 @@
+body{
+	margin:0;
+	padding-top: 60px;
+	padding-left: 20px; 
+}
+.main-content {
+	margin: 0;
+	text-align: center;
+}
+.main-content-about p {
+	font-size: 100%;
+	font-family: Helvetica;
+	font-style: bold;
+	font-weight: 20px;
+	padding: 20px;
+}
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+#content-paragraf{
+	font-style:italic;
+	font-size: 3vmin;
+}
+.main-content h1 {
+	font-size: 5.0vw;
+}
