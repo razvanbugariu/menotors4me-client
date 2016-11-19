@@ -11,6 +11,10 @@ angular
       templateUrl : 'app/components/mentor/mentor.html',
       controller : 'mentorController'
     })
+    .when('/mentor/details', {
+      templateUrl : 'app/components/mentor_details/mentordetails.html',
+      controller : 'mentorDetailsController'
+    })
     .when('/login', {
       templateUrl : 'app/components/login/login.html',
       controller : 'loginController'
