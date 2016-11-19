@@ -9,7 +9,7 @@ angular.module('mentors4me').factory('authInterceptor',['$q','$location', '$root
 		responseError: function (rejection){
 			if(rejection && rejection.status === 401){
 				$cookies.remove("authentication");
-				$location.path('/');
+				$location.path('/login');
 			}
 			return $q.reject(rejection)
 

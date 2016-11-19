@@ -4,7 +4,7 @@ angular
 	.module('mentors4me')
 	.controller('loginController', loginController);
 
-function loginController($scope, $location, loginService) {
+function loginController($scope, $location, loginService, $cookies) {
 
   $scope.login = login;
   $scope.validateInputs = validateInputs;

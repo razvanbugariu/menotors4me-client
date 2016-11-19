@@ -7,7 +7,7 @@ angular.module('mentors4me').factory('securityInterceptor',['$q','$location', '$
 				if (rejection.config && rejection.config.url && rejection.config.url != 'user'){
 					rejection.data = {message : "You are not authorized!"};
 					$window.sessionStorage.removeItem("authenticatedUser");
-					$location.path('/');
+					$location.path('/login');
 				} else {
 					rejection.data = {message : "Wrong user name or password"};
 				}
