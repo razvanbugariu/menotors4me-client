@@ -6,25 +6,29 @@ angular
 
 function registerController($scope, $location, registerService) {
 
-  $scope.organizations = [];
   $scope.register = register;
 
-  function handleGetOrgError() {
-    //Error
-  }
-
-  function handleGetOrgSuccess(response) {
-    $scope.organizations = response.data.data;
-  }
-
-  function getOrganizations(){
-    registerService.getOrganizations().then(handleGetOrgSuccess, handleGetOrgError)
-  };
-
   function register(){
+    console.log("MUIEEEEE");
+    var obj = {
+      email : $scope.user.email,
+      name : $scope.user.organization.name,
+      asignee : $scope.user.first_name + " " + $scope.user.last_name,
+      city : $scope.user.city,
+      phone_number : $scope.user.phone_number,
+      password : $scope.user.password,
+      password_confirmation : $scope.user.confirm_password,
+      description : $scope.user.description
+    };
+    console.log(obj);
+    registerService.register(obj).then(handleCreateSuccess, handleCreateError);
+   }
 
+  function handleCreateSuccess(response){
+    $location.path("/login");
   }
 
-  getOrganizations();
-
+  function handleCreateError(response){
+    $location.path("/register");
+  }
 }

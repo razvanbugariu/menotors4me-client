@@ -1,30 +1,14 @@
 <section class="mentors">
-	
+
 	<ul class="ch-grid" id="mentorsList" >
-		<li>
+		<li ng-repeat="mentor in mentors">
 			<div class="ch-item" style="background-image: url(../../../assets/images/img.png)">
 				<div class="ch-info">
-					<h3>Mentor one</h3>
-					<p><a href="#ref">View Details</a></p>
-				</div>
-			</div>
-		</li>
-		<li>
-			<div class="ch-item" style="background-image: url(../../../assets/images/img.png)">
-				<div class="ch-info">
-					<h3>Mentor Two</h3>
-					<p><a href="#ref">View Details</a></p>
-				</div>
-			</div>
-		</li>
-		<li>
-			<div class="ch-item" style="background-image: url(../../../assets/images/img.png)">
-				<div class="ch-info">
-					<h3>Mentor three</h3>
-					<p><a href="#ref">View Details</a></p>
+					<h3>{{mentor.first_name}} {{mentor.last_name}}</h3>
+					<p><a ng-click="goToDetails(mentor)">View Details</a></p>
 				</div>
 			</div>
 		</li>
 	</ul>
-	
+
 </section>
