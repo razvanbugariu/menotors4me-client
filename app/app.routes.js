@@ -19,9 +19,15 @@ angular
       templateUrl : 'app/components/login/login.html',
       controller : 'loginController'
     })
+
     .when('/register', {
       templateUrl : 'app/components/register/register.html',
       controller : 'registerController'
+
+    .when('/dashboard',{
+      templateUrl: 'app/components/dashboard/dashboard.html',
+      controller: 'dashboardController'
+
     })
     .otherwise('/home');
   })
