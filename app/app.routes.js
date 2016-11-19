@@ -3,15 +3,17 @@
 angular
   .module('mentors4me')
   .config(function($routeProvider){
-    console.log("ASASASASASASAFDFVD");
-    $routeProvider.when('/', {
-      templateUrl : 'app/components/home/home.html'
+    $routeProvider.when('/home', {
+      templateUrl : 'app/components/home/home.html',
+      controller : 'homeController'
     })
     .when('/mentor', {
-      templateUrl : 'app/components/mentor/mentor.html'
+      templateUrl : 'app/components/mentor/mentor.html',
+      controller : 'mentorController'
     })
-    .when('/page2', {
-      templateUrl : 'app/components/page2/page2.html'
+    .when('/login', {
+      templateUrl : 'app/components/login/login.html',
+      controller : 'loginController'
     })
-    .otherwise('/');
+    .otherwise('/home');
   })
