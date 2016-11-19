@@ -10,17 +10,23 @@ function loginController($scope, $location, loginService, $cookies) {
   $scope.validateInputs = validateInputs;
 
   function handleLoginSuccess(token){
-		console.log("ADADADA");
     $cookies.put("authentication", token);
 		$location.path("/mentor");
 	}
 
 	function handleLoginError(){
-		console.log("NUNUNUNUNU");
     $location.path("/login");
 	}
 
   function login(){
+    var user = {
+      email : $scope.user.email,
+      password : $scope.user.password
+    };
+    loginService.login(user).then(handleLoginSuccess, handleLoginError);
+  }
+
+	function logout(){
     var user = {
       email : $scope.user.email,
       password : $scope.user.password
