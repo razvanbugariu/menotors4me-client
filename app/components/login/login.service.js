@@ -8,6 +8,9 @@ angular
     loginService.login = function(user){
       return $http.post(URL + "api/sessions" , user);
     }
+		loginService.logout = function(token){
+      return $http.delete(URL + "api/sessions/" + token);
+    }
 		return loginService;
 	}
 

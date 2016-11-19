@@ -27,12 +27,22 @@ function loginController($scope, $location, loginService, $cookies, $rootScope) 
     loginService.login(user).then(handleLoginSuccess, handleLoginError);
   }
 
+	function handleLogoutSuccess(){
+    $cookies.remove("authentication");
+		$rootScope.loggedIn = false;
+		$location.path("/home");
+	}
+
+	function handleLogoutError(){
+	}
+
 	function logout(){
     var user = {
       email : $scope.user.email,
       password : $scope.user.password
     };
-    loginService.logout(user).then(handleLoginSuccess, handleLoginError);
+		var token = $cookies.getObject("authentication");
+    loginService.logout(token).then(handleLogoutSuccess, handleLogoutError);
   }
 
   function validateInputs(){
