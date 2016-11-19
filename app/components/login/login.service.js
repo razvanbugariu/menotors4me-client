@@ -8,9 +8,22 @@ angular
     loginService.login = function(user){
       return $http.post(URL + "api/sessions" , user);
     }
+
 		loginService.logout = function(token){
       return $http.delete(URL + "api/sessions/" + token);
     }
+
+		loginService.getCurrentUser = function(token){
+			var req = {
+							 method: 'GET',
+							 url: URL + "api/users/me",
+							 headers: {
+							   'Authorization': token
+							 },
+							};
+			return $http(req);
+		}
+
 		return loginService;
 	}
 

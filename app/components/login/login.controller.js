@@ -12,7 +12,24 @@ function loginController($scope, $location, loginService, $cookies, $rootScope) 
   function handleLoginSuccess(response){
     $cookies.put("authentication", response.data.data.auth_token);
 		$rootScope.loggedIn = true;
-		$location.path("/mentors");
+		// $location.path("/mentors");
+		loginService.getCurrentUser(response.data.data.auth_token).then(handleCurrentUserSuccess, handleCurrentUserError);
+	}
+
+	function handleCurrentUserError(){
+		console.log("Error");
+	}
+
+	function handleCurrentUserSuccess(response){
+		var currentUser = response.data.data;
+		$rootScope.userRole = currentUser.role;
+		if($rootScope.userRole === 'mentor'){
+			$location.path("/dashboard");
+		} else if($rootScope.userRole === 'admin') {
+			$location.path("/admin");
+		} else {
+			$location.path("/mentors");
+		}
 	}
 
 	function handleLoginError(){

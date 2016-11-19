@@ -4,6 +4,7 @@ angular
 	.module('mentors4me')
 	.controller('homeController', homeController);
 
-function homeController($scope, $location, mentorService) {
-  $scope.value = "Heelooo Angulars";
+function homeController($scope, $location, $rootScope, mentorService) {
+	$rootScope.loggedIn = false;
+	$rootScope.userRole = "normal";
 }

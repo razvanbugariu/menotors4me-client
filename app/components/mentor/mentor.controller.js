@@ -11,7 +11,6 @@ function mentorController($scope, $location, mentorService) {
 	$scope.goToDetails = goToDetails;
 
 	function getMentors(){
-		console.log("SASASASA");
 		mentorService.getAllMentors().then(handleGetAllMentorsSuccess, handleGetAllMentorsError);
 	};
 
