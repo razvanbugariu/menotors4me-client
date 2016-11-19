@@ -11,24 +11,29 @@
     <script type="text/javascript" src="app/components/mentor/mentor.controller.js"></script>
     <script type="text/javascript" src="app/components/mentor/mentor.service.js"></script>
 
-    <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script type="text/javascript" src="app/components/login/login.controller.js"></script>
     <script type="text/javascript" src="app/components/login/login.service.js"></script>
     <script type="text/javascript" src="app/components/register/register.controller.js"></script>
     <script type="text/javascript" src="app/components/register/register.service.js"></script>
     <script type="text/javascript" src="app/components/mentor/mentorDetails.controller.js"></script>
-
+    <script type="text/javascript" src="app/components/dashboard/dashboard.service.js"></script>
+    <script type="text/javascript" src="app/components/dashboard/dashboard.controller.js"></script>
+    <script type="text/javascript" src="app/shared/directives/m4meHeader.js"></script>
+    <script type="text/javascript" src="app/shared/directives/m4meFooter.js"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/list.css" />
     <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
     <link rel="stylesheet" type="text/css" href="assets/css/form.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/home.css"/>
 
-
     <meta charset="utf-8">
     <title>Mentors4Me</title>
   <head>
   <body data-ng-app="mentors4me">
+    <m4me-header></m4me-header>
     <div ng-view=""></div>
+    <m4me-footer></m4me-footer>
   </body>
 </html>

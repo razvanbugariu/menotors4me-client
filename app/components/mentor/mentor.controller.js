@@ -24,7 +24,7 @@ function mentorController($scope, $location, mentorService) {
 	};
 
 	function goToDetails(mentor){
-		$location.path("/mentor/" + mentor.id);
+		$location.path("/mentors/" + mentor.id);
 	};
 
 	getMentors();

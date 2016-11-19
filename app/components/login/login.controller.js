@@ -12,7 +12,7 @@ function loginController($scope, $location, loginService, $cookies, $rootScope) 
   function handleLoginSuccess(response){
     $cookies.put("authentication", response.data.data.auth_token);
 		$rootScope.loggedIn = true;
-		$location.path("/mentor");
+		$location.path("/mentors");
 	}
 
 	function handleLoginError(){

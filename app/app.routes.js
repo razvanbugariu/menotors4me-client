@@ -7,11 +7,11 @@ angular
       templateUrl : 'app/components/home/home.html',
       controller : 'homeController'
     })
-    .when('/mentor', {
+    .when('/mentors', {
       templateUrl : 'app/components/mentor/mentor.html',
       controller : 'mentorController'
     })
-    .when('/mentor/:mentorId', {
+    .when('/mentors/:mentorId', {
       templateUrl : 'app/components/mentor/mentordetails.html',
       controller : 'mentorDetailsController'
     })
