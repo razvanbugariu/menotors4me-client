@@ -6,5 +6,4 @@ angular
 
 function homeController($scope, $location, $rootScope, mentorService) {
 	$rootScope.loggedIn = false;
-	$rootScope.userRole = "normal";
 }
