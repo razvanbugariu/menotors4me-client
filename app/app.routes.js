@@ -39,5 +39,9 @@ angular
      templateUrl : 'app/components/mentor/proposal.html',
      controller : 'mentorProposalController'
    })
+    .when('/admin',{
+      templateUrl:'app/components/admin/admin.html',
+      controller:'adminController'
+    })
     .otherwise('/home');
   })
