@@ -9,7 +9,7 @@ angular
 
 						$scope.goToMentors = goToMentors;
 						$scope.goToDashboard = goToDashboard;
-						$scope.goToSuggesMentor = goToSuggesMentor;
+						$scope.goToSuggestMentor = goToSuggestMentor;
 						$scope.goToLogin = goToLogin;
 						$scope.logout = logout;
 						$scope.goToProfile = goToProfile;
@@ -43,8 +43,8 @@ angular
 
 						checkDisplayDashboard();
 
-						function goToSuggesMentor(){
-							$location.path("/mentors");
+						function goToSuggestMentor(){
+							$location.path("/propose");
 						}
 
 						function goToLogin(){
@@ -102,6 +102,8 @@ angular
 									$scope.notIsAdmin = true;
 								}
 						}
+
+						checkIsAdmin();
 
 	    }
 		}

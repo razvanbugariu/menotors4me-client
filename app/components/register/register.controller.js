@@ -27,6 +27,8 @@ function registerController($scope, $location, registerService) {
     $location.path("/login");
   }
 
+
+
   function handleCreateError(response){
     $location.path("/register");
   }

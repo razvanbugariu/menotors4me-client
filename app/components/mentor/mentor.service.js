@@ -14,6 +14,14 @@ angular
 			return $http.get(URL + "/api/users/" + mentorId);
 		};
 
+		mentorService.proposeMentor = function(proposal){
+			return $http.post(URL + "api/mentors/propose", proposal);
+		};
+
+		mentorService.proposeMentorUpdate = function(token, proposal){
+			return $http.put(URL + "api/mentors/propose", proposal);
+		};
+
 		return mentorService;
 	}
 

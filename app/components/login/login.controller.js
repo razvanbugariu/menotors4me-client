@@ -8,6 +8,12 @@ function loginController($scope, $location, loginService, $cookies, $rootScope, 
 
   $scope.login = login;
   $scope.validateInputs = validateInputs;
+	$scope.goToRegister = goToRegister;
+
+	function goToRegister (){
+		$location.path("/register");
+	}
+
 
   function handleLoginSuccess(response){
     $cookies.put("authentication", response.data.data.auth_token);
@@ -36,8 +42,8 @@ function loginController($scope, $location, loginService, $cookies, $rootScope, 
 		}
 	}
 
-	function handleLoginError(){
-    $location.path("/login");
+	function handleLoginError(reponseError){
+			$scope.errorLoginMessage = responseError.data.errors;
 	}
 
   function login(){
