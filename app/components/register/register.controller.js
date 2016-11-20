@@ -9,7 +9,6 @@ function registerController($scope, $location, registerService) {
   $scope.register = register;
 
   function register(){
-    console.log("MUIEEEEE");
     var obj = {
       email : $scope.user.email,
       name : $scope.user.organization.name,

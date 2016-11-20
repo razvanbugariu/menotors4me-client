@@ -4,7 +4,7 @@ angular
 	.module('mentors4me')
 	.controller('loginController', loginController);
 
-function loginController($scope, $location, loginService, $cookies, $rootScope) {
+function loginController($scope, $location, loginService, $cookies, $rootScope, $window) {
 
   $scope.login = login;
   $scope.validateInputs = validateInputs;
@@ -12,7 +12,27 @@ function loginController($scope, $location, loginService, $cookies, $rootScope) 
   function handleLoginSuccess(response){
     $cookies.put("authentication", response.data.data.auth_token);
 		$rootScope.loggedIn = true;
-		$location.path("/mentors");
+		$window.localStorage.setItem("loggedIn", true);
+		// $location.path("/mentors");
+		loginService.getCurrentUser(response.data.data.auth_token).then(handleCurrentUserSuccess, handleCurrentUserError);
+	}
+
+	function handleCurrentUserError(){
+		console.log("Error");
+	}
+
+	function handleCurrentUserSuccess(response){
+		var currentUser = response.data.data;
+		$rootScope.userRole = currentUser.role;
+		$window.localStorage.setItem("userRole", currentUser.role);
+		notifyHeaderThatUserIsLoggedIn($rootScope.userRole);
+		if($rootScope.userRole === 'mentor'){
+			$location.path("/dashboard");
+		} else if($rootScope.userRole === 'admin') {
+			$location.path("/admin");
+		} else {
+			$location.path("/mentors");
+		}
 	}
 
 	function handleLoginError(){
@@ -30,6 +50,7 @@ function loginController($scope, $location, loginService, $cookies, $rootScope) 
 	function handleLogoutSuccess(){
     $cookies.remove("authentication");
 		$rootScope.loggedIn = false;
+		$window.localStorage.setItem("loggedIn", false);
 		$location.path("/home");
 	}
 
@@ -48,5 +69,9 @@ function loginController($scope, $location, loginService, $cookies, $rootScope) 
   function validateInputs(){
     return true;
   }
+
+	function notifyHeaderThatUserIsLoggedIn(userRole){
+				$rootScope.$broadcast('user-loggedin', userRole);
+	}
 
 }
