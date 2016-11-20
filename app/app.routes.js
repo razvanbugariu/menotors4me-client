@@ -28,5 +28,9 @@ angular
       controller: 'dashboardController'
 
     })
+    .when('/admin',{
+      templateUrl:'app/components/admin/admin.html',
+      controller:'adminController'
+    })
     .otherwise('/home');
   })
