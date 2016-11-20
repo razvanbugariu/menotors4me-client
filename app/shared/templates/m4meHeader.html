@@ -9,11 +9,12 @@
 		<span class='icon-bar'></span>
 	</button>
 	</div>
-	<ul class="nav navbar-nav navbar-right collapse navbar-collapse margins">
-		<li><a href="dashboard.html">Dashboard</a></li>
-		<li><a href="mentors.html">Mentors</a></li>
-		<li><a href="invite_a_mentor.html">Suggest a mentor</a></li>
-		<li><a href="login.html">Sign Up</a></li>	
-		<li><a href="mentors.html">Sign Out</a></li>	
+	<ul class="nav navbar-nav navbar-right collapse navbar-collapse">
+		<li><a ng-click="goToDashboard()" >Dashboard</a></li>
+		<li><a ng-click="goToMentors()" >Mentors</a></li>
+		<li><a ng-click="goToSuggesMentor()" >Suggest a mentor</a></li>
+		<li><a ng-click="goToLogin()" ng-show="showLogin">Login</a></li>
+		<li><a ng-click="logout()" ng-hide="showLogin">Logout</a></li>
 	</ul>
 </div>
+s
