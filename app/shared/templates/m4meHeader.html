@@ -10,9 +10,10 @@
 	</button>
 	</div>
 	<ul class="nav navbar-nav navbar-right collapse navbar-collapse">
-		<li><a ng-click="goToDashboard()" >Dashboard</a></li>
-		<li><a ng-click="goToMentors()" >Mentors</a></li>
-		<li><a ng-click="goToSuggesMentor()" >Suggest a mentor</a></li>
+		<li><a ng-click="goToDashboard()" ng-show="displayDashProfile && !isAdmin" >Dashboard</a></li>
+		<li><a ng-click="goToProfile()" ng-show="displayDashProfile && !isAdmin">Profile</a></li>
+		<li><a ng-click="goToMentors()" ng-hide="isAdmin" >Mentors</a></li>
+		<li><a ng-click="goToSuggesMentor()" ng-hide="isAdmin">Suggest a mentor</a></li>
 		<li><a ng-click="goToLogin()" ng-show="showLogin">Login</a></li>
 		<li><a ng-click="logout()" ng-hide="showLogin">Logout</a></li>
 	</ul>

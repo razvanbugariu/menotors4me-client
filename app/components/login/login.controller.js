@@ -25,6 +25,7 @@ function loginController($scope, $location, loginService, $cookies, $rootScope, 
 		var currentUser = response.data.data;
 		$rootScope.userRole = currentUser.role;
 		$window.localStorage.setItem("userRole", currentUser.role);
+		$window.localStorage.setItem("userId", currentUser.id);
 		notifyHeaderThatUserIsLoggedIn($rootScope.userRole);
 		if($rootScope.userRole === 'mentor'){
 			$location.path("/dashboard");
@@ -50,7 +51,7 @@ function loginController($scope, $location, loginService, $cookies, $rootScope, 
 	function handleLogoutSuccess(){
     $cookies.remove("authentication");
 		$rootScope.loggedIn = false;
-		$window.localStorage.setItem("loggedIn", false);
+		$window.localStorage.remove("loggedIn");
 		$location.path("/home");
 	}
 

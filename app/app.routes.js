@@ -26,8 +26,19 @@ angular
     .when('/dashboard',{
       templateUrl: 'app/components/dashboard/dashboard.html',
       controller: 'dashboardController'
-
     })
+    .when('/mentors/:mentorId/invite', {
+      templateUrl : 'app/components/mentor/invitation.html',
+      controller : 'mentorInvitationController'
+    })
+    .when('/mentors/:mentorId/edit', {
+      templateUrl : 'app/components/mentor/edit.html',
+      controller : 'mentorEditController'
+    })
+    .when('/propose', {
+     templateUrl : 'app/components/mentor/proposal.html',
+     controller : 'mentorProposalController'
+   })
     .when('/admin',{
       templateUrl:'app/components/admin/admin.html',
       controller:'adminController'

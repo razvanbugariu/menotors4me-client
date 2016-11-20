@@ -12,6 +12,11 @@ angular
 						$scope.goToSuggesMentor = goToSuggesMentor;
 						$scope.goToLogin = goToLogin;
 						$scope.logout = logout;
+						$scope.goToProfile = goToProfile;
+
+						function goToProfile (){
+							$location.path("/mentors/" + $window.localStorage.getItem("userId"));
+						}
 
 						function goToMentors(){
 							$location.path("/mentors");
@@ -20,6 +25,23 @@ angular
 						function goToDashboard(){
 							$location.path("/dashboard");
 						}
+
+						$scope.displayDashProfile;
+
+						function checkDisplayDashboard(){
+							var userRole = $window.localStorage.getItem("userRole");
+							if(userRole === undefined || userRole === null){
+								$scope.displayDashProfile = false;
+							} else {
+								if(userRole === 'normal' || userRole === 'mentor'){
+									$scope.displayDashProfile = true;
+								} else {
+									$scope.displayDashProfile = false;
+								}
+							}
+						}
+
+						checkDisplayDashboard();
 
 						function goToSuggesMentor(){
 							$location.path("/mentors");
@@ -41,13 +63,19 @@ angular
 							$rootScope.loggedIn = false;
 							$rootScope.userRole = undefined;
 							$scope.showLogin = true;
+							$window.localStorage.removeItem("userRole");
 							$cookies.remove("authentication")
-							$window.localStorage.setItem("loggedIn", false);
+							$scope.displayDashProfile = false;
+							$scope.isAdmin = false;
+							$scope.notIsAdmin = true;
 							$location.path("/home")
 						}
 
 						$rootScope.$on('user-loggedin', function(event, args) {
 								$scope.showLogin = false;
+								checkDisplayDashboard();
+								checkLoggedIn();
+								checkIsAdmin();
 						});
 
 						$scope.showLogin;
@@ -60,6 +88,21 @@ angular
 								$scope.showLogin = false;}
 						}
 						checkLoggedIn();
+
+						$scope.isAdmin;
+						$scope.notIsAdmin;
+
+						function checkIsAdmin(){
+								var userRole = $window.localStorage.getItem("userRole");
+								if(userRole === 'admin'){
+									$scope.isAdmin = true;
+									$scope.notIsAdmin = false;
+								} else {
+									$scope.isAdmin = false;
+									$scope.notIsAdmin = true;
+								}
+						}
+
 	    }
 		}
 	});
