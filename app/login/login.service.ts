@@ -8,8 +8,6 @@ export class LoginService {
     constructor(private http: Http) { }
 
     login(username: string, password: string) {
-        // return this.http.post("http://mentors4me-api-env.364ypmurik.eu-central-1.elasticbeanstalk.com/api/sessions",
-        //                       JSON.stringify({ email: username, password: password }));
         let body = JSON.stringify({ email: username, password: password });
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });

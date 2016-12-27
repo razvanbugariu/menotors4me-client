@@ -21,7 +21,7 @@ constructor(
     this.loginService.login(this.model.username, this.model.password)
             .subscribe(
                 data => {
-                    console.log("Success");
+                    localStorage.setItem("auth_token", data.json().data.auth_token);
                 },
                 error => {
                     console.log("Fail");
