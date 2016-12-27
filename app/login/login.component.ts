@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector:'login',
+  // moduleId: module.id,
+  selector:'m4me-login',
   templateUrl: 'app/login/login.template.html',
 })
-export class LoginComponent  {
-
-  name = "asdfasdas";
+export class LoginComponent  { name = 'LoginComponent';
+  model: any = {};model : any
 
   login () {
-    console.log("Login");
-  };
+    console.log(this.model.username + " " + this.model.password);
+  }
 
  }

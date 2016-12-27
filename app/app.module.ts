@@ -17,10 +17,6 @@ import { FooterComponent }  from './footer/footer.component';
                   routableComponents,
                   HeaderComponent,
                   FooterComponent],
-  bootstrap:    [ AppComponent,
-                  LoginComponent,
-                  MentorComponent,
-                  HeaderComponent,
-                  FooterComponent]
+  bootstrap:    [ AppComponent]
 })
 export class AppModule { }
