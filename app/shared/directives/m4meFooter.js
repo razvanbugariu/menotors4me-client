@@ -6,6 +6,11 @@ angular
 			restrict: "EA",
 			templateUrl: "app/shared/templates/m4meFooter.html",
 	        controller: function ($scope, $cookies, $location, $rootScope) {
+						$scope.goToHome = goToHome;
+
+						function goToHome(){
+							$location.path("/home");
+						}
 	    }
 		}
 	});

@@ -43,5 +43,9 @@ angular
       templateUrl:'app/components/admin/admin.html',
       controller:'adminController'
     })
+    .when('/mentors/register/:token',{
+      templateUrl:'app/components/mentor/createMentor.html',
+      controller:'createMentorController'
+    })
     .otherwise('/home');
   })

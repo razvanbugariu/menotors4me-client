@@ -38,6 +38,7 @@ function loginController($scope, $location, loginService, $cookies, $rootScope, 
 		} else if($rootScope.userRole === 'admin') {
 			$location.path("/admin");
 		} else {
+			$window.localStorage.setItem("organizationId", currentUser.organization_id);
 			$location.path("/mentors");
 		}
 	}

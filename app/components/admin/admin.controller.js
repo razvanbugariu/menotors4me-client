@@ -5,21 +5,59 @@ angular
 	.controller('adminController', adminController);
 
 function adminController($scope, $location, $cookies, adminService) {
-  $scope.value = "AdminController";
+  $scope.proposals = [] ;
+	$scope.approveMentor = approveMentor;
+	$scope.rejectMentor = rejectMentor;
 
-	function muie(){
-		adminService.getAllContexts($cookies.get('authentication')).then(a,b);
+
+	function getPendingProposals(){
+		adminService.getPendingProposals($cookies.get('authentication')).then(handleGetProposalsSuccess, handleGetProposalsError);
+	}
+	// api/invitations/ - POST (emailul userului - body ) api/invitation/reject(la fel)
+	function approveMentor(proposal){
+		var objBody = {
+			email : proposal.email
+		}
+		// deleteFromProposals(proposal);
+		adminService.approveMentor(objBody, $cookies.get('authentication')).then(handleApproveSuccess, handleApproveError);
 	}
 
-	function a(response){
-		console.log("ASASASA");
-		console.log(response.data);
+	function rejectMentor(proposal){
+		var objBody = {
+			email : proposal.email
+		}
+		// deleteFromProposals(proposal);
+		adminService.rejectMentor(objBody, $cookies.get('authentication')).then(handleRejectSuccess, handleRejectError);
 	}
 
-	function b(responseError){
+	function deleteFromProposals(proposal){
+		$scope.proposals.remove(proposal);
+	}
+
+	function handleGetProposalsSuccess(response){
+		$scope.proposals = response.data.data;
+	}
+
+	function handleApproveSuccess(response){
+		getPendingProposals();
+	}
+
+	function handleApproveError(responseError){
+		console.log("Error");
+	}
+
+	function handleRejectSuccess(response){
+		getPendingProposals();
+	}
+
+	function handleRejectError(responseError){
+		console.log("Error");
+	}
+
+	function handleGetProposalsError(responseError){
 		console.log("ERROR")
 	}
 
-	muie();
+	getPendingProposals();
 
 }

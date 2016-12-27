@@ -11,6 +11,18 @@ angular
 			return $http.post(URL + "api/organizations" , user);
 		}
 
+		registerService.registerMentor = function(mentor, token){
+			var req = {
+							 method: 'POST',
+							 url: URL + "api/mentors",
+							 headers: {
+								 'Authorization': token
+							 },
+							 data : mentor
+							};
+			return $http(req);
+		}
+
 		return registerService;
 	}
 

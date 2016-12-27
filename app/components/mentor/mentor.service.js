@@ -21,6 +21,18 @@ angular
 		mentorService.proposeMentorUpdate = function(token, proposal){
 			return $http.put(URL + "api/mentors/propose", proposal);
 		};
+		//Authorization, profile_id(id mentorului), organization id(user.orgID), description
+		mentorService.inviteToEvent = function(body, token){
+			var req = {
+							 method: 'POST',
+							 url: URL + "api/context",
+							 headers: {
+								 'Authorization': token
+							 },
+							 data : body
+							};
+			return $http(req);
+		}
 
 		return mentorService;
 	}

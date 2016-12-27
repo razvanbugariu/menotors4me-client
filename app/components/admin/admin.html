@@ -6,15 +6,15 @@
 	 <div class="well sidebar-nav">
 	 <H3>Pending Request</H3>
         <ul class="nav">
-          <li  class="active">
+          <li ng-repeat="proposal in proposals"  class="active">
           	  <label>Mail:</label>
-          	  <span> Mail</span><br/>
+          	  <span> {{proposal.email}}</span><br/>
           	  <label>Description:</label>
-          	  <span> Description</span><br/>
-          	  <br/>	
-	          <button type="button" class="btn btn-default btn-sm ">
+          	  <span> {{proposal.description}}</span><br/>
+          	  <br/>
+	          <button type="button" class="btn btn-default btn-sm " ng-click="approveMentor(proposal)">
 	          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Approve</button>
-	          <button type="button" class="btn btn-default btn-sm ">
+	          <button type="button" class="btn btn-default btn-sm " ng-click="rejectMentor(proposal)">
 	          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Decline</button>
 					</li>
           <li class='nav-divider'></li>
