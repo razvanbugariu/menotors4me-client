@@ -1,50 +1,26 @@
-
 <!DOCTYPE html>
 <html>
   <head>
-    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
-    <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
-    <script type="text/javascript" src="app/app.module.js"></script>
-    <script type="text/javascript" src="app/app.routes.js"></script>
-    <script type="text/javascript" src="bower_components/angular-cookies/angular-cookies.js"></script>
-    <script type="text/javascript" src="app/components/home/home.controller.js"></script>
-    <script type="text/javascript" src="app/components/home/home.service.js"></script>
-    <script type="text/javascript" src="app/components/mentor/mentor.controller.js"></script>
-    <script type="text/javascript" src="app/components/mentor/mentor.service.js"></script>
+    <base href="/">
+    <title>Angular QuickStart</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
 
-    <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
-    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script type="text/javascript" src="app/components/login/login.controller.js"></script>
-    <script type="text/javascript" src="app/components/login/login.service.js"></script>
+    <!-- Polyfill(s) for older browsers -->
+    <script src="node_modules/core-js/client/shim.min.js"></script>
 
-    <script type="text/javascript" src="app/components/admin/admin.controller.js"></script>
-    <script type="text/javascript" src="app/components/admin/admin.service.js"></script>
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
 
-    <script type="text/javascript" src="app/components/register/register.controller.js"></script>
-    <script type="text/javascript" src="app/components/register/register.service.js"></script>
-    <script type="text/javascript" src="app/components/mentor/mentorDetails.controller.js"></script>
-    <script type="text/javascript" src="app/components/skills/skills.service.js"></script>
-    <script type="text/javascript" src="app/components/dashboard/dashboard.service.js"></script>
-    <script type="text/javascript" src="app/components/dashboard/dashboard.controller.js"></script>
-    <script type="text/javascript" src="app/shared/directives/m4meHeader.js"></script>
-    <script type="text/javascript" src="app/shared/directives/m4meFooter.js"></script>
-    <script type="text/javascript" src="app/components/mentor/mentorEdit.controller.js"></script>
-    <script type="text/javascript" src="app/components/mentor/mentorInvitation.controller.js"></script>
-    <script type="text/javascript" src="app/components/mentor/mentorProposal.controller.js"></script>
-    <script type="text/javascript" src="app/components/mentor/createMentor.controller.js"></script>
-    <link rel="stylesheet" type="text/css" href="assets/css/list.css" />
-    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
-    <link rel="stylesheet" type="text/css" href="assets/css/form.css" />
-    <link rel="stylesheet" type="text/css" href="assets/css/home.css"/>
+    <script src="systemjs.config.js"></script>
+    <script>
+      System.import('app').catch(function(err){ console.error(err); });
+    </script>
+  </head>
 
-
-    <meta charset="utf-8">
-    <title>Mentors4Me</title>
-  <head>
-  <body data-ng-app="mentors4me">
-    <m4me-header></m4me-header>
-    <div ng-view=""></div>
-    <m4me-footer></m4me-footer>
+  <body>
+    <my-app>Loading AppComponent content here ...</my-app>
   </body>
 </html>
