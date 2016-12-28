@@ -55,8 +55,8 @@ angular
 							loginService.logout($cookies.get("authentication")).then(handleLogoutSuccess, handleLogoutError);
 						}
 
-						function handleLogoutError(){
-
+						function handleLogoutError(error){
+							console.log("Error");
 						};
 
 						function handleLogoutSuccess(){

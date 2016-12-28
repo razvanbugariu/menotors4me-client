@@ -4,7 +4,7 @@ angular
 	.module('mentors4me')
 	.controller('loginController', loginController);
 
-function loginController($scope, $location, loginService, $cookies, $rootScope, $window) {
+function loginController($scope, $location, loginService, $rootScope, permissionService) {
 
   $scope.login = login;
   $scope.validateInputs = validateInputs;
@@ -14,40 +14,7 @@ function loginController($scope, $location, loginService, $cookies, $rootScope, 
 		$location.path("/register");
 	}
 
-
-  function handleLoginSuccess(response){
-    $cookies.put("authentication", response.data.data.auth_token);
-		$rootScope.loggedIn = true;
-		$window.localStorage.setItem("loggedIn", true);
-		// $location.path("/mentors");
-		loginService.getCurrentUser(response.data.data.auth_token).then(handleCurrentUserSuccess, handleCurrentUserError);
-	}
-
-	function handleCurrentUserError(){
-		console.log("Error");
-	}
-
-	function handleCurrentUserSuccess(response){
-		var currentUser = response.data.data;
-		$rootScope.userRole = currentUser.role;
-		$window.localStorage.setItem("userRole", currentUser.role);
-		$window.localStorage.setItem("userId", currentUser.id);
-		notifyHeaderThatUserIsLoggedIn($rootScope.userRole);
-		if($rootScope.userRole === 'mentor'){
-			$location.path("/dashboard");
-		} else if($rootScope.userRole === 'admin') {
-			$location.path("/admin");
-		} else {
-			$window.localStorage.setItem("organizationId", currentUser.organization_id);
-			$location.path("/mentors");
-		}
-	}
-
-	function handleLoginError(reponseError){
-			$scope.errorLoginMessage = responseError.data.errors;
-	}
-
-  function login(){
+	function login(){
     var user = {
       email : $scope.user.email,
       password : $scope.user.password
@@ -55,14 +22,49 @@ function loginController($scope, $location, loginService, $cookies, $rootScope, 
     loginService.login(user).then(handleLoginSuccess, handleLoginError);
   }
 
+  function handleLoginSuccess(response){
+    permissionService.saveToken(response.data.data.auth_token)
+		$rootScope.loggedIn = true;
+		permissionService.saveIsLoggedIn();
+		loginService.getCurrentUser(permissionService.getToken()).then(handleCurrentUserSuccess, handleCurrentUserError);
+	}
+
+	function handleLoginError(reponseError){
+			$scope.errorLoginMessage = responseError.data.errors;
+	}
+
+	function handleCurrentUserError(error){
+		console.log(error);
+	}
+
+	function handleCurrentUserSuccess(response){
+		var currentUser = response.data.data;
+		$rootScope.userRole = currentUser.role;
+		permissionService.saveUserRoles(currentUser.roles);
+		permissionService.saveUserId(currentUser.id);
+		notifyHeaderThatUserIsLoggedIn($rootScope.userRole);
+		if(permissionService.getUserRoles[0] === 'mentor'){
+			$location.path("/dashboard");
+		} else if(permissionService.getUserRoles[0] === 'admin') {
+			$location.path("/admin");
+		} else {
+			permissionService.saveOrganizationId(currentUser.organization_id)
+			$location.path("/mentors");
+		}
+	}
+
 	function handleLogoutSuccess(){
-    $cookies.remove("authentication");
+		permissionService.removeUserId();
+		permissionService.removeUserRoles();
+		permissionService.removeIsLoggedIn();
+		permissionService.removeToken();
+		permissionService.removeOrganizationId();
 		$rootScope.loggedIn = false;
-		$window.localStorage.remove("loggedIn");
 		$location.path("/home");
 	}
 
-	function handleLogoutError(){
+	function handleLogoutError(error){
+		console.log(error);
 	}
 
 	function logout(){
@@ -70,7 +72,7 @@ function loginController($scope, $location, loginService, $cookies, $rootScope, 
       email : $scope.user.email,
       password : $scope.user.password
     };
-		var token = $cookies.getObject("authentication");
+		var token = permissionService.getToken();
     loginService.logout(token).then(handleLogoutSuccess, handleLogoutError);
   }
 

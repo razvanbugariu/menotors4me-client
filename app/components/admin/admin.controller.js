@@ -15,19 +15,13 @@ function adminController($scope, $location, $cookies, adminService) {
 	}
 	// api/invitations/ - POST (emailul userului - body ) api/invitation/reject(la fel)
 	function approveMentor(proposal){
-		var objBody = {
-			email : proposal.email
-		}
 		// deleteFromProposals(proposal);
-		adminService.approveMentor(objBody, $cookies.get('authentication')).then(handleApproveSuccess, handleApproveError);
+		adminService.approveMentor(proposal.id, $cookies.get('authentication')).then(handleApproveSuccess, handleApproveError);
 	}
 
 	function rejectMentor(proposal){
-		var objBody = {
-			email : proposal.email
-		}
 		// deleteFromProposals(proposal);
-		adminService.rejectMentor(objBody, $cookies.get('authentication')).then(handleRejectSuccess, handleRejectError);
+		adminService.rejectMentor(proposal.id, $cookies.get('authentication')).then(handleRejectSuccess, handleRejectError);
 	}
 
 	function deleteFromProposals(proposal){

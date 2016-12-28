@@ -2,30 +2,26 @@
 
 angular
 	.module('mentors4me')
-	.factory('mentorService', ['$http', function($http) {
+	.factory('mentorService', ['$http', 'Constants', function($http, Constants) {
 		var mentorService = {};
-		var URL = "https://mentors4me-api.herokuapp.com/";
 
 		mentorService.getAllMentors = function(){
-			return $http.get(URL + "/api/mentors");
+			return $http.get(Constants.DOMAIN + Constants.MENTORS);
 		};
 
 		mentorService.getMentorById = function(mentorId){
-			return $http.get(URL + "/api/users/" + mentorId);
+			return $http.get(Constants.DOMAIN + Constants.USERS + "/" + mentorId);
 		};
 
 		mentorService.proposeMentor = function(proposal){
-			return $http.post(URL + "api/mentors/propose", proposal);
+			return $http.post(Constants.DOMAIN + Constants.PROPOSALS, proposal);
 		};
 
-		mentorService.proposeMentorUpdate = function(token, proposal){
-			return $http.put(URL + "api/mentors/propose", proposal);
-		};
 		//Authorization, profile_id(id mentorului), organization id(user.orgID), description
 		mentorService.inviteToEvent = function(body, token){
 			var req = {
 							 method: 'POST',
-							 url: URL + "api/context",
+							 url: Constants.DOMAIN + "api/context",
 							 headers: {
 								 'Authorization': token
 							 },

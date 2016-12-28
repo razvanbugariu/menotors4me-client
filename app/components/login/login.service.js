@@ -2,24 +2,23 @@
 
 angular
 	.module('mentors4me')
-	.factory('loginService', ['$http', function($http) {
+	.factory('loginService', ['$http','Constants', function($http, Constants) {
 		var loginService = {};
-    var URL = "https://mentors4me-api.herokuapp.com/";
     loginService.login = function(user){
-      return $http.post(URL + "api/sessions" , user);
+      return $http.post(Constants.DOMAIN + Constants.SESSIONS , user);
     }
 
 		loginService.logout = function(token){
-      return $http.delete(URL + "api/sessions/" + token);
+      return $http.delete(Constants.DOMAIN + Constants.SESSIONS + "/" + token);
     }
 
 		loginService.getCurrentUser = function(token){
 			var req = {
 							 method: 'GET',
-							 url: URL + "api/users/me",
+							 url: Constants.DOMAIN + Constants.USERS + Constants.ME,
 							 headers: {
 							   'Authorization': token
-							 },
+							 }
 							};
 			return $http(req);
 		}

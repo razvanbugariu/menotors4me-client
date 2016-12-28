@@ -2,13 +2,12 @@
 
 angular
 	.module('mentors4me')
-	.factory('adminService', ['$http', function($http) {
+	.factory('adminService', ['$http', 'Constants', function($http, Constants) {
 		var adminService = {};
-		var URL = "https://mentors4me-api.herokuapp.com/";
 		adminService.getPendingProposals = function(token){
 			var req = {
 							 method: 'GET',
-							 url: URL + "api/proposals?status=pending",
+							 url: Constants.DOMAIN + Constants.PROPOSALS + Constants.STATUS_PENDING,
 							 headers: {
 								 'Authorization': token
 							 },
@@ -17,26 +16,24 @@ angular
 		}
 
 		// api/invitations/ - POST (emailul userului - body ) api/invitation/reject(la fel)
-		adminService.approveMentor = function (body, token){
+		adminService.approveMentor = function (id, token){
 			var req = {
 							 method: 'POST',
-							 url: URL + "api/invitations",
+							 url: Constants.DOMAIN + Constants.PROPOSALS + "/" + id + "/" + Constants.ACCEPT,
 							 headers: {
 								 'Authorization': token
-							 },
-							 data : body
+							 }
 							};
 			return $http(req);
 		}
 
-		adminService.rejectMentor = function (body, token){
+		adminService.rejectMentor = function (id, token){
 			var req = {
 							 method: 'POST',
-							 url: URL + "api/invitations/reject",
+							 url: Constants.DOMAIN + Constants.PROPOSALS + "/" + id + "/" + Constants.REJECT,
 							 headers: {
 								 'Authorization': token
-							 },
-							 data : body
+							 }
 							};
 			return $http(req);
 		}
