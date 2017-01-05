@@ -2,7 +2,7 @@
 
 angular
 	.module('mentors4me')
-	.factory('permissionService', ['$http','Constants', '$cookies', '$window',function($http, $window, $cookies) {
+	.factory('permissionService', ['$cookies', '$window', function($cookies, $window) {
 		var permissionService = {};
 
     permissionService.saveUserRoles = function(userRoles) {
@@ -34,7 +34,7 @@ angular
 		}
 
 		permissionService.getToken = function() {
-			return $cookies.getObject("authentication");
+			return $cookies.get("authentication");
 		}
 
 		permissionService.removeToken = function() {

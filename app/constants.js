@@ -1,5 +1,6 @@
 angular.module('mentors4me').value('Constants', {
-   "DOMAIN" : "http://mentors4me-api-env.364ypmurik.eu-central-1.elasticbeanstalk.com",
+  //  "DOMAIN" : "http://mentors4me-api-env.364ypmurik.eu-central-1.elasticbeanstalk.com",
+   "DOMAIN" : "https://mentors4me-api.herokuapp.com",
    "SESSIONS": "/api/sessions",
    "USERS": "/api/users",
    "ME": "/me",
