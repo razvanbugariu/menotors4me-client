@@ -35,7 +35,7 @@ angular
     })
     .when('/mentors/:mentorId/invite', {
       templateUrl : 'app/components/mentor/invitation.html',
-      controller : 'mentorInvitationController'
+      controller : 'mentorDetailsController'
     })
     .when('/mentors/:mentorId/edit', {
       templateUrl : 'app/components/mentor/edit.html',

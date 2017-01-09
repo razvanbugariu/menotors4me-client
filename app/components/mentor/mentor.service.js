@@ -10,7 +10,7 @@ angular
 		};
 
 		mentorService.getMentorById = function(mentorId){
-			return $http.get(Constants.DOMAIN + Constants.USERS + "/" + mentorId);
+			return $http.get(Constants.DOMAIN + Constants.API  + Constants.MENTORS + "/" + mentorId);
 		};
 
 		mentorService.proposeMentor = function(proposal){
@@ -18,14 +18,14 @@ angular
 		};
 
 		//Authorization, profile_id(id mentorului), organization id(user.orgID), description
-		mentorService.inviteToEvent = function(body, token){
+		mentorService.inviteToEvent = function(context, token){
 			var req = {
 							 method: 'POST',
-							 url: Constants.DOMAIN + "api/context",
+							 url: Constants.DOMAIN + "/api/contexts",
 							 headers: {
 								 'Authorization': token
 							 },
-							 data : body
+							 data : context
 							};
 			return $http(req);
 		}

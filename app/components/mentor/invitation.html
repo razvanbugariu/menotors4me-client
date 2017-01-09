@@ -15,40 +15,22 @@
               <table class="table table-mentor-information">
                 <tbody>
                   <tr>
-                  
+
                    <textarea name="address" placeholder="Address..."
                    class="form-control input-lg"  style=" border: 0px"  id="form-about-yourself" ng-model="invitation.address" ></textarea>
-                   
+
                  </tr>
                  <tr>
-                 
-                   <input name="topic" placeholder="Requested topic..." required class="form-control input-lg"  style=" border: 0px" ng-model="invitation.topic" />
-                 
+
+                   <input name="topic" placeholder="Small description" required class="form-control input-lg"  style=" border: 0px" ng-model="invitation.description" />
+
                  </tr>
                  <tr><br/></tr>
-                 <tr>
-                
-                      <div class='input-group date' id='datetimepicker8'>
-                        <input type='text' placeholder="Date" style=" border: 0px" class="form-control input-lg" />
-                        <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-
-                      </div>
-                   <script type="text/javascript">
-            $(function () {
-                   $("#datetimepicker8").datetimepicker({
-                  format: "dd MM yyyy - hh:ii"
-                  });
-            });
-        </script>
-                </tr>
-
               </tbody>
             </table>
             <!-- End of mentor details -->
 
-            <a href="#" class="btn btn-primary"> Send  <i class="glyphicon glyphicon-send"></i></a>
+            <a ng-click="sendInvitation()" class="btn btn-primary"> Send  <i class="glyphicon glyphicon-send"></i></a>
           </div>
         </div>
       </div>
