@@ -15,5 +15,12 @@ angular.module('mentors4me').value('Constants', {
    "MENTORS": "/api/mentors",
    "ORGANIZATIONS": "/api/organizations",
    "SKILLS":"/api/skills",
-   "CONTEXTS":"/api/contexts"
+   "CONTEXTS":"/api/contexts",
+   "MENTORS":"/mentors",
+   "DASHBOARD": "/dashboard",
+   "PROPOSE_MENTOR": "/propose",
+   "LOGIN" : "/login",
+   "API" : "/api",
+   "HOME" : "/home"
+
 });

@@ -6,7 +6,7 @@ angular
 		var mentorService = {};
 
 		mentorService.getAllMentors = function(){
-			return $http.get(Constants.DOMAIN + Constants.MENTORS);
+			return $http.get(Constants.DOMAIN + Constants.API + Constants.MENTORS);
 		};
 
 		mentorService.getMentorById = function(mentorId){

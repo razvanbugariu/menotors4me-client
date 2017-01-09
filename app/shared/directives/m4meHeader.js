@@ -5,8 +5,9 @@ angular
 		return {
 			restrict: "EA",
 			templateUrl: "app/shared/templates/m4meHeader.html",
-	        controller: function ($scope, $cookies, $location, $rootScope, loginService, $window) {
+	        controller: function ($scope, $location, $rootScope, loginService, $window, Constants, AUTH_EVENTS, authorizationService) {
 
+						$scope.isAuth = false;
 						$scope.goToMentors = goToMentors;
 						$scope.goToDashboard = goToDashboard;
 						$scope.goToSuggestMentor = goToSuggestMentor;
@@ -19,91 +20,38 @@ angular
 						}
 
 						function goToMentors(){
-							$location.path("/mentors");
+							$location.path(Constants.MENTORS);
 						}
 
 						function goToDashboard(){
-							$location.path("/dashboard");
+							$location.path(Constants.DASHBOARD);
 						}
-
-						$scope.displayDashProfile;
-
-						function checkDisplayDashboard(){
-							var userRole = $window.localStorage.getItem("userRole");
-							if(userRole === undefined || userRole === null){
-								$scope.displayDashProfile = false;
-							} else {
-								if(userRole === 'normal' || userRole === 'mentor'){
-									$scope.displayDashProfile = true;
-								} else {
-									$scope.displayDashProfile = false;
-								}
-							}
-						}
-
-						checkDisplayDashboard();
 
 						function goToSuggestMentor(){
-							$location.path("/propose");
+							$location.path(Constants.PROPOSE_MENTOR);
 						}
 
 						function goToLogin(){
-							$location.path("/login");
+							$location.path(Constants.LOGIN);
 						}
 
 						function logout(){
-							loginService.logout($cookies.get("authentication")).then(handleLogoutSuccess, handleLogoutError);
+							//TODO logout function
 						}
 
-						function handleLogoutError(error){
-							console.log("Error");
-						};
-
-						function handleLogoutSuccess(){
-							$rootScope.loggedIn = false;
-							$rootScope.userRole = undefined;
-							$scope.showLogin = true;
-							$window.localStorage.removeItem("userRole");
-							$cookies.remove("authentication")
-							$scope.displayDashProfile = false;
-							$scope.isAdmin = false;
-							$scope.notIsAdmin = true;
-							$location.path("/home")
-						}
-
-						$rootScope.$on('user-loggedin', function(event, args) {
-								$scope.showLogin = false;
-								checkDisplayDashboard();
-								checkLoggedIn();
-								checkIsAdmin();
+						$rootScope.$on(AUTH_EVENTS.loginSuccess, function(event, args) {
+							checkIfIsLoggedIn();
 						});
 
-						$scope.showLogin;
+						$rootScope.$on(AUTH_EVENTS.logoutSuccess, function(event, args) {
+							checkIfIsLoggedIn();
+						});
 
-						function checkLoggedIn(){
-							var isLoggedin = $cookies.get("authentication");
-							if(isLoggedin === undefined){
-								$scope.showLogin = true;
-							} else {
-								$scope.showLogin = false;}
-						}
-						checkLoggedIn();
-
-						$scope.isAdmin;
-						$scope.notIsAdmin;
-
-						function checkIsAdmin(){
-								var userRole = $window.localStorage.getItem("userRole");
-								if(userRole === 'admin'){
-									$scope.isAdmin = true;
-									$scope.notIsAdmin = false;
-								} else {
-									$scope.isAdmin = false;
-									$scope.notIsAdmin = true;
-								}
+						function checkIfIsLoggedIn() {
+							$scope.isAuth = authorizationService.isLoggedIn();
 						}
 
-						checkIsAdmin();
+						checkIfIsLoggedIn();
 
 	    }
 		}

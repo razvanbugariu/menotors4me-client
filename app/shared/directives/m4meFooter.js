@@ -5,11 +5,11 @@ angular
 		return {
 			restrict: "EA",
 			templateUrl: "app/shared/templates/m4meFooter.html",
-	        controller: function ($scope, $cookies, $location, $rootScope) {
+	        controller: function ($scope, $location, Constants) {
 						$scope.goToHome = goToHome;
 
 						function goToHome(){
-							$location.path("/home");
+							$location.path(Constants.HOME);
 						}
 	    }
 		}

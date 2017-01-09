@@ -16,7 +16,7 @@ angular
       controller : 'mentorDetailsController'
     })
     .when('/login', {
-      templateUrl : 'app/components/login/login.html',
+      templateUrl : 'app/components/authentication/login.html',
       controller : 'loginController'
     })
     .when('/register', {
