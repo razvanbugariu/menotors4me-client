@@ -13,28 +13,28 @@ angular
 		}
 
 		authorizationService.isLoggedIn = function(){
-			if(isNotUndefined($rootScope.token) && isNotEmpty($rootScope.token)){
+			if(!angular.isUndefined($rootScope.token) && isNotEmpty($rootScope.token)){
 				return true;
 			}
 			return false;
 		}
 
 		authorizationService.isMentor = function(){
-			if(isNotUndefined($rootScope.userRoles[0]) && isNotEmpty($rootScope.userRoles[0]) && $rootScope.userRoles[0] === USER_ROLES.MENTOR){
+			if(angular.isUndefined($rootScope.token) && isNotEmpty($rootScope.userRoles[0]) && $rootScope.userRoles[0] === USER_ROLES.MENTOR){
 				return true;
 			}
 			return false;
 		}
 
 		authorizationService.isAdmin = function(){
-			if(isNotUndefined($rootScope.userRoles[0]) && isNotEmpty($rootScope.userRoles[0]) && $rootScope.userRoles[0] === USER_ROLES.ADMIN){
+			if(!angular.isUndefined($rootScope.token) && isNotEmpty($rootScope.userRoles[0]) && $rootScope.userRoles[0] === USER_ROLES.ADMIN){
 				return true;
 			}
 			return false;
 		}
 
 		authorizationService.isOrganization = function(){
-			if(isNotUndefined($rootScope.userRoles[0]) && isNotEmpty($rootScope.userRoles[0]) && $rootScope.userRoles[0] === USER_ROLES.ORGANIZATION){
+			if(!angular.isUndefined($rootScope.token) && isNotEmpty($rootScope.userRoles[0]) && $rootScope.userRoles[0] === USER_ROLES.ORGANIZATION){
 				return true;
 			}
 			return false;

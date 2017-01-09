@@ -2,4 +2,6 @@
 
 angular.module('mentors4me',[
 	'ngRoute',
-	'ngCookies']);
+	'ngCookies',
+	'pascalprecht.translate'
+	]);
