@@ -5,6 +5,13 @@ angular
 	.factory('authorizationService', function($rootScope, USER_ROLES) {
 		var authorizationService = {};
 
+		authorizationService.isAuthorized = function(userRoles){
+			if(this.isLoggedIn() && userRoles.indexOf($rootScope.userRoles[0]) != -1){
+				return true;
+			}
+			return false;
+		}
+
 		authorizationService.isLoggedIn = function(){
 			if(isNotUndefined($rootScope.token) && isNotEmpty($rootScope.token)){
 				return true;

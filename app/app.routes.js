@@ -2,7 +2,7 @@
 
 angular
   .module('mentors4me')
-  .config(function($routeProvider){
+  .config(function($routeProvider, USER_ROLES){
     $routeProvider.when('/home', {
       templateUrl : 'app/components/home/home.html',
       controller : 'homeController'
@@ -13,7 +13,10 @@ angular
     })
     .when('/mentors/:mentorId', {
       templateUrl : 'app/components/mentor/mentordetails.html',
-      controller : 'mentorDetailsController'
+      controller : 'mentorDetailsController',
+      data: {
+        authorizedRoles: [USER_ROLES.MENTOR, USER_ROLES.ORGANIZATION]
+      }
     })
     .when('/login', {
       templateUrl : 'app/components/authentication/login.html',
@@ -46,6 +49,9 @@ angular
     .when('/mentors/register/:token',{
       templateUrl:'app/components/mentor/createMentor.html',
       controller:'createMentorController'
+    })
+    .when('/notAuthorized',{
+      templateUrl:'app/components/authorization/not.authorized.html',
     })
     .otherwise('/home');
   })

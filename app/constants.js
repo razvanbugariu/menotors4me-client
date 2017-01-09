@@ -21,6 +21,7 @@ angular.module('mentors4me').value('Constants', {
    "PROPOSE_MENTOR": "/propose",
    "LOGIN" : "/login",
    "API" : "/api",
-   "HOME" : "/home"
+   "HOME" : "/home",
+   "NOT_AUTHORIZED" : "/notAuthorized"
 
 });

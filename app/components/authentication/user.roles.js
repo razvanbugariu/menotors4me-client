@@ -3,6 +3,6 @@
 angular
 	.module('mentors4me').constant('USER_ROLES', {
   ADMIN: 'admin',
-  MENTOR: 'editor',
+  MENTOR: 'mentor',
   ORGANIZATION: 'organization'
 })
