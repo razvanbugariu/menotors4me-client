@@ -6,7 +6,7 @@ angular
 		var authorizationService = {};
 
 		authorizationService.isAuthorized = function(userRoles){
-			if(this.isLoggedIn() && userRoles.indexOf($cookies.userRoles[0]) != -1){
+			if(this.isLoggedIn() && userRoles.indexOf($cookies.get("userRole")) != -1){
 				return true;
 			}
 			return false;

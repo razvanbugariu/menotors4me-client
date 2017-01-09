@@ -37,7 +37,7 @@ angular
 		}
 
 		function decideWhereToGoBasedOn(role){
-			if(role === USER_ROLES.organization){
+			if(role === USER_ROLES.ORGANIZATION){
 				return Constants.MENTORS;
 			} else {
 				return Constants.DASHBOARD;

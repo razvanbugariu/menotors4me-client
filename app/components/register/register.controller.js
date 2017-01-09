@@ -14,7 +14,7 @@ function registerController($scope, $location, registerService) {
       name : $scope.user.organization.name,
       asignee : $scope.user.first_name + " " + $scope.user.last_name,
       city : $scope.user.city,
-      phone_number : $scope.user.phone_number,
+      phone_number : $scope.user.phone_number + "",
       password : $scope.user.password,
       password_confirmation : $scope.user.confirm_password,
       description : $scope.user.description
