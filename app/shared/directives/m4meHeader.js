@@ -36,7 +36,7 @@ angular
 						}
 
 						function logout(){
-							//TODO logout function
+							loginService.logout();
 						}
 
 						$rootScope.$on(AUTH_EVENTS.loginSuccess, function(event, args) {

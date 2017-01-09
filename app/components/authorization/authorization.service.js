@@ -2,39 +2,39 @@
 
 angular
 	.module('mentors4me')
-	.factory('authorizationService', function($rootScope, USER_ROLES) {
+	.factory('authorizationService', function($cookies, USER_ROLES) {
 		var authorizationService = {};
 
 		authorizationService.isAuthorized = function(userRoles){
-			if(this.isLoggedIn() && userRoles.indexOf($rootScope.userRoles[0]) != -1){
+			if(this.isLoggedIn() && userRoles.indexOf($cookies.userRoles[0]) != -1){
 				return true;
 			}
 			return false;
 		}
 
 		authorizationService.isLoggedIn = function(){
-			if(!angular.isUndefined($rootScope.token) && isNotEmpty($rootScope.token)){
+			if(!angular.isUndefined($cookies.get("token")) && isNotEmpty($cookies.token)){
 				return true;
 			}
 			return false;
 		}
 
 		authorizationService.isMentor = function(){
-			if(angular.isUndefined($rootScope.token) && isNotEmpty($rootScope.userRoles[0]) && $rootScope.userRoles[0] === USER_ROLES.MENTOR){
+			if(angular.isUndefined($cookies.get("token")) && isNotEmpty($cookies.get("userRole")) && $cookies.get("userRole") === USER_ROLES.MENTOR){
 				return true;
 			}
 			return false;
 		}
 
 		authorizationService.isAdmin = function(){
-			if(!angular.isUndefined($rootScope.token) && isNotEmpty($rootScope.userRoles[0]) && $rootScope.userRoles[0] === USER_ROLES.ADMIN){
+			if(!angular.isUndefined($cookies.get("token")) && isNotEmpty($cookies.get("userRole")) && $cookies.get("userRole") === USER_ROLES.ADMIN){
 				return true;
 			}
 			return false;
 		}
 
 		authorizationService.isOrganization = function(){
-			if(!angular.isUndefined($rootScope.token) && isNotEmpty($rootScope.userRoles[0]) && $rootScope.userRoles[0] === USER_ROLES.ORGANIZATION){
+			if(!angular.isUndefined($cookies.get("token")) && isNotEmpty($cookies.get("userRole")) && $cookies.get("userRole") === USER_ROLES.ORGANIZATION){
 				return true;
 			}
 			return false;

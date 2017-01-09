@@ -2,7 +2,7 @@
 
 angular
 	.module('mentors4me')
-	.factory('loginService', function($http, userService, $rootScope, AUTH_EVENTS, USER_ROLES, Constants) {
+	.factory('loginService', function($http, userService, $rootScope, AUTH_EVENTS, USER_ROLES, Constants, $cookies) {
 		var loginService = {};
     loginService.login = function(user){
       return $http.post(Constants.DOMAIN + Constants.SESSIONS , user).then(handleLoginSuccess, handleLoginError);
@@ -18,7 +18,7 @@ angular
 		}
 
 		function saveToken(token){
-			$rootScope.token = token;
+			$cookies.put("token", token);
 		}
 
 		function handleGetCurrentUserSuccess(response){
@@ -28,12 +28,12 @@ angular
 		}
 
 		function saveUser(currentUser){
-			$rootScope.userId = currentUser.id;
-			$rootScope.userRoles = currentUser.role;
+			$cookies.put("userId", currentUser.id);
+			$cookies.put("userRole", currentUser.role[0]);
 		}
 
 		function notifyLoginSucces(){
-			$rootScope.$broadcast(AUTH_EVENTS.loginSuccess, decideWhereToGoBasedOn($rootScope.userRoles[0]));
+			$rootScope.$broadcast(AUTH_EVENTS.loginSuccess, decideWhereToGoBasedOn($cookies.get("userRole")));
 		}
 
 		function decideWhereToGoBasedOn(role){
@@ -57,13 +57,14 @@ angular
 			$rootScope.$broadcast(AUTH_EVENTS.loginFailed);
 		}
 
-		loginService.logout = function(token){
-      $http.delete(Constants.DOMAIN + Constants.SESSIONS + "/" + $rootService.token).then(handleLogoutSuccess, handleLoginError);
+		loginService.logout = function(){
+			var token = $cookies.get("token");
+      $http.delete(Constants.DOMAIN + Constants.SESSIONS + "/" + token).then(handleLogoutSuccess, handleLogoutError);
     }
 
 		function handleLogoutSuccess(){
-			notifyLogoutSuccess();
 			deleteUserData();
+			notifyLogoutSuccess();
 		}
 
 		function notifyLogoutSuccess(){
@@ -71,12 +72,16 @@ angular
 		}
 
 		function deleteUserData(){
-			$rootScope.userId = undefined;
-			$rootScope.token = undefined;
-			$rootScope.userRoles = undefined;
+			$cookies.remove("userId");
+			$cookies.remove("userRole");
+			$cookies.remove("token");
 		}
 
 		function handleLogoutError(){
+			notifyLogoutError();
+		}
+
+		function notifyLogoutError(){
 			$rootScope.$broadcast(AUTH_EVENTS.logoutError);
 		}
 

@@ -28,7 +28,10 @@ angular
     })
     .when('/dashboard',{
       templateUrl: 'app/components/dashboard/dashboard.html',
-      controller: 'dashboardController'
+      controller: 'dashboardController',
+      data: {
+        authorizedRoles: [USER_ROLES.MENTOR, USER_ROLES.ORGANIZATION, USER_ROLES.ADMIN]
+      }
     })
     .when('/mentors/:mentorId/invite', {
       templateUrl : 'app/components/mentor/invitation.html',

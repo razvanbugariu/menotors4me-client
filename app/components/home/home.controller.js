@@ -5,6 +5,5 @@ angular
 	.controller('homeController', homeController);
 
 function homeController($scope, $location, $rootScope, Constants) {
-	$rootScope.loggedIn = false;
 	console.log(Constants.DOMAIN);
 }
