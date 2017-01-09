@@ -1,17 +1,18 @@
 {
-  "name": "bower.json",
+  "name": "mentors4me-client",
   "homepage": "https://github.com/razvanbugariu/mentors4me-client",
   "authors": [
     "Razvan <razvanbugariu@yahoo.com>"
   ],
-  "description": "bower dependencies",
+  "description": "",
   "main": "bower.json",
   "license": "MIT",
-  "private": true,
   "dependencies": {
     "angular-cookies": "^1.6.1",
     "angular-messages": "^1.6.1",
-    "bootstrap": "^3.3.7",
-    "angular-route": "^1.5.8"
+    "angular-route": "^1.5.8",
+    "angular-translate-loader-static-files": "^2.13.1",
+    "angular-translate": "^2.13.1",
+    "bootstrap": "^3.3.7"
   }
 }
