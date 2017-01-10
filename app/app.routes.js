@@ -26,13 +26,6 @@ angular
       templateUrl : 'app/components/register/register.html',
       controller : 'registerController'
     })
-    .when('/dashboard',{
-      templateUrl: 'app/components/dashboard/dashboard.html',
-      controller: 'dashboardController',
-      data: {
-        authorizedRoles: [USER_ROLES.MENTOR, USER_ROLES.ORGANIZATION, USER_ROLES.ADMIN]
-      }
-    })
     .when('/mentors/:mentorId/invite', {
       templateUrl : 'app/components/mentor/invitation.html',
       controller : 'mentorDetailsController'
@@ -45,13 +38,30 @@ angular
      templateUrl : 'app/components/mentor/proposal.html',
      controller : 'mentorProposalController'
    })
-    .when('/admin',{
-      templateUrl:'app/components/admin/admin.html',
-      controller:'adminController'
-    })
     .when('/mentors/register/:token',{
       templateUrl:'app/components/mentor/createMentor.html',
       controller:'createMentorController'
+    })
+    .when('/dashboard/organization',{
+      templateUrl:'app/components/dashboard/organization/dashboardOrganization.html',
+      controller:'dashboardOrganizationController',
+      data: {
+        authorizedRoles: [USER_ROLES.ORGANIZATION]
+      }
+    })
+    .when('/dashboard/admin',{
+      templateUrl:'app/components/dashboard/admin/dashboardAdmin.html',
+      controller:'dashboardAdminController',
+      data: {
+        authorizedRoles: [USER_ROLES.ADMIN]
+      }
+    })
+    .when('/dashboard/mentor',{
+      templateUrl:'app/components/dashboard/mentor/dashboardMentor.html',
+      controller:'dashboardMentorController',
+      data: {
+        authorizedRoles: [USER_ROLES.MENTOR]
+      }
     })
     .when('/notAuthorized',{
       templateUrl:'app/components/authorization/not.authorized.html',

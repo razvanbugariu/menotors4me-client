@@ -2,12 +2,12 @@
 
 angular
 	.module('mentors4me')
-	.factory('adminService', ['$http', 'Constants', function($http, Constants) {
-		var adminService = {};
-		adminService.getPendingProposals = function(token){
+	.factory('dashboardAdminService', function($http, Constants) {
+		var dashboardAdminService = {};
+		dashboardAdminService.getPendingProposals = function(token){
 			var req = {
 							 method: 'GET',
-							 url: Constants.DOMAIN + Constants.PROPOSALS + Constants.STATUS_PENDING,
+							 url: Constants.DOMAIN + Constants.PROPOSALS + Constants.FILTER_BY_STATUS + Constants.PENDING,
 							 headers: {
 								 'Authorization': token
 							 },
@@ -16,7 +16,7 @@ angular
 		}
 
 		// api/invitations/ - POST (emailul userului - body ) api/invitation/reject(la fel)
-		adminService.approveMentor = function (id, token){
+		dashboardAdminService.approveMentor = function (id, token){
 			var req = {
 							 method: 'POST',
 							 url: Constants.DOMAIN + Constants.PROPOSALS + "/" + id + "/" + Constants.ACCEPT,
@@ -27,7 +27,7 @@ angular
 			return $http(req);
 		}
 
-		adminService.rejectMentor = function (id, token){
+		dashboardAdminService.rejectMentor = function (id, token){
 			var req = {
 							 method: 'POST',
 							 url: Constants.DOMAIN + Constants.PROPOSALS + "/" + id + "/" + Constants.REJECT,
@@ -38,7 +38,7 @@ angular
 			return $http(req);
 		}
 
-		return adminService;
+		return dashboardAdminService;
 	}
 
-	]);
+	);

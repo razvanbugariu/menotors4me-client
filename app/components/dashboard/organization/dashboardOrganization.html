@@ -1,0 +1,26 @@
+<div class="row">
+ <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4
+ dashboard-futureEvents sidebar-offcanvas"
+      id="sidebar" role="navigation"   style="float:left">
+      <div class="well sidebar-nav">
+      <H3>Pending Events</H3>
+        <ul class="nav">
+          <li class="active" ng-repeat="context in pendingContexts">
+              <h5>{{context.description}}</h5>
+              <div class='nav-divider'></div>
+          </li>
+        </ul>
+      </div><!--/.well -->
+    </div><!--/span-->
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 dashboard-requests sidebar-offcanvas" id="sidebar" role="navigation"   style="float:left">
+      <div class="well sidebar-nav">
+      <H3>Incoming Events</H3>
+        <ul class="nav">
+          <li class="active" ng-repeat="context in acceptedContexts">
+            <a href="#">Event1</a>
+            <div class='nav-divider'></div>
+          </li>
+        </ul>
+      </div><!--/.well -->
+    </div><!--/span-->
+  </div><!--/row-->

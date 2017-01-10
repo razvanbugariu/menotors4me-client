@@ -40,7 +40,7 @@ function mentorDetailsController($scope, $location, $routeParams, mentorService,
 	}
 
 	function handleSuccess(){
-		console.log("Working");
+		$location.path("/dashboardOrganization");
 	}
 
 	function handleError(responseError){

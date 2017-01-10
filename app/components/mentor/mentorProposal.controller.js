@@ -17,15 +17,11 @@ function mentorProposalController($scope, $location, mentorService) {
 	}
 
 	function handleProposalSuccess(response){
-		if(response.data.success){
-			$location.path('/home');
-		} else {
-			//Error message
-		}
+		$location.path('/home');
 	}
 
 	function handleProposalError(responseError){
-		$scope.errorProposalMessage = responseError.data.errors;
+		console.log(responseError);
 	}
 
 }

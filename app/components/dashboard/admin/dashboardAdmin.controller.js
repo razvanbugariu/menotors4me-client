@@ -2,26 +2,23 @@
 
 angular
 	.module('mentors4me')
-	.controller('adminController', adminController);
+	.controller('dashboardAdminController', dashboardAdminController);
 
-function adminController($scope, $location, $cookies, adminService) {
+function dashboardAdminController($scope, $location, $cookies, dashboardAdminService) {
   $scope.proposals = [] ;
 	$scope.approveMentor = approveMentor;
 	$scope.rejectMentor = rejectMentor;
 
 
 	function getPendingProposals(){
-		adminService.getPendingProposals($cookies.get('authentication')).then(handleGetProposalsSuccess, handleGetProposalsError);
+		dashboardAdminService.getPendingProposals($cookies.get('token')).then(handleGetProposalsSuccess, handleGetProposalsError);
 	}
-	// api/invitations/ - POST (emailul userului - body ) api/invitation/reject(la fel)
 	function approveMentor(proposal){
-		// deleteFromProposals(proposal);
-		adminService.approveMentor(proposal.id, $cookies.get('authentication')).then(handleApproveSuccess, handleApproveError);
+		dashboardAdminService.approveMentor(proposal.id, $cookies.get('token')).then(handleApproveSuccess, handleApproveError);
 	}
 
 	function rejectMentor(proposal){
-		// deleteFromProposals(proposal);
-		adminService.rejectMentor(proposal.id, $cookies.get('authentication')).then(handleRejectSuccess, handleRejectError);
+		dashboardAdminService.rejectMentor(proposal.id, $cookies.get('token')).then(handleRejectSuccess, handleRejectError);
 	}
 
 	function deleteFromProposals(proposal){
@@ -37,7 +34,7 @@ function adminController($scope, $location, $cookies, adminService) {
 	}
 
 	function handleApproveError(responseError){
-		console.log("Error");
+		console.log(responseError);
 	}
 
 	function handleRejectSuccess(response){
@@ -45,11 +42,11 @@ function adminController($scope, $location, $cookies, adminService) {
 	}
 
 	function handleRejectError(responseError){
-		console.log("Error");
+		console.log(responseError);
 	}
 
 	function handleGetProposalsError(responseError){
-		console.log("ERROR")
+		console.log(responseError);
 	}
 
 	getPendingProposals();

@@ -1,0 +1,53 @@
+<div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4
+ dashboard-futureEvents sidebar-offcanvas"
+      id="sidebar" role="navigation"   style="float:left">
+    	<div class="well sidebar-nav">
+    		<H3>Pending Request</H3>
+        	<ul class="nav">
+          		<li ng-repeat="proposal in proposals"  class="active">
+          			<label>Mail:</label>
+          			<span> {{proposal.email}}</span><br/>
+          			<label>Description:</label>
+          	  		<span> {{proposal.description}}</span><br/>
+          	  		<br/>
+	          		<button type="button" class="btn btn-default btn-sm " ng-click="approveMentor(proposal)">
+	          		<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Approve</button>
+	          		<button type="button" class="btn btn-default btn-sm " ng-click="rejectMentor(proposal)">
+	          		<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Decline</button>
+				</li>
+          		<li class='nav-divider'></li>
+        	</ul>
+    	</div><!--/.well -->
+    </div><!--/span-->
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 dashboard-requests sidebar-offcanvas" id="sidebar" role="navigation"   style="float:left">
+    	<div class="well sidebar-nav">
+    		<H3>Active Mentors</H3>
+        	<ul class="nav">
+          	<li class="active"><a href="#">Active Mentor 1</a></li>
+          	<li class='nav-divider'></li>
+          	<li><a href="#">Active Mentor 2</a></li>
+          	<li class='nav-divider'></li>
+          	<li><a href="#">Active Mentor 3</a></li>
+          	<li class='nav-divider'></li>
+          	<li><a href="#">Active Mentor 4</a></li>
+          	<li class='nav-divider'></li>
+          	<li><a href="#">Active Mentor 5</a></li>
+	    </div><!--/.well -->
+    </div><!--/span-->
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 dashboard-futureEvents sidebar-offcanvas" id="sidebar" role="navigation"   style="float:left">
+    	<div class="well sidebar-nav">
+    		<H3>Active Organisations</H3>
+        	<ul class="nav">
+          		<li class="active"><a href="#">Active Organisation 1</a></li>
+          		<li class='nav-divider'></li>
+          		<li><a href="#">Active Organisation 2</a></li>
+          		<li class='nav-divider'></li>
+          		<li><a href="#">Active Organisation 3</a></li>
+          		<li class='nav-divider'></li>
+          		<li><a href="#">Active Organisation 4</a></li>
+          		<li class='nav-divider'></li>
+          		<li><a href="#">Active Organisation 5</a></li>
+      	</div><!--/.well -->
+    </div><!--/span-->
+</div>

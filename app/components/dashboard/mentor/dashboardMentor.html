@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 dashboard-requests sidebar-offcanvas" id="sidebar" role="navigation"   style="float:left">
+      <div class="well sidebar-nav">
+      <H3>Pending Events</H3>
+        <ul class="nav">
+          <li class="active" ng-repeat="context in pendingContexts">
+            <button type="button" class="btn btn-default btn-sm " style="float:right"  ng-click="acceptContext(context.id)">
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Approve</button>
+            <button type="button" class="btn btn-default btn-sm " style="float:right"  ng-click="declineContext(context.id)">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Decline</button>
+            <div class='nav-divider'></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 dashboard-futureEvents sidebar-offcanvas" id="sidebar" role="navigation"   style="float:left">
+      <div class="well sidebar-nav">
+      <H3>Events</H3>
+        <ul class="nav">
+          <li class="active" ng-repeat="context in accRejContexts">
+             <a href="#">Past event1</a>
+             <li class='nav-divider'></li>
+          </li>
+      </div>
+    </div>
+
+  </div>

@@ -5,10 +5,7 @@ angular.module('mentors4me').value('Constants', {
    "USERS": "/api/users",
    "ME": "/me",
    "PASWORD": "/password",
-   "PROPOSALS": "api/proposals",
-   "STATUS_PENDING": "?status=pending",
-   "STATUS_PENDING": "?status=rejected",
-   "STATUS_PENDING": "?status=accepted",
+   "PROPOSALS": "/api/proposals",
    "INVITATION": "api/invitations",
    "REJECT": "reject",
    "ACCEPT": "accept",
@@ -22,6 +19,9 @@ angular.module('mentors4me').value('Constants', {
    "LOGIN" : "/login",
    "API" : "/api",
    "HOME" : "/home",
-   "NOT_AUTHORIZED" : "/notAuthorized"
-
+   "NOT_AUTHORIZED" : "/notAuthorized",
+   "FILTER_BY_STATUS":"?status=",
+   "ACCEPTED":"accepted",
+   "PENDING":"pending",
+   "REJECTED":"rejected"
 });
