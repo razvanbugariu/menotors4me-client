@@ -3,7 +3,7 @@
       <div class="well sidebar-nav">
       <H3>Pending Events</H3>
         <ul class="nav flex-item">
-          <li class="active" ng-repeat="context in pendingContexts">
+          <li class="active" ng-repeat="context in pendingContexts">afdsafsdafasfdsafsadfsa
             <button type="button" class="btn btn-default btn-sm button-style-dsh "  ng-click="acceptContext(context.id)">
             <span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
             <button type="button" class="btn btn-default btn-sm "  ng-click="declineContext(context.id)">
@@ -18,7 +18,7 @@
       <H3>Events</H3>
         <ul class="nav">
           <li class="active" ng-repeat="context in accRejContexts">
-             <a href="#">Past event1</a>
+            <p>{{context.description}}</p>
              <li class='nav-divider'></li>
           </li>
       </div>
