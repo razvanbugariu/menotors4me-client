@@ -1,13 +1,13 @@
-<div class="row">
+<div class="row flex-container">
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 dashboard-requests sidebar-offcanvas" id="sidebar" role="navigation"   style="float:left">
       <div class="well sidebar-nav">
       <H3>Pending Events</H3>
-        <ul class="nav">
+        <ul class="nav flex-item">
           <li class="active" ng-repeat="context in pendingContexts">
-            <button type="button" class="btn btn-default btn-sm " style="float:right"  ng-click="acceptContext(context.id)">
-            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Approve</button>
-            <button type="button" class="btn btn-default btn-sm " style="float:right"  ng-click="declineContext(context.id)">
-            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Decline</button>
+            <button type="button" class="btn btn-default btn-sm button-style-dsh "  ng-click="acceptContext(context.id)">
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
+            <button type="button" class="btn btn-default btn-sm "  ng-click="declineContext(context.id)">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
             <div class='nav-divider'></div>
           </li>
         </ul>
