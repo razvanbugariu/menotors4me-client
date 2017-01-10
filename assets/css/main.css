@@ -16,12 +16,12 @@
 .flex-item {
   padding: 5px;
   width: auto;
-  height:100vh;
+  height:92vh;
   margin-top: 10px;
   align-self: auto;
   
   line-height: 50px;
-  color: white;
+  color: black;
   font-weight: bold;
   font-size: 1.2em;
   text-align: center;
