@@ -46,11 +46,11 @@ angular
 		}
 
 		function handleLoginError(responseError){
-			notifyLoginFail();
+			notifyLoginFailed(responseError);
 		}
 
 		function handleGetCurrentUserError(responseError){
-			notifyLoginFailed();
+			console.log(responseError);
 		}
 
 		function notifyLoginFailed(){

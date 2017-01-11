@@ -20,5 +20,6 @@
   "asignee.blank" : "Acest câmp este obligatoriu! Vă rugăm să completați cu numele și prenumele dumneavoastră.",
   "mentor_id.blank" : "Acest câmp este obligatoriu! Vă rugăm să completați cu id-ul mentorului.",
   "organization_id.blank" : "Acest câmp este obligatoriu! Vă rugăm să completați cu id-ul organizației.",
-  "context_already_exists" : "Acest context există deja!" 
+  "context_already_exists" : "Acest context există deja!",
+  "session.invalid" : "email sua parola gresite"
 }
