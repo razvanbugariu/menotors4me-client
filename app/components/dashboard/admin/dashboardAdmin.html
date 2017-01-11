@@ -24,30 +24,33 @@
     	<div class="well sidebar-nav">
     		<H3>Active Mentors</H3>
         	<ul class="nav">
-          	<li class="active"><a href="#">Active Mentor 1</a></li>
-          	<li class='nav-divider'></li>
-          	<li><a href="#">Active Mentor 2</a></li>
-          	<li class='nav-divider'></li>
-          	<li><a href="#">Active Mentor 3</a></li>
-          	<li class='nav-divider'></li>
-          	<li><a href="#">Active Mentor 4</a></li>
-          	<li class='nav-divider'></li>
-          	<li><a href="#">Active Mentor 5</a></li>
+          	<li class="active" ng-repeat="mentor in mentors">
+              <label>Mail:</label>
+              <span> {{mentor.email}}</span><br/>
+              <label>Description:</label>
+                <span> {{mentor.first_name}} {{mentor.last_name}}</span><br/>
+              <div class='nav-divider'></div>
+            </li>
+          </ul>
 	    </div><!--/.well -->
     </div><!--/span-->
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 dashboard-futureEvents sidebar-offcanvas" id="sidebar" role="navigation"   style="float:left">
     	<div class="well sidebar-nav">
     		<H3>Active Organisations</H3>
-        	<ul class="nav">
-          		<li class="active"><a href="#">Active Organisation 1</a></li>
-          		<li class='nav-divider'></li>
-          		<li><a href="#">Active Organisation 2</a></li>
-          		<li class='nav-divider'></li>
-          		<li><a href="#">Active Organisation 3</a></li>
-          		<li class='nav-divider'></li>
-          		<li><a href="#">Active Organisation 4</a></li>
-          		<li class='nav-divider'></li>
-          		<li><a href="#">Active Organisation 5</a></li>
+        <ul class="nav">
+          <li class="active" ng-repeat="organization in organizations">
+            <label>Assignee:</label>
+            <span> {{organization.asignee}}</span><br/>
+            <label>Organization name:</label>
+              <span> {{organization.name}}</span><br/>
+            <div class='nav-divider'></div>
+          </li>
+        </ul>
       	</div><!--/.well -->
     </div><!--/span-->
+    <ul style="list-style-type: none;">
+      <li ng-repeat="error in errors">
+        <span class="errorMessage">{{ error | translate }}</span>
+      <li>
+    </ul>
 </div>

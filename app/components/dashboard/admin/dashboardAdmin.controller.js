@@ -5,50 +5,64 @@ angular
 	.controller('dashboardAdminController', dashboardAdminController);
 
 function dashboardAdminController($scope, $location, $cookies, dashboardAdminService) {
+
+	$scope.mentors = []
+	$scope.organizations = [];
   $scope.proposals = [] ;
+	$scope.errors = [];
+
 	$scope.approveMentor = approveMentor;
 	$scope.rejectMentor = rejectMentor;
 
 
 	function getPendingProposals(){
-		dashboardAdminService.getPendingProposals($cookies.get('token')).then(handleGetProposalsSuccess, handleGetProposalsError);
+		dashboardAdminService.getPendingProposals($cookies.get('token')).then(handleGetProposalsSuccess, handleError);
 	}
 	function approveMentor(proposal){
-		dashboardAdminService.approveMentor(proposal.id, $cookies.get('token')).then(handleApproveSuccess, handleApproveError);
+		dashboardAdminService.approveMentor(proposal.id, $cookies.get('token')).then(handleApproveSuccess, handleError);
 	}
 
 	function rejectMentor(proposal){
-		dashboardAdminService.rejectMentor(proposal.id, $cookies.get('token')).then(handleRejectSuccess, handleRejectError);
+		dashboardAdminService.rejectMentor(proposal.id, $cookies.get('token')).then(handleRejectSuccess, handleError);
 	}
 
 	function deleteFromProposals(proposal){
 		$scope.proposals.remove(proposal);
 	}
 
-	function handleGetProposalsSuccess(response){
-		$scope.proposals = response.data.data;
+	function handleGetProposalsSuccess(responseData){
+		$scope.proposals = responseData.data.data;
 	}
 
 	function handleApproveSuccess(response){
 		getPendingProposals();
 	}
 
-	function handleApproveError(responseError){
-		console.log(responseError);
-	}
-
 	function handleRejectSuccess(response){
 		getPendingProposals();
 	}
 
-	function handleRejectError(responseError){
-		console.log(responseError);
+	function getAllMentors(){
+		dashboardAdminService.getAllMentors().then(handleGetMentorsSuccess, handleError);
 	}
 
-	function handleGetProposalsError(responseError){
-		console.log(responseError);
+	function handleError(responseError){
+		$scope.errors = responseError.data.errors;
+	}
+
+	function handleGetMentorsSuccess(responseData){
+		$scope.mentors = responseData.data.data;
+	}
+
+	function getAllOrganizations(){
+		dashboardAdminService.getAllOrganizations().then(handleGetOrganizationsSuccess, handleError);
+	}
+
+	function handleGetOrganizationsSuccess(responseData){
+		$scope.organizations = responseData.data.data;
 	}
 
 	getPendingProposals();
-
+	getAllMentors();
+	getAllOrganizations();
 }

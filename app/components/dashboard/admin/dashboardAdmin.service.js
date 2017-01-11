@@ -2,7 +2,7 @@
 
 angular
 	.module('mentors4me')
-	.factory('dashboardAdminService', function($http, Constants) {
+	.factory('dashboardAdminService', function($http, Constants, mentorService, organizationService) {
 		var dashboardAdminService = {};
 		dashboardAdminService.getPendingProposals = function(token){
 			var req = {
@@ -36,6 +36,14 @@ angular
 							 }
 							};
 			return $http(req);
+		}
+
+		dashboardAdminService.getAllMentors = function(){
+			return mentorService.getAllMentors();
+		}
+
+		dashboardAdminService.getAllOrganizations = function(){
+			return organizationService.getAllOrganizations();
 		}
 
 		return dashboardAdminService;
