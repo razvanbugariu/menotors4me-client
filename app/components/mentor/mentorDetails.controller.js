@@ -9,6 +9,7 @@ function mentorDetailsController($scope, $location, $routeParams, mentorService,
 	$scope.inviteMentorToEvent = inviteMentorToEvent;
 	$scope.goToInvitation = goToInvitation;
 	$scope.sendInvitation = sendInvitation;
+	$scope.edit = edit;
 
 	function inviteMentorToEvent () {
 		var objBody = {
@@ -50,6 +51,10 @@ function mentorDetailsController($scope, $location, $routeParams, mentorService,
   function handleGetMentorByIdError(response){
     console.log("Error");
   }
+
+	function edit(){
+		$location.path("/mentors/" + $cookies.get("userId") + "/edit");
+	}
 
   getSelectedMentor();
 

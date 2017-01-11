@@ -5,7 +5,7 @@ angular
 		return {
 			restrict: "EA",
 			templateUrl: "app/shared/templates/m4meHeader.html",
-	        controller: function ($scope, $location, $rootScope, loginService, $window, Constants, AUTH_EVENTS, authorizationService) {
+	        controller: function ($scope, $location, $rootScope, loginService, $cookies, Constants, AUTH_EVENTS, authorizationService) {
 
 						$scope.isAuth = false;
 						$scope.goToMentors = goToMentors;
@@ -16,7 +16,8 @@ angular
 						$scope.goToProfile = goToProfile;
 
 						function goToProfile (){
-							$location.path("/mentors/" + $window.localStorage.getItem("userId"));
+							var path = "/" + $cookies.get("userRole") + "s/" + $cookies.get("userId");
+							$location.path(path);
 						}
 
 						function goToMentors(){
@@ -24,7 +25,7 @@ angular
 						}
 
 						function goToDashboard(){
-							$location.path(Constants.DASHBOARD);
+							$location.path(Constants.DASHBOARD + "/" + $cookies.get("userRole"));
 						}
 
 						function goToSuggestMentor(){

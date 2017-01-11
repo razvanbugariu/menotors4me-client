@@ -40,7 +40,7 @@ angular
 			if(role === USER_ROLES.ORGANIZATION){
 				return Constants.MENTORS;
 			} else {
-				return Constants.DASHBOARD;
+				return Constants.DASHBOARD + "/" + role;
 			}
 
 		}

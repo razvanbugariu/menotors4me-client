@@ -1,0 +1,50 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title"> Invitation </h3>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-3 col-lg-3 " align="center"> <img alt="mentor Pic" src="../../../assets/images/img.png" class="img-circle img-responsive"> </div>
+            <div class=" col-md-9 col-lg-9 ">
+
+              <!-- Mentor details here -->
+              <form>
+              <table class="table table-mentor-information">
+
+                <tbody>
+                  <tr>
+                  <p>{{currentUser.email}}</p>
+                 </tr>
+                 <tr>
+                   <p>{{currentUser.asignee}}</p>
+                 </tr>
+                  <tr>
+                  <p>{{currentUser.name}}</p>
+                 </tr>
+                 <tr>
+                   <p >{{currentUser.input}}</p>
+                </tr>
+                <tr>
+                  <p>{{currentUser.description}}</p>
+                </tr>
+              </tbody>
+            </table>
+            <!-- End of mentor details -->
+
+            <a ng-click="edit()" class="btn btn-primary"> Edit </a>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-footer">
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>

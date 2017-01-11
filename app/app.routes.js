@@ -18,6 +18,13 @@ angular
         authorizedRoles: [USER_ROLES.MENTOR, USER_ROLES.ORGANIZATION]
       }
     })
+    .when('/organizations/:organizationId', {
+      templateUrl : 'app/components/profile/organization/profile.html',
+      controller : 'editOrganizationController',
+      data: {
+        authorizedRoles: [USER_ROLES.ORGANIZATION]
+      }
+    })
     .when('/login', {
       templateUrl : 'app/components/authentication/login.html',
       controller : 'loginController'
@@ -29,10 +36,6 @@ angular
     .when('/mentors/:mentorId/invite', {
       templateUrl : 'app/components/mentor/invitation.html',
       controller : 'mentorDetailsController'
-    })
-    .when('/mentors/:mentorId/edit', {
-      templateUrl : 'app/components/mentor/edit.html',
-      controller : 'mentorEditController'
     })
     .when('/propose', {
      templateUrl : 'app/components/mentor/proposal.html',
@@ -59,6 +62,20 @@ angular
     .when('/dashboard/mentor',{
       templateUrl:'app/components/dashboard/mentor/dashboardMentor.html',
       controller:'dashboardMentorController',
+      data: {
+        authorizedRoles: [USER_ROLES.MENTOR]
+      }
+    })
+    .when('/organizations/:id/edit',{
+      templateUrl:'app/components/profile/organization/editProfile.html',
+      controller:'editOrganizationController',
+      data: {
+        authorizedRoles: [USER_ROLES.ORGANIZATION]
+      }
+    })
+    .when('/mentors/:id/edit',{
+      templateUrl:'app/components/profile/mentor/editProfile.html',
+      controller:'editMentorController',
       data: {
         authorizedRoles: [USER_ROLES.MENTOR]
       }

@@ -14,37 +14,29 @@
               <!-- Mentor details here -->
               <form>
               <table class="table table-mentor-information">
-              
+
                 <tbody>
                   <tr>
-                  
-                  <input name="name" placeholder="Name" required class="form-control input-lg"  style=" border: 0px" ng-model="mentor.name" />
+                  <input name="email" placeholder="Email" required class="form-control input-lg"  style=" border: 0px" ng-model="currentUser.email" />
                  </tr>
                  <tr>
-                 
-                <input name="surname" placeholder="Surname" required class="form-control input-lg"  style=" border: 0px" ng-model="mentor.surname" />
-                 
+                   <input name="asignee" placeholder="Name" required class="form-control input-lg"  style=" border: 0px" ng-model="currentUser.asignee" />
+                 </tr>
+                  <tr>
+                  <input name="name" placeholder="Organization Name" required class="form-control input-lg"  style=" border: 0px" ng-model="currentUser.name" />
                  </tr>
                  <tr>
-                 <input name="email" placeholder="Email" required class="form-control input-lg"  style=" border: 0px" ng-model="mentor.email" />
-                      
+                   <input name="city" placeholder="City" required class="form-control input-lg"  style=" border: 0px" ng-model="currentUser.city" />
                 </tr>
-                 <tr>
-                 <input name="city" placeholder="City" required class="form-control input-lg"  style=" border: 0px" ng-model="mentor.city" />
-                      
-                </tr>
-                 <tr>
-                 <select class="form-control input-lg" >
-                      <option>SW Architecture</option>
-                      <option>SW Testing</option>
-                      <option>Public Speaking</option>
-                 </select>             
+                <tr>
+                  <textarea name="form-about-yourself" placeholder="About yourself..."
+                  class="form-control input-lg" id="form-about-yourself" ng-model="currentUser.description" ></textarea>
                 </tr>
               </tbody>
             </table>
             <!-- End of mentor details -->
 
-            <a href="#" class="btn btn-primary"> Save </a>
+            <a ng-click="updateOrganization()" class="btn btn-primary"> Save </a>
             </form>
           </div>
         </div>

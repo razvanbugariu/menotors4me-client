@@ -23,5 +23,6 @@ angular.module('mentors4me').value('Constants', {
    "FILTER_BY_STATUS":"?status=",
    "ACCEPTED":"accepted",
    "PENDING":"pending",
-   "REJECTED":"rejected"
+   "REJECTED":"rejected",
+   "EDIT":"/edit"
 });
