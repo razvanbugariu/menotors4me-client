@@ -45,14 +45,12 @@ function editMentorController($scope, editMentorService, $cookies, $location, Co
 
 	function addSkillToList(skillId){
 		$scope.selectedSkillsIds.push(skillId);
-		updateSkillsList();
 	}
 
 	function removeSkillFromList(skillId){
 		var index = $scope.selectedSkillsIds.indexOf(skillId);
 		$scope.selectedSkillsIds.splice(index, 1);
 		console.log($scope.selectedSkillsIds);
-		updateSkillsList();
 	}
 
 	function displayButton(skill){
