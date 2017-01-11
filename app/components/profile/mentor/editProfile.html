@@ -10,10 +10,11 @@
       <input type="name" name="phoneNumber" placeholder="Phone Number" required class="form-control input-lg" ng-model="currentMentor.phone_number" />
 
       <span ng-repeat="skill in skills">
-      <label class="checkbox input-lg" for="{{skill.id}}">
-        <input type="checkbox" ng-click="addSkillToList(skill.id)" name="group" id="{{skill.id}}" />
-          {{skill.name}}
-      </label>
+          <span  ng-click="addSkillToList(skill.id)" name="group" id="{{skill.id}}">
+            {{skill.name}} </span>
+        <a style="float: right" ng-click="addSkillToList(skill.id)" ng-hide="displayButton(skill)"=>+</a>
+        <a style="float: right" ng-click="removeSkillFromList(skill.id)" ng-show="displayButton(skill)">-</a>
+      </br>
       </span>
 
       <textarea name="form-about-yourself" placeholder="About yourself..."
