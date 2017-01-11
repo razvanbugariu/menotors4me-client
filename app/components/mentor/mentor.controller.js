@@ -6,20 +6,21 @@ angular
 
 function mentorController($scope, $location, mentorService) {
 
+	$scope.errors = []
 	$scope.mentors = [];
 
 	$scope.goToDetails = goToDetails;
 
 	function getMentors(){
-		mentorService.getAllMentors().then(handleGetAllMentorsSuccess, handleGetAllMentorsError);
+		mentorService.getAllMentors().then(handleGetAllMentorsSuccess, handleErrors);
 	};
 
 	function handleGetAllMentorsSuccess(response){
 		$scope.mentors = response.data.data;
 	};
 
-	function handleGetAllMentorsError(responseError){
-		console.log("Error");
+	function handleErrors(responseError){
+		$scope.errors = responseError.data.errors;
 	};
 
 	function goToDetails(mentor){

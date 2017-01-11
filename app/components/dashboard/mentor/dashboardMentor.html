@@ -23,5 +23,9 @@
           </li>
       </div>
     </div>
-
+    <ul style="list-style-type: none;">
+      <li ng-repeat="error in errors">
+        <span class="errorMessage">{{ error | translate }}</span>
+      <li>
+    </ul>
   </div>

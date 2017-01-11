@@ -4,12 +4,14 @@ angular
 	.module('mentors4me')
 	.controller('createMentorController', createMentorController);
 
-function createMentorController($scope, $location, registerService, skillsService, $routeParams) {
+function createMentorController($scope, $location, registerService, skillsService, $routeParams, Constants) {
+
+	$scope.skills = [];
+	$scope.errors = [];
 
   $scope.register = register;
 	$scope.selectedSkillsIds = [];
 	$scope.addSkillToList = addSkillToList;
-	$scope.skills = [];
 
   function register(){
     var obj = {
@@ -28,30 +30,23 @@ function createMentorController($scope, $location, registerService, skillsServic
    }
 
   function handleCreateSuccess(response){
-    $location.path("/login");
+    $location.path(Constants.LOGIN);
   }
 
 	function addSkillToList(skillId){
-		console.log("Added");
 		$scope.selectedSkillsIds.push(skillId);
 	}
 
-  function handleCreateError(responseError){
-		console.log("Error");
+  function handleErrors(responseError){
+		$scope.errors = responseError.data.errors;
   }
 
 	function getSkills(){
-		skillsService.getAllSkills().then(handleGetAllSkillsSuccess, handleGetAllSkillsError);
+		skillsService.getAllSkills().then(handleGetAllSkillsSuccess, handleCreateError);
 	}
 
 	function handleGetAllSkillsSuccess(response){
     $scope.skills = response.data.data;
   }
-
-	function handleGetAllSkillsError(responseError){
-    $location.path("/register");
-  }
-
 	getSkills();
-
 }

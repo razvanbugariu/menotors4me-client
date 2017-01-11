@@ -6,6 +6,8 @@ angular
 
 function mentorDetailsController($scope, $location, $routeParams, mentorService, $cookies) {
 
+	$scope.errors = [];
+
 	$scope.inviteMentorToEvent = inviteMentorToEvent;
 	$scope.goToInvitation = goToInvitation;
 	$scope.sendInvitation = sendInvitation;
@@ -20,7 +22,7 @@ function mentorDetailsController($scope, $location, $routeParams, mentorService,
 	}
 
   function getSelectedMentor(){
-    mentorService.getMentorById($routeParams.mentorId).then(handleGetMentorByIdSuccess, handleGetMentorByIdError);
+    mentorService.getMentorById($routeParams.mentorId).then(handleGetMentorByIdSuccess, handleErrors);
   };
 
   function handleGetMentorByIdSuccess(response){
@@ -44,13 +46,9 @@ function mentorDetailsController($scope, $location, $routeParams, mentorService,
 		$location.path("/dashboardOrganization");
 	}
 
-	function handleError(responseError){
-		console.log(responseError);
+	function handleErrors(responseError){
+		$scope.errors = responseError.data.errors;
 	}
-
-  function handleGetMentorByIdError(response){
-    console.log("Error");
-  }
 
 	function edit(){
 		$location.path("/mentors/" + $cookies.get("userId") + "/edit");
