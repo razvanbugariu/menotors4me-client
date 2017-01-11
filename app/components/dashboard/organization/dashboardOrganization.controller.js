@@ -6,34 +6,31 @@ angular
 
 function dashboardOrganizationController($scope, $location, dashboardOrganizationService) {
 
+	$scope.errors = [];
 	$scope.pendingContexts = [];
 	$scope.acceptedContexts = [];
 
 	function getPendingContexts(){
-		dashboardOrganizationService.getPendingContexts().then(handleGetPendingCtxSuccess, handleGetPendingCtxError);
+		dashboardOrganizationService.getPendingContexts().then(handleGetPendingCtxSuccess, handleErrors);
 	}
 
 	function handleGetPendingCtxSuccess(response){
 		$scope.pendingContexts = response.data.data;
 	}
 
-	function handleGetPendingCtxError(responseError){
-		console.log(responseError);
+	function handleErrors(responseError){
+		$scope.errors = responseError.data.errors;
 	}
 
 	function getAcceptedContexts(){
-		dashboardOrganizationService.getAcceptedContexts().then(handleGetAcceptedCtxSuccess, handleGetAcceptedCtxError);
+		dashboardOrganizationService.getAcceptedContexts().then(handleGetAcceptedCtxSuccess, handleErrors);
 	}
 
 	function handleGetAcceptedCtxSuccess(response){
 		$scope.acceptedContexts = response.data.data;
 	}
 
-	function handleGetAcceptedCtxError(responseError){
-		console.log(responseError);
-	}
-
-getPendingContexts();
-getAcceptedContexts();
+	getPendingContexts();
+	getAcceptedContexts();
 
 }

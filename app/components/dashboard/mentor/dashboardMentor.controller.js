@@ -6,6 +6,8 @@ angular
 
 function dashboardMentorController($scope, $location, dashboardMentorService) {
 
+	$scope.errors = [];
+
 	$scope.accRejContexts = [];
 	$scope.pendingContexts = [];
 
@@ -13,11 +15,11 @@ function dashboardMentorController($scope, $location, dashboardMentorService) {
 	$scope.declineContext = declineContext;
 
 	function acceptContext(contextId){
-		dashboardMentorService.acceptContext(contextId).then(handleAccDeclSuccess, handleAccDeclError);
+		dashboardMentorService.acceptContext(contextId).then(handleAccDeclSuccess, handleErrors);
 	}
 
 	function declineContext(contextId){
-		dashboardMentorService.declineContext(contextId).then(handleAccDeclSuccess, handleAccDeclError);
+		dashboardMentorService.declineContext(contextId).then(handleAccDeclSuccess, handleErrors);
 	}
 
 	function handleAccDeclSuccess(){
@@ -25,33 +27,25 @@ function dashboardMentorController($scope, $location, dashboardMentorService) {
 		getRejectedAndAcceptedContexts();
 	}
 
-	function handleAccDeclError(resposeError){
-		console.log(resposeError);
-	}
-
 	function getPendingContexts(){
-		dashboardMentorService.getPendingContexts().then(handleGetPendingCtxSuccess, handleGetPendingCtxError);
+		dashboardMentorService.getPendingContexts().then(handleGetPendingCtxSuccess, handleErrors);
 	}
 
 	function handleGetPendingCtxSuccess(response){
 		$scope.pendingContexts = response.data.data;
 	}
 
-	function handleGetPendingCtxError(responseError){
-		console.log(responseError);
-	}
-
 	function getRejectedAndAcceptedContexts(){
-		dashboardMentorService.getAcceptedContexts().then(handleGetContextsSuccess, handleGetContextsError);
-		dashboardMentorService.getRejectedContexts().then(handleGetContextsSuccess, handleGetContextsError);
+		dashboardMentorService.getAcceptedContexts().then(handleGetContextsSuccess, handleErrors);
+		dashboardMentorService.getRejectedContexts().then(handleGetContextsSuccess, handleErrors);
 	}
 
 	function handleGetContextsSuccess(response){
 		$scope.accRejContexts = $scope.accRejContexts.concat(response.data.data);
 	}
 
-	function handleGetContextsError(responseError){
-		console.log(responseError);
+	function handleErrors(responseError){
+		$scope.errors = responseError.data.errors;
 	}
 	getPendingContexts();
 	getRejectedAndAcceptedContexts();

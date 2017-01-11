@@ -17,7 +17,6 @@ angular
 			return $http.post(Constants.DOMAIN + Constants.PROPOSALS, proposal);
 		};
 
-		//Authorization, profile_id(id mentorului), organization id(user.orgID), description
 		mentorService.inviteToEvent = function(context, token){
 			var req = {
 							 method: 'POST',

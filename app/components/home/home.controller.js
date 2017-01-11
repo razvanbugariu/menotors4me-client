@@ -5,5 +5,4 @@ angular
 	.controller('homeController', homeController);
 
 function homeController($scope, $location, $rootScope, Constants) {
-	console.log(Constants.DOMAIN);
 }

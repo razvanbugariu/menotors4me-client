@@ -4,7 +4,9 @@ angular
 	.module('mentors4me')
 	.controller('mentorProposalController', mentorProposalController);
 
-function mentorProposalController($scope, $location, mentorService) {
+function mentorProposalController($scope, $location, mentorService, Constants) {
+
+	$scope.errors = [];
 
 	$scope.proposeMentor = proposeMentor;
 
@@ -13,15 +15,15 @@ function mentorProposalController($scope, $location, mentorService) {
 			email : $scope.proposal.email,
 			description : $scope.proposal.description
 		}
-		mentorService.proposeMentor(proposal).then(handleProposalSuccess, handleProposalError);
+		mentorService.proposeMentor(proposal).then(handleProposalSuccess, handleErrors);
 	}
 
 	function handleProposalSuccess(response){
-		$location.path('/home');
+		$location.path(Constants.HOME);
 	}
 
-	function handleProposalError(responseError){
-		console.log(responseError);
+	function handleErrors(responseError){
+			$scope.errors = responseError.data.errors;
 	}
 
 }

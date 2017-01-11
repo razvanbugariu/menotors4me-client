@@ -6,6 +6,7 @@ angular
 
 function registerController($scope, $location, registerService) {
 
+	$scope.errors = [];
   $scope.register = register;
 
   function register(){
@@ -20,16 +21,14 @@ function registerController($scope, $location, registerService) {
       description : $scope.user.description
     };
     console.log(obj);
-    registerService.register(obj).then(handleCreateSuccess, handleCreateError);
+    registerService.register(obj).then(handleCreateSuccess, handleErrors);
    }
 
   function handleCreateSuccess(response){
     $location.path("/login");
   }
 
-
-
-  function handleCreateError(response){
-    $location.path("/register");
+  function handleErrors(responseErrors){
+    $scope.errors = responseErrors.data.errors;
   }
 }
