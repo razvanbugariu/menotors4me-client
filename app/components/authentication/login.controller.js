@@ -6,6 +6,8 @@ angular
 
 function loginController($scope, $location, $rootScope, AUTH_EVENTS, loginService, Constants) {
 
+	$scope.errors = [];
+
   $scope.login = login;
 	$scope.goToRegister = goToRegister;
 
@@ -23,6 +25,10 @@ function loginController($scope, $location, $rootScope, AUTH_EVENTS, loginServic
 
 	$rootScope.$on(AUTH_EVENTS.loginSuccess, function(event, args) {
 		$location.path(args);
+	});
+
+	$rootScope.$on(AUTH_EVENTS.loginFailed, function(event, args) {
+		$scope.errors = args;
 	});
 
 	$rootScope.$on(AUTH_EVENTS.logoutSuccess, function(event, args) {

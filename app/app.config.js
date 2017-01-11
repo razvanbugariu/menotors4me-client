@@ -6,5 +6,5 @@ angular
 	     prefix: 'locale/messages_',
 	     suffix: '.json'
 	   });
-	   $translateProvider.preferredLanguage('en');
+	   $translateProvider.preferredLanguage('ro');
 	})
