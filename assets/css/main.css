@@ -16,17 +16,20 @@
 .flex-item {
   padding: 5px;
   width: auto;
-  height:92vh;
+  height:66vh;
   margin-top: 10px;
   align-self: auto;
 
-  line-height: 50px;
+  /* line-height: 50px;*/
   color: black;
-  font-weight: bold;
+  font-weight: normal;
   font-size: 1.2em;
   text-align: center;
 }
 .button-style-dsh {
 	float:center;
 	margin-left:20%;
+}
+.li-dsh {
+  font-size: 3vmin;
 }

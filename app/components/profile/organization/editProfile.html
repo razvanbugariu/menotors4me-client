@@ -1,7 +1,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+    <div class="col-xs-12 col-sm-12 col-md- col-lg-8 col-xs-offset-0 col-sm-offset-0 col-md-offset-2 col-lg-offset-2 toppad" >
       <div class="panel panel-info">
         <div class="panel-heading">
           <h3 class="panel-title"> Invitation </h3>
@@ -17,26 +17,32 @@
 
                 <tbody>
                   <tr>
-                  <input name="email" placeholder="Email" required class="form-control input-lg"  style=" border: 0px" ng-model="currentUser.email" />
+                  <label>Email</label>
+                  <input name="email" placeholder="Email" required class="form-control input-lg input-profile-res" ng-model="currentUser.email" />
                  </tr>
                  <tr>
-                   <input name="asignee" placeholder="Name" required class="form-control input-lg"  style=" border: 0px" ng-model="currentUser.asignee" />
+                 <label>Asignee</label>
+                   <input name="asignee" placeholder="Name" required class="form-control input-lg input-profile-res" ng-model="currentUser.asignee" />
                  </tr>
                   <tr>
-                  <input name="name" placeholder="Organization Name" required class="form-control input-lg"  style=" border: 0px" ng-model="currentUser.name" />
+                  <label>Organization Name</label>
+                  <input name="name" placeholder="Organization Name" required class="form-control input-lg input-profile-res" ng-model="currentUser.name" />
                  </tr>
                  <tr>
-                   <input name="city" placeholder="City" required class="form-control input-lg"  style=" border: 0px" ng-model="currentUser.city" />
+                 <label>City</label>
+                   <input name="city" placeholder="City" required class="form-control input-lg input-profile-res" ng-model="currentUser.city" />
                 </tr>
                 <tr>
+                <label>Description</label>
                   <textarea name="form-about-yourself" placeholder="About yourself..."
-                  class="form-control input-lg" id="form-about-yourself" ng-model="currentUser.description" ></textarea>
+                  class="form-control input-lg input-profile-res" id="form-about-yourself" ng-model="currentUser.description" ></textarea>
                 </tr>
               </tbody>
             </table>
             <!-- End of mentor details -->
-
+            <div style="text-align:center">
             <a ng-click="updateOrganization()" class="btn btn-primary"> Save </a>
+            </div>
             </form>
           </div>
         </div>

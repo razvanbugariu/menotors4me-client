@@ -2,6 +2,7 @@ body{
 	margin-right:20px;
 	padding-top: 60px;
 	padding-left: 20px;
+	height: 100vh;
 }
 .main-content {
 	margin: 0;
@@ -26,7 +27,7 @@ body{
 	font-size: 5.0vw;
 }
 .nav {
-    height: 100vh;
+    /*height: 100vh;*/
     overflow-y:scroll; 
 }
 .margins {
