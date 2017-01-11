@@ -46,15 +46,15 @@ angular
 		}
 
 		function handleLoginError(responseError){
-			notifyLoginFailed(responseError);
+			notifyLoginFailed(responseError.data.errors);
 		}
 
 		function handleGetCurrentUserError(responseError){
-			console.log(responseError);
+			console.log(responseError.data.errors);
 		}
 
-		function notifyLoginFailed(){
-			$rootScope.$broadcast(AUTH_EVENTS.loginFailed);
+		function notifyLoginFailed(errors){
+			$rootScope.$broadcast(AUTH_EVENTS.loginFailed, errors);
 		}
 
 		loginService.logout = function(){

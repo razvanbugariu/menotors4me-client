@@ -7,9 +7,14 @@
 					<input type="password" name="password" placeholder="Password" required class="form-control input-lg" ng-model="user.password" />
 					<button type="submit" class="btn btn-lg btn-primary btn-block">Sign in</button>
         </form>
-					<div>
-						<a ng-click="goToRegister()">Create account</a> 
-					</div>
+        <ul style="list-style-type: none;">
+          <li ng-repeat="error in errors">
+            <span class="errorMessage">{{ error | translate }}</span>
+          <li>
+        </ul>
+        <div>
+        <a ng-click="goToRegister()">Create account</a>
+        </div>
 			</section>
 	</section>
 </div>
