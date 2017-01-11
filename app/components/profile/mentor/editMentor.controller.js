@@ -40,7 +40,6 @@ function editMentorController($scope, editMentorService, $cookies, $location, Co
 	}
 
 	function addSkillToList(skillId){
-		console.log("Added");
 		$scope.selectedSkillsIds.push(skillId + "");
 	}
 
