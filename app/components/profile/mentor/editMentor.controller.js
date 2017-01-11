@@ -6,6 +6,8 @@ angular
 
 function editMentorController($scope, editMentorService, $cookies, $location, Constants) {
 
+	$scope.error = [];
+
 	$scope.selectedSkillsIds = [];
 	$scope.edit = edit;
 	$scope.addSkillToList = addSkillToList;
@@ -13,7 +15,7 @@ function editMentorController($scope, editMentorService, $cookies, $location, Co
 	$scope.displayButton = displayButton;
 
 	function getCurrentMentor(){
-		editMentorService.getCurrentMentor().then(handleGetCurrentMentorSuccess, handleResponseError);
+		editMentorService.getCurrentMentor().then(handleGetCurrentMentorSuccess, handleErrors);
 	}
 
 	function handleGetCurrentMentorSuccess(response){
@@ -21,13 +23,13 @@ function editMentorController($scope, editMentorService, $cookies, $location, Co
 		getSkills();
 	}
 
-	function handleResponseError(responseError){
-		console.log(responseError);
+	function handleErrors(responseError){
+		$scope.errors= responseError.data.errors;
 	}
 
 	function edit(){
 		$scope.currentMentor.skills = $scope.selectedSkillsIds;
-		editMentorService.updateMentor($scope.currentMentor).then(handleUpdateSuccess, handleResponseError);
+		editMentorService.updateMentor($scope.currentMentor).then(handleUpdateSuccess, handleErrors);
 	}
 
 	function handleUpdateSuccess(){
@@ -35,7 +37,7 @@ function editMentorController($scope, editMentorService, $cookies, $location, Co
 	}
 
 	function getSkills(){
-		editMentorService.getSkills().then(handleGetSkillsSuccess, handleResponseError);
+		editMentorService.getSkills().then(handleGetSkillsSuccess, handleErrors);
 	}
 
 	function handleGetSkillsSuccess(response){
