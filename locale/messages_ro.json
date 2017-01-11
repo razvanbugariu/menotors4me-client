@@ -1,3 +1,24 @@
 {
-  "email.taken" : "Adresa introdusa este deja folosita."
+  "unauthorized" : "Nu sunteți autorizat să faceți această acțiune!",
+  "acess_denied" : "Nu aveți acces la această informație!",
+  "email.blank" : "Acest câmp este obligatoriu! Vă rugăm introduceți o adresă de e-mail validă." ,
+  "email.taken" : "Această adresă de e-mail este deja asociată unui utilizator existent! Vă rugăm introduceți altă adresă.",
+  "email.invalid" : "Această adresă de e-mail este invalidă! Vă rugăm introduceți una validă.",
+  "password.blank" : "Acest câmp este obligatoriu! Vă rugăm introduceți o parolă de minim 8 caractere.",
+  "password.too_short" : "Parola este prea scurtă! Vă rugăm introduceți o parolă de minim 8 caractere.",
+  "password_confirmation.confirmation" : "Parolele nu corespund! Vă rugăm repetați parola de mai sus.",
+  "first_name.blank" : "Acest câmp este obligatoriu! Vă rugăm să completați cu prenumele dumneavoastră.",
+  "first_name.too_long" : "Prenumele dumeavoastră nu poate avea mai mult de 50 de caractere!",
+  "last_name.blank" : "Acest câmp este obligatoriu! Vă rugăm să completați cu numele dumneavoastră.",
+  "last_name.too_long" : "Numele dumeavoastră nu poate avea mai mult de 50 de caractere!",
+  "phone_number.blank" : "Acest câmp este obligatoriu! Vă rugăm să completați cu numărul dumneavoastră de telefon.",
+  "city.blank" : "Acest câmp este obligatoriu! Vă rugăm să menționați orașul în care locuiți.",
+  "description.blank" : "Acest câmp este obligatoriu! Vă rugăm adăugați o scurtă descriere.",
+  "description.too_long" : "Descrierea este prea lungă! Vă rugăm adăugați o descriere de maxim 500 de caractere.",
+  "skills.blank" : "Această informație este obligatorie! Vă rugăm bifați cel puțin un skill.",
+  "name.blank" : "Acest câmp este obligatoriu! Vă rugăm să completați cu numele organizației pe care o reprezentați.",
+  "asignee.blank" : "Acest câmp este obligatoriu! Vă rugăm să completați cu numele și prenumele dumneavoastră.",
+  "mentor_id.blank" : "Acest câmp este obligatoriu! Vă rugăm să completați cu id-ul mentorului.",
+  "organization_id.blank" : "Acest câmp este obligatoriu! Vă rugăm să completați cu id-ul organizației.",
+  "context_already_exists" : "Acest context există deja!" 
 }
