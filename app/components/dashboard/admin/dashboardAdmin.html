@@ -1,28 +1,28 @@
-<div class="row">
+<div class="row flex-container">
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4
  dashboard-futureEvents sidebar-offcanvas"
       id="sidebar" role="navigation"   style="float:left">
     	<div class="well sidebar-nav">
     		<H3>Pending Request</H3>
-        	<ul class="nav">
-          		<li ng-repeat="proposal in proposals"  class="active">
-          			<label>Mail:</label>
+        	<ul class="nav flex-item">
+          		<li ng-repeat="proposal in proposals "  class="active li-dsh" style="font-weight:normal ">
+          			<label style="font-weight:normal">Mail:</label>
           			<span> {{proposal.email}}</span><br/>
-          			<label>Description:</label>
+          			<label style="font-weight:normal">Description:</label>
           	  		<span> {{proposal.description}}</span><br/>
-          	  		<br/>
 	          		<button type="button" class="btn btn-default btn-sm " ng-click="approveMentor(proposal)">
-	          		<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Approve</button>
+	          		<span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
 	          		<button type="button" class="btn btn-default btn-sm " ng-click="rejectMentor(proposal)">
-	          		<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Decline</button>
-				</li>
-          		<li class='nav-divider'></li>
+	          		<span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <div class='nav-divider'></div>
+				      </li>
         	</ul>
     	</div><!--/.well -->
     </div><!--/span-->
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 dashboard-requests sidebar-offcanvas" id="sidebar" role="navigation"   style="float:left">
     	<div class="well sidebar-nav">
     		<H3>Active Mentors</H3>
+<<<<<<< HEAD
         	<ul class="nav">
           	<li class="active" ng-repeat="mentor in mentors">
               <label>Mail:</label>
@@ -32,11 +32,18 @@
               <div class='nav-divider'></div>
             </li>
           </ul>
+=======
+        	<ul class="nav flex-item">
+          	<li ng-repeat="mentor in mentors" class="active li-dsh"><a href="#">Active Mentor 1</a>
+            <div class='nav-divider'></div>
+            </li>
+>>>>>>> 3a34fe60c19231f64cfca42d51f48d4ab86325b0
 	    </div><!--/.well -->
     </div><!--/span-->
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 dashboard-futureEvents sidebar-offcanvas" id="sidebar" role="navigation"   style="float:left">
     	<div class="well sidebar-nav">
     		<H3>Active Organisations</H3>
+<<<<<<< HEAD
         <ul class="nav">
           <li class="active" ng-repeat="organization in organizations">
             <label>Assignee:</label>
@@ -46,6 +53,12 @@
             <div class='nav-divider'></div>
           </li>
         </ul>
+=======
+        	<ul class="nav flex-item">
+          		<li class="active li-dsh"><a href="#">Active Organisation 1</a>
+              <div class='nav-divider'></div>
+              </li>
+>>>>>>> 3a34fe60c19231f64cfca42d51f48d4ab86325b0
       	</div><!--/.well -->
     </div><!--/span-->
     <ul style="list-style-type: none;">

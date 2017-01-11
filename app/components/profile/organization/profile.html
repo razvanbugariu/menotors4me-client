@@ -1,10 +1,10 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+    <div class="col-xs-12 col-sm-12 col-md- col-lg-8 col-xs-offset-0 col-sm-offset-0 col-md-offset-2 col-lg-offset-2 toppad" >
       <div class="panel panel-info">
         <div class="panel-heading">
-          <h3 class="panel-title"> Invitation </h3>
+          <h3 class="panel-title"> Profile </h3>
         </div>
         <div class="panel-body">
           <div class="row">
@@ -17,25 +17,31 @@
 
                 <tbody>
                   <tr>
-                  <p>{{currentUser.email}}</p>
+                  <td>Email</td>
+                  <td>{{currentUser.email}}</td>
                  </tr>
                  <tr>
-                   <p>{{currentUser.asignee}}</p>
+                  <td>Asignee</td>
+                   <td>{{currentUser.asignee}}</td>
                  </tr>
                   <tr>
-                  <p>{{currentUser.name}}</p>
+                  <td>Name</td>
+                  <td>{{currentUser.name}}</td>
                  </tr>
                  <tr>
-                   <p >{{currentUser.input}}</p>
+                  <td>City</td>
+                   <td>{{currentUser.city}}</td>
                 </tr>
                 <tr>
-                  <p>{{currentUser.description}}</p>
+                  <td>Description</td>
+                  <td>{{currentUser.description}}</td>
                 </tr>
               </tbody>
             </table>
             <!-- End of mentor details -->
-
+              <div style="text-align:center">
             <a ng-click="edit()" class="btn btn-primary"> Edit </a>
+            </div>
             </form>
           </div>
         </div>

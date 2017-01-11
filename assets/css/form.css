@@ -41,3 +41,8 @@ select option[data-default] {
 .form-links a {
 	color: #fff;
 }
+.input-profile-res{
+	border: 0px; 
+	margin-top:0px;
+	font-size: 3vmin;
+}
