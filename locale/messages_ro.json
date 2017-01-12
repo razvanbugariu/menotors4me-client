@@ -1,6 +1,6 @@
 {
   "unauthorized" : "Nu sunteți autorizat să faceți această acțiune!",
-  "acess_denied" : "Nu aveți acces la această informație!",
+  "access_denied" : "Nu aveți acces la această informație!",
   "email.blank" : "Câmpul e-mail este obligatoriu! Vă rugăm introduceți o adresă de e-mail validă." ,
   "email.taken" : "Această adresă de e-mail este deja asociată unui utilizator existent! Vă rugăm introduceți altă adresă.",
   "email.invalid" : "Această adresă de e-mail este invalidă! Vă rugăm introduceți una validă.",
