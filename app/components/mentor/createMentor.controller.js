@@ -26,7 +26,7 @@ function createMentorController($scope, $location, registerService, skillsServic
       skill_ids: $scope.selectedSkillsIds.join()
     };
     console.log(obj);
-    registerService.registerMentor(obj, $routeParams.token).then(handleCreateSuccess, handleCreateError);
+    registerService.registerMentor(obj, $routeParams.token).then(handleCreateSuccess, handleErrors);
    }
 
   function handleCreateSuccess(response){
@@ -42,7 +42,7 @@ function createMentorController($scope, $location, registerService, skillsServic
   }
 
 	function getSkills(){
-		skillsService.getAllSkills().then(handleGetAllSkillsSuccess, handleCreateError);
+		skillsService.getAllSkills().then(handleGetAllSkillsSuccess, handleErrors);
 	}
 
 	function handleGetAllSkillsSuccess(response){
