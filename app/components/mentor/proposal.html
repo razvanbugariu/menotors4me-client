@@ -2,11 +2,11 @@
   <section class="container">
       <section class="general-form">
         <form role="form" ng-submit="proposeMentor()">
-          <label >Propose a mentor</label>
+          <label >{{ "propose_mentor" | translate }}</label>
           <input type="email" name="email" placeholder="Email" required class="form-control input-lg" ng-model="proposal.email"/>
            <textarea name="why-you-propose" required placeholder="Motivation..."
       class="form-control input-lg" id="form-about-yourself" ng-model="proposal.description" ></textarea>
-          <button type="submit" class="btn btn-lg btn-primary btn-block">Submit</button>
+          <button type="submit" class="btn btn-lg btn-primary btn-block">{{ "send" | translate }}</button>
           <span ng-show="errorProposalMessage">{{errorProposalMessage}}</span>
         </form>
         <div class="form-links">

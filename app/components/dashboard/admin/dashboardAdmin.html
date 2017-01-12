@@ -3,18 +3,18 @@
  dashboard-futureEvents sidebar-offcanvas"
       id="sidebar" role="navigation"   style="float:left">
     	<div class="well sidebar-nav">
-    		<H3>Pending Request</H3>
+    		<H3>{{ "approval_requests" | translate }}</H3>
         	<ul class="nav">
           		<li ng-repeat="proposal in proposals"  class="active">
-          			<label>Mail:</label>
+          			<label>{{ "email" | translate }}</label>
           			<span> {{proposal.email}}</span><br/>
-          			<label>Description:</label>
+          			<label>{{ "description" | translate }}</label>
           	  		<span> {{proposal.description}}</span><br/>
           	  		<br/>
 	          		<button type="button" class="btn btn-default btn-sm " ng-click="approveMentor(proposal)">
-	          		<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Approve</button>
+	          		<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>{{ "approve" | translate }}</button>
 	          		<button type="button" class="btn btn-default btn-sm " ng-click="rejectMentor(proposal)">
-	          		<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Decline</button>
+	          		<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>{{ "decline" | translate }}</button>
 				</li>
           		<li class='nav-divider'></li>
         	</ul>
@@ -22,7 +22,7 @@
     </div><!--/span-->
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 dashboard-requests sidebar-offcanvas" id="sidebar" role="navigation"   style="float:left">
     	<div class="well sidebar-nav">
-    		<H3>Active Mentors</H3>
+    		<H3>{{ "active_mentors" | translate }}</H3>
         	<ul class="nav">
           	<li class="active"><a href="#">Active Mentor 1</a></li>
           	<li class='nav-divider'></li>
@@ -37,7 +37,7 @@
     </div><!--/span-->
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 dashboard-futureEvents sidebar-offcanvas" id="sidebar" role="navigation"   style="float:left">
     	<div class="well sidebar-nav">
-    		<H3>Active Organisations</H3>
+    		<H3>{{ "active_organizations" | translate }}</H3>
         	<ul class="nav">
           		<li class="active"><a href="#">Active Organisation 1</a></li>
           		<li class='nav-divider'></li>

@@ -1,7 +1,7 @@
 <div class="row flex-container">
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 dashboard-requests sidebar-offcanvas" id="sidebar" role="navigation"   style="float:left">
       <div class="well sidebar-nav">
-      <H3>Pending Events</H3>
+      <H3>{{ "pending_events" | translate }}</H3>
         <ul class="nav flex-item">
           <li class="active" ng-repeat="context in pendingContexts">
             <button type="button" class="btn btn-default btn-sm button-style-dsh "  ng-click="acceptContext(context.id)">
