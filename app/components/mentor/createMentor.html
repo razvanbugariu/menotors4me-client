@@ -25,11 +25,11 @@
     <div class="form-links">
      <a href="#">www.mentors4me.com</a>
    </div>
+   <ul style="list-style-type: none;">
+     <li ng-repeat="error in errors">
+       <span class="errorMessage">{{ error | translate }}</span>
+     <li>
+   </ul>
   </section>
   </section>
-  <ul style="list-style-type: none;">
-    <li ng-repeat="error in errors">
-      <span class="errorMessage">{{ error | translate }}</span>
-    <li>
-  </ul>
 </div>
