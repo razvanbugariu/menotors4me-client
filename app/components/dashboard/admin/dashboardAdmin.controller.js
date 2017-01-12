@@ -18,14 +18,14 @@ function dashboardAdminController($scope, $location, $cookies, dashboardAdminSer
 
 
 	function getPendingProposals(){
-		dashboardAdminService.getPendingProposals($cookies.get('token')).then(handleGetProposalsSuccess, handleError);
+		dashboardAdminService.getPendingProposals($cookies.get('token')).then(handleGetProposalsSuccess, handleErrors);
 	}
 	function approveMentor(proposal){
-		dashboardAdminService.approveMentor(proposal.id, $cookies.get('token')).then(handleApproveSuccess, handleError);
+		dashboardAdminService.approveMentor(proposal.id, $cookies.get('token')).then(handleApproveSuccess, handleErrors);
 	}
 
 	function rejectMentor(proposal){
-		dashboardAdminService.rejectMentor(proposal.id, $cookies.get('token')).then(handleRejectSuccess, handleError);
+		dashboardAdminService.rejectMentor(proposal.id, $cookies.get('token')).then(handleRejectSuccess, handleErrors);
 	}
 
 	function deleteFromProposals(proposal){
@@ -45,10 +45,10 @@ function dashboardAdminController($scope, $location, $cookies, dashboardAdminSer
 	}
 
 	function getAllMentors(){
-		dashboardAdminService.getAllMentors().then(handleGetMentorsSuccess, handleError);
+		dashboardAdminService.getAllMentors().then(handleGetMentorsSuccess, handleErrors);
 	}
 
-	function handleError(responseError){
+	function handleErrors(responseError){
 		$scope.errors = responseError.data.errors;
 	}
 
@@ -57,7 +57,7 @@ function dashboardAdminController($scope, $location, $cookies, dashboardAdminSer
 	}
 
 	function getAllOrganizations(){
-		dashboardAdminService.getAllOrganizations().then(handleGetOrganizationsSuccess, handleError);
+		dashboardAdminService.getAllOrganizations().then(handleGetOrganizationsSuccess, handleErrors);
 	}
 
 	function handleGetOrganizationsSuccess(responseData){

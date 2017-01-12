@@ -28,7 +28,7 @@
               <span> {{mentor.email}}</span><br/>
               <label>Description:</label>
                 <span> {{mentor.first_name}} {{mentor.last_name}}</span><br/>
-                <button type="button" class="btn btn-default btn-sm " ng-click="rejectMentor(proposal)">
+                <button type="button" class="btn btn-default btn-sm " ng-click="deleteMentor(mentor.id)">
                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
               <div class='nav-divider'></div>
             </li>
@@ -44,7 +44,7 @@
             <span> {{organization.asignee}}</span><br/>
             <label>Organization name:</label>
               <span> {{organization.name}}</span><br/>
-              <button type="button" class="btn btn-default btn-sm " ng-click="rejectMentor(proposal)">
+              <button type="button" class="btn btn-default btn-sm " ng-click="deleteOrganization(organization.id)">
                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
             <div class='nav-divider'></div>
           </li>

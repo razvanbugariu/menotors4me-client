@@ -81,8 +81,8 @@ angular
 			notifyLogoutError();
 		}
 
-		function notifyLogoutError(){
-			$rootScope.$broadcast(AUTH_EVENTS.logoutError);
+		function notifyLogoutError(responseError){
+			$rootScope.$broadcast(AUTH_EVENTS.logoutError, responseError.data.errors);
 		}
 
 		return loginService;

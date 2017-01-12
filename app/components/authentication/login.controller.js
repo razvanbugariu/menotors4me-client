@@ -35,4 +35,8 @@ function loginController($scope, $location, $rootScope, AUTH_EVENTS, loginServic
 		$location.path(Constants.HOME);
 	});
 
+	$rootScope.$on(AUTH_EVENTS.logoutFailed, function(event, args) {
+		$scope.errors = args;
+	});
+
 }

@@ -2,7 +2,7 @@
 
 angular
 	.module('mentors4me')
-	.factory('mentorService', function($http, Constants, authorizationService) {
+	.factory('mentorService', function($http, Constants, authorizationService, $cookies) {
 		var mentorService = {};
 
 		mentorService.getAllMentors = function(){
@@ -36,7 +36,7 @@ angular
 		mentorService.deleteMentor = function(mentorId){
 			var req = {
                method: 'DELETE',
-               url: Constants.DOMAIN + Constants.MENTORS + "/" + mentorId,
+               url: Constants.DOMAIN +  Constants.API  + Constants.MENTORS + "/" + mentorId,
                headers: {
                  'Authorization': $cookies.get("token")
                },
