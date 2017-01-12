@@ -23,7 +23,7 @@ function createMentorController($scope, $location, registerService, skillsServic
       phone_number : $scope.user.phone_number,
       password : $scope.user.password,
       password_confirmation : $scope.user.confirm_password,
-      skill_ids: $scope.selectedSkillsIds.join()
+      skills: $scope.selectedSkillsIds
     };
     console.log(obj);
     registerService.registerMentor(obj, $routeParams.token).then(handleCreateSuccess, handleErrors);

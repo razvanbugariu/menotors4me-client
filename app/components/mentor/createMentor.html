@@ -22,14 +22,11 @@
       class="form-control input-lg" id="form-about-yourself" ng-model="user.description" ></textarea>
       <button type="submit" class="btn btn-lg btn-primary btn-block">Create account</button>
     </form>
-    <div class="form-links">
-     <a href="#">www.mentors4me.com</a>
-   </div>
-   <ul style="list-style-type: none;">
-     <li ng-repeat="error in errors">
-       <span class="errorMessage">{{ error | translate }}</span>
-     <li>
-   </ul>
+     <ul style="list-style-type: none;">
+       <li ng-repeat="error in errors">
+         <span class="errorMessage">{{ error | translate }}</span>
+       <li>
+     </ul>
   </section>
   </section>
 </div>
