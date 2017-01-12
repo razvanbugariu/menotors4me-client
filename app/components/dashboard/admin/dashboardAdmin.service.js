@@ -46,6 +46,14 @@ angular
 			return organizationService.getAllOrganizations();
 		}
 
+		dashboardAdminService.deleteMentor = function(mentorId){
+			return mentorService.deleteMentor(mentorId);
+		}
+
+		dashboardAdminService.deleteOrganization = function(organizationId){
+			return organizationService.deleteOrganization(organizationId);
+		}
+
 		return dashboardAdminService;
 	}
 

@@ -16,6 +16,17 @@ angular
       return $http(req);
     }
 
+		organizationService.deleteOrganization = function(organizationId){
+			var req = {
+               method: 'DELETE',
+               url: Constants.DOMAIN + Constants.ORGANIZATIONS + "/" + organizationId,
+               headers: {
+                 'Authorization': $cookies.get("token")
+               },
+              };
+      return $http(req);
+		}
+
 		return organizationService;
 	}
 

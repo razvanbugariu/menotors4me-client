@@ -13,6 +13,8 @@ function dashboardAdminController($scope, $location, $cookies, dashboardAdminSer
 
 	$scope.approveMentor = approveMentor;
 	$scope.rejectMentor = rejectMentor;
+	$scope.deleteOrganization = deleteOrganization;
+	$scope.deleteMentor = deleteMentor;
 
 
 	function getPendingProposals(){
@@ -60,6 +62,22 @@ function dashboardAdminController($scope, $location, $cookies, dashboardAdminSer
 
 	function handleGetOrganizationsSuccess(responseData){
 		$scope.organizations = responseData.data.data;
+	}
+
+	function deleteMentor(mentorId){
+		dashboardAdminService.deleteMentor(mentorId).then(handleDeleteMentorSuccess, handleErrors);
+	}
+
+	function handleDeleteMentorSuccess(){
+		getAllMentors();
+	}
+
+	function deleteOrganization(organizationId){
+		dashboardAdminService.deleteOrganization(organizationId).then(handleDeleteOrganizationSuccess, handleErrors);
+	}
+
+	function handleDeleteOrganizationSuccess(){
+		getAllOrganizations();
 	}
 
 	getPendingProposals();

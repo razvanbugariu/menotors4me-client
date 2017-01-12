@@ -33,6 +33,17 @@ angular
 			return authorizationService.isMentor();
 		}
 
+		mentorService.deleteMentor = function(mentorId){
+			var req = {
+               method: 'DELETE',
+               url: Constants.DOMAIN + Constants.MENTORS + "/" + mentorId,
+               headers: {
+                 'Authorization': $cookies.get("token")
+               },
+              };
+      return $http(req);
+		}
+
 		return mentorService;
 	}
 
