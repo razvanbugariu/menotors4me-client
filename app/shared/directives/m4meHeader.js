@@ -41,18 +41,27 @@ angular
 						}
 
 						$rootScope.$on(AUTH_EVENTS.loginSuccess, function(event, args) {
-							checkIfIsLoggedIn();
+							checkCredentials()
 						});
 
 						$rootScope.$on(AUTH_EVENTS.logoutSuccess, function(event, args) {
-							checkIfIsLoggedIn();
+							checkCredentials();
 						});
 
 						function checkIfIsLoggedIn() {
 							$scope.isAuth = authorizationService.isLoggedIn();
 						}
 
-						checkIfIsLoggedIn();
+						function checkIfAdmin(){
+							$scope.isAdmin = authorizationService.isAdmin();
+						}
+
+						function checkCredentials(){
+							checkIfIsLoggedIn();
+							checkIfAdmin();
+						}
+
+						checkCredentials()
 
 	    }
 		}

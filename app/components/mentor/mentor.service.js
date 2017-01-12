@@ -2,7 +2,7 @@
 
 angular
 	.module('mentors4me')
-	.factory('mentorService', ['$http', 'Constants', function($http, Constants) {
+	.factory('mentorService', function($http, Constants, authorizationService) {
 		var mentorService = {};
 
 		mentorService.getAllMentors = function(){
@@ -29,7 +29,11 @@ angular
 			return $http(req);
 		}
 
+		mentorService.checkIfMentor = function(){
+			return authorizationService.isMentor();
+		}
+
 		return mentorService;
 	}
 
-	]);
+	);

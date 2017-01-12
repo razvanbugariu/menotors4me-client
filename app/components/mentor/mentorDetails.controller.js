@@ -54,6 +54,11 @@ function mentorDetailsController($scope, $location, $routeParams, mentorService,
 		$location.path("/mentors/" + $cookies.get("userId") + "/edit");
 	}
 
+	function checkIfMentor(){
+	  $scope.isMentor = mentorService.checkIfMentor();
+	}
+
+	checkIfMentor();
   getSelectedMentor();
 
 }

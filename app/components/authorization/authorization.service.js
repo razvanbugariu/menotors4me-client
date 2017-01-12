@@ -20,7 +20,7 @@ angular
 		}
 
 		authorizationService.isMentor = function(){
-			if(angular.isUndefined($cookies.get("token")) && isNotEmpty($cookies.get("userRole")) && $cookies.get("userRole") === USER_ROLES.MENTOR){
+			if(!angular.isUndefined($cookies.get("token")) && isNotEmpty($cookies.get("userRole")) && $cookies.get("userRole") === USER_ROLES.MENTOR){
 				return true;
 			}
 			return false;
