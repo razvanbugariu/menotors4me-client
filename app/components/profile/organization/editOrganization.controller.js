@@ -6,11 +6,13 @@ angular
 
 function editOrganizationController($scope, editOrganizationService, $location, Constants, $cookies) {
 
+	$scope.errors = [];
+
 	$scope.updateOrganization = updateOrganization;
 	$scope.edit = edit;
 
 	function getCurrentOrganization(){
-		editOrganizationService.getCurrentOrganization().then(handleGetCurrentUserSuccess, handleResponseError);
+		editOrganizationService.getCurrentOrganization().then(handleGetCurrentUserSuccess, handleErrors);
 	}
 
 	function handleGetCurrentUserSuccess(response){
@@ -18,20 +20,19 @@ function editOrganizationController($scope, editOrganizationService, $location, 
 	}
 
 	function updateOrganization(){
-		editOrganizationService.updateOrganization($scope.currentUser).then(handleUpdateSuccess, handleResponseError);
+		editOrganizationService.updateOrganization($scope.currentUser).then(handleUpdateSuccess, handleErrors);
 	}
 
 	function handleUpdateSuccess(){
-		$location.path(Constants.ORGANIZATIONS + "/" + $cookies.get("userId") + Constants.EDIT);
+		$location.path("/organizations" + "/" + $cookies.get("userId"));
 	}
 
-	function handleResponseError(responseError){
-		console.log(responseError);
+	function handleErrors(responseError){
+		$scope.errors = responseError.data.errors;
 	}
 
 	function edit(){
-		var path = "/organizations" + "/" + $cookies.get("userId") + Constants.EDIT
-		$location.path(path);
+		$location.path("/organizations" + "/" + $cookies.get("userId") + Constants.EDIT);
 	}
 
 	getCurrentOrganization();
