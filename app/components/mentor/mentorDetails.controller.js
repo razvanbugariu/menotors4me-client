@@ -39,7 +39,7 @@ function mentorDetailsController($scope, $location, $routeParams, mentorService,
 			organization_id: $cookies.get("userId"),
 			description: $scope.invitation.address + "\n" + $scope.invitation.description
 		}
-		mentorService.inviteToEvent(context, $cookies.get("token")).then(handleSuccess, handleError);
+		mentorService.inviteToEvent(context, $cookies.get("token")).then(handleSuccess, handleErrors);
 	}
 
 	function handleSuccess(){
