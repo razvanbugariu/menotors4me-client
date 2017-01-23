@@ -2,7 +2,7 @@
 
 angular
 	.module('mentors4me')
-	.factory('mentorService', function($http, Constants, authorizationService, $cookies) {
+	.factory('mentorService', function($http, Constants, authorizationService, $cookies, contextsService) {
 		var mentorService = {};
 
 		mentorService.getAllMentors = function(){
@@ -18,15 +18,7 @@ angular
 		};
 
 		mentorService.inviteToEvent = function(context, token){
-			var req = {
-							 method: 'POST',
-							 url: Constants.DOMAIN + "/api/contexts",
-							 headers: {
-								 'Authorization': token
-							 },
-							 data : context
-							};
-			return $http(req);
+			return contextsService.inviteToEvent(context);
 		}
 
 		mentorService.checkIfMentor = function(){

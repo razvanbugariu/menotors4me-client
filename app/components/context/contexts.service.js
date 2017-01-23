@@ -5,7 +5,7 @@ angular
 	.factory('contextsService', function($http, Constants) {
 		var contextsService = {};
 
-		contextsService.inviteToEvent = function(context, token){
+		contextsService.inviteToEvent = function(context){
 			var req = {
 							 method: 'POST',
 							 url: Constants.DOMAIN + "api/context",
@@ -14,18 +14,8 @@ angular
 							 },
 							 data : context
 							};
-			return $http(req).then(handleInvitationSuccess, handleInvitationError);
+			return $http(req);
 		}
-
-    function handleInvitationSuccess(){
-      console.log("It's working");
-    }
-
-    function handleInvitationSuccess(responseError){
-      console.log(responseError);
-    }
-
-		return mentorService;
+	return contextsService;
 	}
-
 	);
