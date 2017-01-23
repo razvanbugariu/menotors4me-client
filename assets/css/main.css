@@ -37,3 +37,17 @@
 .li-dsh {
   font-size: 3vmin;
 }
+
+.plus-sign{
+  background-image: url(../images/plus_1x.png);
+  width: 20px;
+  height: 20px;
+  float : right;
+}
+
+.clear-sign{
+  background-image: url(../images/clear_1x.png);
+  width: 20px;
+  height: 20px;
+  float : right;
+}

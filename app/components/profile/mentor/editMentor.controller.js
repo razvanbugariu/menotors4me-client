@@ -4,7 +4,7 @@ angular
 	.module('mentors4me')
 	.controller('editMentorController', editMentorController);
 
-function editMentorController($scope, editMentorService, $cookies, $location, Constants) {
+function editMentorController($scope, editMentorService, $cookies, $location, Constants, growl) {
 
 	$scope.error = [];
 
@@ -34,6 +34,7 @@ function editMentorController($scope, editMentorService, $cookies, $location, Co
 
 	function handleUpdateSuccess(){
 		$location.path(Constants.MENTORS + "/" + $cookies.get("userId"));
+		growl.info("Profilul dumneavoastra a fost salvat cu succes!");
 	}
 
 	function getSkills(){
@@ -45,14 +46,27 @@ function editMentorController($scope, editMentorService, $cookies, $location, Co
 		sincronizeSkills();
 	}
 
-	function addSkillToList(skillId){
+	function pushToList(skillId){
 		$scope.selectedSkillsIds.push(skillId);
 	}
 
-	function removeSkillFromList(skillId){
-		var index = $scope.selectedSkillsIds.indexOf(skillId);
-		$scope.selectedSkillsIds.splice(index, 1);
-		console.log($scope.selectedSkillsIds);
+	function addSkillToList(skill){
+		if($scope.selectedSkillsIds.indexOf(skill.id) === -1){
+			pushToList(skill.id);
+			growl.info(skill.name + " a fost adaugat la profilul dumneavoastra");
+		} else {
+			growl.warning(skill.name + " face parte din profilul dumneavoastra!");
+		}
+	}
+
+	function removeSkillFromList(skill){
+		if($scope.selectedSkillsIds.indexOf(skill.id) === -1){
+			growl.warning(skill.name + " nu poate fi sters deoarece nu face parte din profilul dumneavoastra");
+		} else {
+			var index = $scope.selectedSkillsIds.indexOf(skill.id);
+			$scope.selectedSkillsIds.splice(index, 1);
+			growl.info(skill.name + " a fost sters din profilul dumneavoastra!");
+		}
 	}
 
 	function displayButton(skill){
@@ -63,7 +77,7 @@ function editMentorController($scope, editMentorService, $cookies, $location, Co
 		var i = 0;
 		for(i = 0 ; i < $scope.skills.length; i++){
 			if($scope.currentMentor.skills.indexOf($scope.skills[i].name) != -1){
-				addSkillToList($scope.skills[i].id);
+				pushToList($scope.skills[i].id);
 			}
 		}
 		console.log($scope.selectedSkillsIds);

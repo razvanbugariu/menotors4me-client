@@ -17,7 +17,7 @@
     <script type="text/javascript" src="bower_components/angular-translate/angular-translate.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
 
-    <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></scripts>
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script type="text/javascript" src="app/components/authentication/login.controller.js"></script>
@@ -55,6 +55,9 @@
     <script type="text/javascript" src="app/shared/directives/m4meHeader.js"></script>
     <script type="text/javascript" src="app/shared/directives/m4meFooter.js"></script>
 
+    <script type="text/javascript" src ="external_libraries/growl/angular-growl.js"></script>
+    <link rel="stylesheet" type="text/css" href="external_libraries/growl/angular-growl.css" />
+
     <script type="text/javascript" src="app/components/mentor/mentorInvitation.controller.js"></script>
     <script type="text/javascript" src="app/components/mentor/mentorProposal.controller.js"></script>
     <script type="text/javascript" src="app/components/mentor/createMentor.controller.js"></script>
@@ -70,6 +73,7 @@
   <head>
   <body data-ng-app="mentors4me">
     <m4me-header></m4me-header>
+    <div growl></div>
     <div ng-view=""></div>
     <m4me-footer></m4me-footer>
   </body>

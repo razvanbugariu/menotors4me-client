@@ -37,11 +37,11 @@
                   <label>Skills</label>
                   </br>
                   <span ng-repeat="skill in skills">
-                  <span  ng-click="addSkillToList(skill.id)" name="group" id="{{skill.id}}">
-                  {{skill.name}} </span>
-                  <a style="float: right" ng-click="addSkillToList(skill.id)" ng-hide="displayButton(skill)"=>+</a>
-                  <a style="float: right" ng-click="removeSkillFromList(skill.id)" ng-show="displayButton(skill)">-</a>
-                  </br>
+                    <span  ng-click="addSkillToList(skill.id)" name="group" id="{{skill.id}}">
+                    {{skill.name}} </span>
+                    <a class="clear-sign btn btn-link" ng-click="removeSkillFromList(skill)"></a>
+                    <a class="plus-sign btn btn-link" ng-click="addSkillToList(skill)" ></a>
+                    </br>
                   </span>
                 </tr>
                 <tr>

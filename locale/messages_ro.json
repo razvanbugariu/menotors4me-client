@@ -15,7 +15,7 @@
   "city.blank" : "Câmpul oraș este obligatoriu! Vă rugăm să menționați orașul în care locuiți.",
   "description.blank" : "Câmpul descriere este obligatoriu! Vă rugăm adăugați o scurtă descriere.",
   "description.too_long" : "Descrierea este prea lungă! Vă rugăm adăugați o descriere de maxim 500 de caractere.",
-  "skills.blank" : "Această informație este obligatorie! Vă rugăm bifați cel puțin un skill.",
+  "skills.blank" : "Această informație este obligatorie! Vă rugăm adaugați cel puțin un skill.",
   "name.blank" : "Câmpul nume este obligatoriu! Vă rugăm să completați cu numele organizației pe care o reprezentați.",
   "asignee.blank" : "Câmpul asignat este obligatoriu! Vă rugăm să completați cu numele și prenumele dumneavoastră.",
   "mentor_id.blank" : "Câmpul id mentor este obligatoriu! Vă rugăm să completați cu id-ul mentorului.",

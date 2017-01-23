@@ -46,6 +46,7 @@ angular
 
 						$rootScope.$on(AUTH_EVENTS.logoutSuccess, function(event, args) {
 							checkCredentials();
+							$location.path(Constants.HOME);
 						});
 
 						function checkIfIsLoggedIn() {

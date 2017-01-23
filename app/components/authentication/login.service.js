@@ -2,7 +2,7 @@
 
 angular
 	.module('mentors4me')
-	.factory('loginService', function($http, userService, $rootScope, AUTH_EVENTS, USER_ROLES, Constants, $cookies, $location) {
+	.factory('loginService', function($http, userService, $rootScope, AUTH_EVENTS, USER_ROLES, Constants, $cookies) {
 		var loginService = {};
     loginService.login = function(user){
       return $http.post(Constants.DOMAIN + Constants.SESSIONS , user).then(handleLoginSuccess, handleLoginError);
@@ -68,7 +68,6 @@ angular
 		}
 
 		function notifyLogoutSuccess(){
-			$location.path('/login');
 			$rootScope.$broadcast(AUTH_EVENTS.logoutSuccess);
 		}
 

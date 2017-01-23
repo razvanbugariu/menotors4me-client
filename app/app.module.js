@@ -3,5 +3,6 @@
 angular.module('mentors4me',[
 	'ngRoute',
 	'ngCookies',
-	'pascalprecht.translate'
+	'pascalprecht.translate',
+	'angular-growl'
 	]);
