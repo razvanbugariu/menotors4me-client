@@ -2,8 +2,10 @@
 
 angular
 	.module('mentors4me')
-	.factory('chatService', function($http, Constants) {
+	.factory('chatService', function($websocket) {
 		var chatService = {};
+
+
 
 	return chatService;
 	}
