@@ -80,6 +80,13 @@ angular
         authorizedRoles: [USER_ROLES.MENTOR]
       }
     })
+    .when('/contexts/:id',{
+      templateUrl:'app/components/context/context.html',
+      controller:'contextController',
+      data: {
+        authorizedRoles: [USER_ROLES.ORGANIZATION, USER_ROLES.MENTOR]
+      }
+    })
     .when('/notAuthorized',{
       templateUrl:'app/components/authorization/not.authorized.html',
     })
