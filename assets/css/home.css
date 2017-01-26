@@ -34,3 +34,7 @@ body{
 .margins {
 	margin-right: 20px;
 }
+div {
+	word-break: break-all;
+	white-space: normal;
+}
