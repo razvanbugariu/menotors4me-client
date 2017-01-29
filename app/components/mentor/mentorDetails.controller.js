@@ -4,7 +4,7 @@ angular
 	.module('mentors4me')
 	.controller('mentorDetailsController', mentorDetailsController);
 
-function mentorDetailsController($scope, $location, $routeParams, mentorService, $cookies) {
+function mentorDetailsController($scope, $location, $routeParams, mentorService, $cookies, authorizationService) {
 
 	$scope.errors = [];
 
@@ -12,6 +12,11 @@ function mentorDetailsController($scope, $location, $routeParams, mentorService,
 	$scope.goToInvitation = goToInvitation;
 	$scope.sendInvitation = sendInvitation;
 	$scope.edit = edit;
+	$scope.isOrganization =isOrganization
+
+	function isOrganization(){
+		return authorizationService.isOrganization();
+	}
 
 	function inviteMentorToEvent () {
 		var objBody = {
@@ -43,7 +48,7 @@ function mentorDetailsController($scope, $location, $routeParams, mentorService,
 	}
 
 	function handleSuccess(){
-		$location.path("/dashboardOrganization");
+		$location.path("/dashboard/organization");
 	}
 
 	function handleErrors(responseError){

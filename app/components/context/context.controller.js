@@ -4,7 +4,7 @@ angular
 	.module('mentors4me')
 	.controller('contextController', contextController);
 
-function contextController($scope, $routeParams, $rootScope, CHAT_EVENTS, ActionCableChannel, contextsService, authorizationService, $location) {
+function contextController($scope, $routeParams, $rootScope, CHAT_EVENTS, ActionCableChannel, contextsService, authorizationService, $location, growl, $cookies, $window) {
 
 	var senderId;
 	var receiverId;
@@ -12,11 +12,18 @@ function contextController($scope, $routeParams, $rootScope, CHAT_EVENTS, Action
 	$scope.isSender;
 	$scope.goToMentorDetails = goToMentorDetails;
 
+	console.log($location.$$path);
+
 	var consumer = new ActionCableChannel("ChatChannel", {context_id: $routeParams.id})
 
 	consumer.subscribe(function(messages){
-				addToMessages(JSON.parse(messages));
-			console.log(JSON.parse(messages));
+			  if($scope.messages.length === 0){
+					addToMessages(JSON.parse(messages));
+				} else {
+					if(JSON.parse(messages).length === 1){
+						addToMessages(JSON.parse(messages));
+					}
+				}
 		 });
 
   function addToMessages(messages){
@@ -28,8 +35,8 @@ function contextController($scope, $routeParams, $rootScope, CHAT_EVENTS, Action
 
 	$scope.sendMessage = function(){
 		var object = {
-			sender_id: 9,
-			receiver_id: 10,
+			sender_id: senderId,
+			receiver_id: receiverId,
 			message: $scope.inputMessage
 		};
 		consumer.send(object);
@@ -37,7 +44,7 @@ function contextController($scope, $routeParams, $rootScope, CHAT_EVENTS, Action
 	}
 
 	function getCurrentContext(){
-		contextsService.getContextById($routeParams.id).then(handleGetCurrentContextSuccess,handleGetCurrentContextError);
+		contextsService.getContextById($routeParams.id).then(handleGetCurrentContextSuccess,handleErrors);
 	}
 
 	function handleGetCurrentContextSuccess(response){
@@ -45,7 +52,7 @@ function contextController($scope, $routeParams, $rootScope, CHAT_EVENTS, Action
 		decideSenderAndReceiver();
 	}
 
-	function handleGetCurrentContextError(responseError){
+	function handleErrors(responseError){
 		$scope.errors = responseError.data.errors;
 	}
 
@@ -63,6 +70,33 @@ function contextController($scope, $routeParams, $rootScope, CHAT_EVENTS, Action
 		$location.path("/mentors/" + $scope.currentContext.mentor_id);
 	}
 
+	function isEligible(){
+			contextsService.getContexts().then(checkIsEligible, handleErrors)
+	}
+
+	function checkIsEligible(response){
+		var acceptedContexts = [];
+		acceptedContexts = response.data.data;
+		if(checkContext(acceptedContexts)){
+			growl.error("No Auth");
+			$window.history.back();
+		}
+	}
+
+	function checkContext(contexts){
+		for(var i = 0 ; i < contexts.length ; i++){
+			if(contexts[i].id === $scope.currentContext.id){
+				return false;
+			}
+		}
+		return true;
+	}
+
+	$scope.$on('$locationChangeStart', function( event ) {
+		consumer.unsubscribe().then(function (){console.log("Unsubcribe successfull")});
+});
+
 	getCurrentContext();
+	isEligible();
 
 }

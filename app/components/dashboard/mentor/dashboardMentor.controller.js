@@ -49,10 +49,10 @@ function dashboardMentorController($scope, $location, dashboardMentorService, gr
 	}
 
 	$scope.goToDetails = function (selectedContext){
-		if(selectedContext.status === 'rejected'){
+		if(selectedContext.status === 'accepted'){
 			$location.path("/contexts/" + selectedContext.id);
 		} else {
-			growl.error("Faceti click pe un context cu statusul: accepted!");
+			growl.error("Faceti click pe un context cu status: accepted!");
 		}
 	}
 

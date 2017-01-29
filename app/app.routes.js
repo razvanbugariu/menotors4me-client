@@ -14,9 +14,6 @@ angular
     .when('/mentors/:mentorId', {
       templateUrl : 'app/components/mentor/mentordetails.html',
       controller : 'mentorDetailsController',
-      data: {
-        authorizedRoles: [USER_ROLES.MENTOR, USER_ROLES.ORGANIZATION]
-      }
     })
     .when('/organizations/:organizationId', {
       templateUrl : 'app/components/profile/organization/profile.html',

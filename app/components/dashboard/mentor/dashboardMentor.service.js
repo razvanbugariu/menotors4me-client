@@ -28,7 +28,7 @@ angular
 			return $http(req);
 		}
 
-		dashboardMentorService.acceptContext = function(contextId){
+		dashboardMentorService.rejectContext = function(contextId){
 			var req = {
 							 method: 'POST',
 							 url: Constants.DOMAIN + Constants.CONTEXTS + "/" + contextId + "/" + Constants.REJECT,

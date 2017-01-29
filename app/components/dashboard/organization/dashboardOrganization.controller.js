@@ -9,7 +9,7 @@ function dashboardOrganizationController($scope, $location, dashboardOrganizatio
 	$scope.errors = [];
 	$scope.pendingContexts = [];
 	$scope.acceptedContexts = [];
-	$scope.goToDetails + goToDetails;
+	$scope.goToDetails = goToDetails;
 
 	function getPendingContexts(){
 		dashboardOrganizationService.getPendingContexts().then(handleGetPendingCtxSuccess, handleErrors);
@@ -35,7 +35,7 @@ function dashboardOrganizationController($scope, $location, dashboardOrganizatio
 		if(selectedContext.status === 'accepted'){
 			$location.path("/contexts/" + selectedContext.id);
 		} else {
-			grow.info("Shaorma");
+			growl.error("Faceti click pe un context cu status: accepted!");
 		}
 	}
 
