@@ -5,5 +5,5 @@ angular.module('mentors4me',[
 	'ngCookies',
 	'pascalprecht.translate',
 	'angular-growl',
-	'ngWebSocket'
+	'ngActionCable'
 	]);

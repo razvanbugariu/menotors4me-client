@@ -30,6 +30,7 @@ angular
 		function saveUser(currentUser){
 			$cookies.put("userId", currentUser.id);
 			$cookies.put("userRole", currentUser.role[0]);
+			$cookies.put("userName", currentUser.first_name + " " + currentUser.last_name);
 		}
 
 		function notifyLoginSucces(){

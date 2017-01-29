@@ -1,24 +1,34 @@
 <div class="container">
     <div class="row">
         <div class="panel panel-default">
-          <div class="panel-heading">Panel heading without title</div>
+          <div class="panel-heading">
+              {{currentContext.description}}
+            </br>
+            <div>Click <span class="btn-link" ng-click="goToMentorDetails()" >here</span> for mentor details</div>
+          </div>
+
           <div class="panel-body">
             <div class="container">
-                <div class="row message-bubble">
-                    <p class="text-muted">Matt Townsen</p>
+                <div class="row message-bubble" ng-repeat="message in messages">
+                    <p class="text-muted">{{message.sender}}</p>
                      <small class="text-muted" >
-                     <span class="glyphicon glyphicon-time" style="float:right"></span>14 mins ago</small>
-                    <p>It Isn't'</p>
+                     <span class="glyphicon glyphicon-time" style="float: right"></span>{{message.sent_at}}</small>
+                    <p>{{message.message}}</p>
                 </div>
             <div class="panel-footer">
                  <div class="input-group">
-                  <input type="text" class="form-control">
+                  <input type="text" class="form-control" ng-model="inputMessage">
                   <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Send</button>
+                    <button class="btn btn-default" type="button" ng-click="sendMessage()">Send</button>
                   </span>
                 </div>
             </div>
           </div>
         </div>
     </div>
+    <ul style="list-style-type: none;">
+      <li ng-repeat="error in errors">
+        <span class="errorMessage">{{ error | translate }}</span>
+      <li>
+    </ul>
 </div>

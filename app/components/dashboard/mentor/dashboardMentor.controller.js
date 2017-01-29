@@ -4,7 +4,7 @@ angular
 	.module('mentors4me')
 	.controller('dashboardMentorController', dashboardMentorController);
 
-function dashboardMentorController($scope, $location, dashboardMentorService) {
+function dashboardMentorController($scope, $location, dashboardMentorService, growl) {
 
 	$scope.errors = [];
 
@@ -47,6 +47,15 @@ function dashboardMentorController($scope, $location, dashboardMentorService) {
 	function handleErrors(responseError){
 		$scope.errors = responseError.data.errors;
 	}
+
+	$scope.goToDetails = function (selectedContext){
+		if(selectedContext.status === 'rejected'){
+			$location.path("/contexts/" + selectedContext.id);
+		} else {
+			growl.error("Faceti click pe un context cu statusul: accepted!");
+		}
+	}
+
 	getPendingContexts();
 	getRejectedAndAcceptedContexts();
 }

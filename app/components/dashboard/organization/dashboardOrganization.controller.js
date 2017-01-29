@@ -4,11 +4,12 @@ angular
 	.module('mentors4me')
 	.controller('dashboardOrganizationController', dashboardOrganizationController);
 
-function dashboardOrganizationController($scope, $location, dashboardOrganizationService) {
+function dashboardOrganizationController($scope, $location, dashboardOrganizationService, growl) {
 
 	$scope.errors = [];
 	$scope.pendingContexts = [];
 	$scope.acceptedContexts = [];
+	$scope.goToDetails + goToDetails;
 
 	function getPendingContexts(){
 		dashboardOrganizationService.getPendingContexts().then(handleGetPendingCtxSuccess, handleErrors);
@@ -28,6 +29,14 @@ function dashboardOrganizationController($scope, $location, dashboardOrganizatio
 
 	function handleGetAcceptedCtxSuccess(response){
 		$scope.acceptedContexts = response.data.data;
+	}
+
+	function goToDetails(selectedContext){
+		if(selectedContext.status === 'accepted'){
+			$location.path("/contexts/" + selectedContext.id);
+		} else {
+			grow.info("Shaorma");
+		}
 	}
 
 	getPendingContexts();

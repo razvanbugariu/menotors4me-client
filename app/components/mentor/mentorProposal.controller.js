@@ -4,7 +4,7 @@ angular
 	.module('mentors4me')
 	.controller('mentorProposalController', mentorProposalController);
 
-function mentorProposalController($scope, $location, mentorService, Constants) {
+function mentorProposalController($scope, $location, mentorService, Constants, chatService) {
 
 	$scope.errors = [];
 
@@ -24,6 +24,11 @@ function mentorProposalController($scope, $location, mentorService, Constants) {
 
 	function handleErrors(responseError){
 			$scope.errors = responseError.data.errors;
+	}
+
+	$scope.send = send;
+	function send(){
+		chatService.sendMessage();
 	}
 
 }

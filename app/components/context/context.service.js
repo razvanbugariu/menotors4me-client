@@ -2,7 +2,7 @@
 
 angular
 	.module('mentors4me')
-	.factory('contextsService', function($http, Constants) {
+	.factory('contextsService', function($http, Constants, $cookies) {
 		var contextsService = {};
 
 		contextsService.inviteToEvent = function(context){
@@ -16,6 +16,18 @@ angular
 							};
 			return $http(req);
 		}
+
+		contextsService.getContextById = function(contextId){
+			var req = {
+							 method: 'GET',
+							 url: Constants.DOMAIN + "/api/contexts/" + contextId,
+							 headers: {
+								 'Authorization': $cookies.get("token")
+							 },
+							};
+			return $http(req);
+		}
+
 	return contextsService;
 	}
 	);

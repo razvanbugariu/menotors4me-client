@@ -16,7 +16,7 @@
       <div class="well sidebar-nav">
       <H3>Incoming Events</H3>
         <ul class="nav flex-item">
-          <li class="active li-dsh" ng-repeat="context in acceptedContexts">
+          <li class="active li-dsh" ng-repeat="context in acceptedContexts" ng-click="goToDetails(context)">
             <h4>{{context.description}}</h4>
             <div class='nav-divider'></div>
           </li>

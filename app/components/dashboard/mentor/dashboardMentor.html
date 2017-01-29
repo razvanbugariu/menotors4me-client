@@ -18,10 +18,11 @@
       <div class="well sidebar-nav">
       <H3>Events</H3>
         <ul class="nav flex-item">
-          <li class="active li-dsh" ng-repeat="context in accRejContexts">
-            <p>{{context.description}}</p>
+          <li class="active li-dsh" ng-click="goToDetails(context)" ng-repeat="context in accRejContexts" >
+            <p>{{context.description}} <span style="float: right">Status: {{context.status}}</span></p>
              <div class='nav-divider'></div>
           </li>
+        </ul>
       </div>
     </div>
     <ul style="list-style-type: none;">

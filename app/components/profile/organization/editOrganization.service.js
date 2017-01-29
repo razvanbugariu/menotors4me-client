@@ -6,7 +6,14 @@ angular
 		var editOrganizationService = {};
 
 		editOrganizationService.getCurrentOrganization = function(){
-			return $http.get(Constants.DOMAIN + Constants.ORGANIZATIONS + "/" +  $cookies.get("userId"));
+			var req = {
+							 method: 'GET',
+							 url: Constants.DOMAIN + Constants.ORGANIZATIONS + "/" +  $cookies.get("userId"),
+							 headers: {
+								 'Authorization': $cookies.get("token")
+							 }
+							};
+			return $http(req);
 		}
 
 		editOrganizationService.updateOrganization = function(organization){
