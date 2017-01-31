@@ -1,9 +1,15 @@
+html, body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
 body{
-	margin-right:20px;
 	padding-top: 60px;
 	padding-bottom: 60px;
-	padding-left: 20px;
-	height: 100vh;
+	padding-left: 10px;
+	padding-right: 10px;
+  	display: grid;
+  	grid-template-rows: 150px auto 100px;
 }
 .main-content {
 	margin: 0;
