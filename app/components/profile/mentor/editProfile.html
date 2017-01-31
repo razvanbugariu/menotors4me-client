@@ -3,7 +3,7 @@
     <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xs-offset-0 col-sm-offset-0 col-md-offset-2 col-lg-offset-2 toppad" >
       <div class="panel panel-info">
         <div class="panel-heading">
-          <h3 class="panel-title"> Edit profile </h3>
+          <h3 class="panel-title"> {{ "edit_profile" | translate }} </h3>
         </div>
         <div class="panel-body">
           <div class="row">
@@ -14,27 +14,27 @@
 
                 <tbody>
                   <tr>
-                  <label>Email</label>
+                  <label>{{ "email" | translate }}</label>
                   <input name="email" placeholder="Email" required class="form-control input-lg input-profile-res" ng-model="currentMentor.email" />
                  </tr>
                  <tr>
-                  <label>First Name</label>
+                  <label>{{ "first_name" | translate }}</label>
                   <input name="name" placeholder="FirstName" required class="form-control input-lg input-profile-res" ng-model="currentMentor.first_name" />
                  </tr>
                  <tr>
-                  <label>Last Name</label>
+                  <label>{{ "last_name" | translate }}</label>
                   <input name="surname" placeholder="LastName" required class="form-control input-lg input-profile-res" ng-model="currentMentor.last_name" />
                  </tr>
                 <tr>
-                 <label>City</label>
+                 <label>{{ "city" | translate }}</label>
                    <input name="city" placeholder="City" required class="form-control input-lg input-profile-res" ng-model="currentMentor.city" />
                  </tr>
                  <tr>
-                 <label>Phone number</label>
+                 <label>{{ "phone_number" | translate }}</label>
                    <input name="number" placeholder="PhoneNumber" required class="form-control input-lg input-profile-res" ng-model="currentMentor.phone_number" />
                 </tr>
                 <tr>
-                  <label>Skills</label>
+                  <label>{{ "skills" | translate }}</label>
                   </br>
                   <span ng-repeat="skill in skills">
                     <span  ng-click="addSkillToList(skill.id)" name="group" id="{{skill.id}}">
@@ -45,14 +45,14 @@
                   </span>
                 </tr>
                 <tr>
-               <label>Description</label>
+               <label>{{ "description" | translate }}</label>
                   <textarea name="form-about-yourself" placeholder="About yourself..."
                   class="form-control input-lg input-profile-res" id="form-about-yourself" ng-model="currentMentor.description" ></textarea>
                 </tr>
               </tbody>
             </table>
             <div style="text-align:center">
-            <a ng-click="edit()" class="btn btn-primary"> Save </a>
+            <a ng-click="edit()" class="btn btn-primary"> {{ "save" | translate }} </a>
             </div>
             <ul style="list-style-type: none;">
           		<li ng-repeat="error in errors">

@@ -12,7 +12,7 @@
       <input type="number" name="phoneNumber" placeholder="Phone Number" required class="form-control input-lg" ng-model="user.phone_number" />
       <textarea name="form-about-yourself" placeholder="About yourself..."
       class="form-control input-lg" id="form-about-yourself" ng-model="user.description" ></textarea>
-      <button type="submit" class="btn btn-lg btn-primary btn-block">Create account</button>
+      <button type="submit" class="btn btn-lg btn-primary btn-block">{{ "create_account" | translate }}t</button>
     </form>
    <ul style="list-style-type: none;">
      <li ng-repeat="error in errors">

@@ -21,7 +21,7 @@
 
       <textarea name="form-about-yourself" placeholder="About yourself..."
       class="form-control input-lg" id="form-about-yourself" ng-model="user.description" ></textarea>
-      <button type="submit" class="btn btn-lg btn-primary btn-block">Create account</button>
+      <button type="submit" class="btn btn-lg btn-primary btn-block">{{ "create_account" | translate }}</button>
     </form>
      <ul style="list-style-type: none;">
        <li ng-repeat="error in errors">
