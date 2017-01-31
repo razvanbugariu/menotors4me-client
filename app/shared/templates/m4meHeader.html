@@ -10,11 +10,11 @@
 	</button>
 	</div>
 	<ul class="nav navbar-nav navbar-right collapse navbar-collapse margins" id="myNavbar">
-		<li><a ng-click="goToDashboard()" ng-show="isAuth" >Dashboard</a></li>
-		<li><a ng-click="goToProfile()" ng-show="isAuth && !isAdmin" >Profile</a></li>
-		<li><a ng-click="goToMentors()">Mentors</a></li>
-		<li><a ng-click="goToSuggestMentor()">Suggest a mentor</a></li>
-		<li><a ng-click="goToLogin()" ng-show="!isAuth"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-		<li><a ng-click="logout()" ng-show="isAuth"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+		<li><a ng-click="goToDashboard()" ng-show="isAuth" >{{ "dashboard" | translate }}</a></li>
+		<li><a ng-click="goToProfile()" ng-show="isAuth && !isAdmin" >{{ "profile" | translate }}</a></li>
+		<li><a ng-click="goToMentors()">{{ "mentors" | translate }}</a></li>
+		<li><a ng-click="goToSuggestMentor()">{{ "suggest_mentor" | translate }}</a></li>
+		<li><a ng-click="goToLogin()" ng-show="!isAuth"><span class="glyphicon glyphicon-log-in"></span> {{ "login" | translate }}</a></li>
+		<li><a ng-click="logout()" ng-show="isAuth"><span class="glyphicon glyphicon-log-out"></span>{{ "logout" | translate }}</a></li>
 	</ul>
 </div>
