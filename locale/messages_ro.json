@@ -66,5 +66,9 @@
   "logout" : "Deconectare",
   "mentors" : "Mentori",
   "dashboard" : "Dashboard",
-  "submit" : "Submit"
+  "submit" : "Submit",
+  "password" : "Parolă",
+  "confirm_password" : "Confirmă parolă",
+  "about_yourself" : "Despre tine..."
+
 }
