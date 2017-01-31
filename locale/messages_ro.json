@@ -9,18 +9,18 @@
   "password.too_short" : "Parola este prea scurtă! Vă rugăm introduceți o parolă de minim 8 caractere.",
   "password_confirmation.confirmation" : "Parolele nu corespund! Vă rugăm repetați parola de mai sus.",
   "first_name.blank" : "Câmpul prenume este obligatoriu! Vă rugăm să completați cu prenumele dumneavoastră.",
-  "first_name.too_long" : "Prenumele dumeavoastră nu poate avea mai mult de 50 de caractere!",
+  "first_name.too_long" : "Prenumele dumneavoastră nu poate avea mai mult de 50 de caractere!",
   "last_name.blank" : "Câmpul nume este obligatoriu! Vă rugăm să completați cu numele dumneavoastră.",
-  "last_name.too_long" : "Numele dumeavoastră nu poate conține mai mult de 50 de caractere!",
+  "last_name.too_long" : "Numele dumneavoastră nu poate conține mai mult de 50 de caractere!",
   "phone_number.blank" : "Câmpul număr de telefon este obligatoriu! Vă rugăm să completați cu numărul dumneavoastră de telefon.",
   "city.blank" : "Câmpul oraș este obligatoriu! Vă rugăm să menționați orașul în care locuiți.",
   "description.blank" : "Câmpul descriere este obligatoriu! Vă rugăm adăugați o scurtă descriere.",
   "description.too_long" : "Descrierea este prea lungă! Vă rugăm adăugați o descriere de maxim 500 de caractere.",
-  "skills.blank" : "Această informație este obligatorie! Vă rugăm adaugați cel puțin un skill.",
+  "skills.blank" : "Această informație este obligatorie! Vă rugăm adaugați cel puțin o aptitudine.",
   "name.blank" : "Câmpul nume este obligatoriu! Vă rugăm să completați cu numele organizației pe care o reprezentați.",
-  "asignee.blank" : "Câmpul asignat este obligatoriu! Vă rugăm să completați cu numele și prenumele dumneavoastră.",
+  "asignee.blank" : "Câmpul responsabil este obligatoriu! Vă rugăm să completați cu numele și prenumele dumneavoastră.",
   "mentor_id.blank" : "Câmpul id mentor este obligatoriu! Vă rugăm să completați cu id-ul mentorului.",
-  "organization_id.blank" : "Câmpul id organizatie este obligatoriu! Vă rugăm să completați cu id-ul organizației.",
+  "organization_id.blank" : "Câmpul id organizație este obligatoriu! Vă rugăm să completați cu id-ul organizației.",
   "context_already_exists" : "Acest context există deja!",
   "session.invalid" : "E-mail sau/și parolă greșite!",
   "create_account" : "Creare cont",
@@ -69,6 +69,8 @@
   "submit" : "Submit",
   "password" : "Parolă",
   "confirm_password" : "Confirmă parolă",
-  "about_yourself" : "Despre tine..."
-
+  "about_yourself" : "Despre tine...",
+  "status" : "Status",
+  "motivation" : "Motivare..."
 }
+ 

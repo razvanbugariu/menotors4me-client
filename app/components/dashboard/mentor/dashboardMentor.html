@@ -19,7 +19,7 @@
       <H3>{{ "events" | translate }}</H3>
         <ul class="nav flex-item">
           <li class="active li-dsh" ng-click="goToDetails(context)" ng-repeat="context in accRejContexts" >
-            <p>{{context.description}} <span style="float: right">Status: {{context.status}}</span></p>
+            <p>{{context.description}} <span style="float: right">{{ "status" | translate }}: {{context.status}}</span></p>
              <div class='nav-divider'></div>
           </li>
         </ul>
