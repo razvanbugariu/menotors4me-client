@@ -12,7 +12,7 @@ angular
       controller : 'mentorController'
     })
     .when('/mentors/:mentorId', {
-      templateUrl : 'app/components/mentor/mentordetails.html',
+      templateUrl : 'app/components/mentor/mentor-details.html',
       controller : 'mentorDetailsController',
     })
     .when('/organizations/:organizationId', {
