@@ -19,8 +19,8 @@ function mentorProposalController($scope, $location, mentorService, Constants, c
 	}
 
 	function handleProposalSuccess(response){
-		growl.info("Mentorul a fost recomandat cu suces");
 		$location.path(Constants.HOME);
+		growl.info("Mentorul a fost recomandat cu succes");
 	}
 
 	function handleErrors(responseError){
