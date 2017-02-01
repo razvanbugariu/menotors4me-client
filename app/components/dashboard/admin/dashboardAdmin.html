@@ -26,7 +26,7 @@
           	<li class="active li-dsh wrap-style-dsh" ng-repeat="mentor in mentors">
               <label>{{ "email" | translate }}:</label>
               <span> {{mentor.email}}</span><br/>
-              <label>Description:</label>
+              <label>{{ "description" | translate }}:</label>
                 <span> {{mentor.first_name}} {{mentor.last_name}}</span><br/>
                 <button type="button" class="btn btn-default btn-sm " ng-click="deleteMentor(mentor.id)">
                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
@@ -40,9 +40,9 @@
     		<H3 class="text-center">{{ "active_organizations" | translate }}</H3>
         <ul class="nav flex-item">
           <li class="active li-dsh wrap-style-dsh" ng-repeat="organization in organizations">
-            <label>Assignee:</label>
+            <label>{{ "assignee" | translate }}:</label>
             <span> {{organization.asignee}}</span><br/>
-            <label>Organization name:</label>
+            <label>{{ "organisation_name" | translate }}:</label>
               <span> {{organization.name}}</span><br/>
               <button type="button" class="btn btn-default btn-sm " ng-click="deleteOrganization(organization.id)">
                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
