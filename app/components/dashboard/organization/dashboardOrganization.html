@@ -3,7 +3,7 @@
  dashboard-futureEvents sidebar-offcanvas"
       id="sidebar" role="navigation"   style="float:left">
       <div class="well sidebar-nav">
-      <H3>Pending Events</H3>
+      <H3>{{ "pending_events" | translate }}</H3>
         <ul class="nav flex-item">
           <li class="active li-dsh" ng-repeat="context in pendingContexts">
               <h4>{{context.description}}</h4>
@@ -14,7 +14,7 @@
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 dashboard-requests sidebar-offcanvas" id="sidebar" role="navigation"   style="float:left">
       <div class="well sidebar-nav">
-      <H3>Incoming Events</H3>
+      <H3>{{ "incoming_events" | translate }}</H3>
         <ul class="nav flex-item">
           <li class="active li-dsh" ng-repeat="context in acceptedContexts" ng-click="goToDetails(context)">
             <h4>{{context.description}}</h4>

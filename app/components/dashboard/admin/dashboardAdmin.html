@@ -1,14 +1,14 @@
 <div class="row flex-container">
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4
- dashboard-futureEvents sidebar-offcanvas"
-      id="sidebar" role="navigation"   style="float:left">
+ sidebar-offcanvas"
+      id="sidebar" role="navigation">
     	<div class="well sidebar-nav">
-    		<H3>Pending Request</H3>
+    		<H3 class="text-center">{{ "approval_requests" | translate }}</H3>
         	<ul class="nav flex-item">
-          		<li ng-repeat="proposal in proposals "  class="active li-dsh" style="font-weight:normal ">
-          			<label style="font-weight:normal">Mail:</label>
+          		<li ng-repeat="proposal in proposals "  class="active li-dsh wrap-style-dsh">
+          			<label>{{ "email" | translate }}:</label>
           			<span> {{proposal.email}}</span><br/>
-          			<label style="font-weight:normal">Description:</label>
+          			<label>{{ "description" | translate }}:</label>
           	  		<span> {{proposal.description}}</span><br/>
 	          		<button type="button" class="btn btn-default btn-sm " ng-click="approveMentor(proposal)">
 	          		<span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
@@ -19,12 +19,12 @@
         	</ul>
     	</div>
     </div>
-    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 dashboard-requests sidebar-offcanvas" id="sidebar" role="navigation"   style="float:left">
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 sidebar-offcanvas" id="sidebar" role="navigation"   style="float:left">
     	<div class="well sidebar-nav">
-    		<H3>Active Mentors</H3>
+    		<H3 class="text-center">{{ "active_mentors" | translate }}</H3>
         	<ul class="nav flex-item">
-          	<li class="active" ng-repeat="mentor in mentors">
-              <label>Mail:</label>
+          	<li class="active li-dsh wrap-style-dsh" ng-repeat="mentor in mentors">
+              <label>{{ "email" | translate }}:</label>
               <span> {{mentor.email}}</span><br/>
               <label>Description:</label>
                 <span> {{mentor.first_name}} {{mentor.last_name}}</span><br/>
@@ -35,11 +35,11 @@
           </ul>
 	    </div>
     </div>
-    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 dashboard-futureEvents sidebar-offcanvas" id="sidebar" role="navigation"   style="float:left">
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 sidebar-offcanvas " id="sidebar" role="navigation"   style="float:left">
     	<div class="well sidebar-nav">
-    		<H3>Active Organisations</H3>
+    		<H3 class="text-center">{{ "active_organizations" | translate }}</H3>
         <ul class="nav flex-item">
-          <li class="active" ng-repeat="organization in organizations">
+          <li class="active li-dsh wrap-style-dsh" ng-repeat="organization in organizations">
             <label>Assignee:</label>
             <span> {{organization.asignee}}</span><br/>
             <label>Organization name:</label>

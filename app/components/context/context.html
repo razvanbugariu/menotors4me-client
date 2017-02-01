@@ -4,7 +4,7 @@
           <div class="panel-heading">
               {{currentContext.description}}
             </br>
-            <div>Click <span class="btn-link" ng-click="goToMentorDetails()" >here</span> for mentor details</div>
+            <div>{{ "click" | translate }} <span class="btn-link" ng-click="goToMentorDetails()" >{{ "here" | translate }}</span> {{ "unauthorized" | translate }}</div>
           </div>
 
           <div class="panel-body">
@@ -19,7 +19,7 @@
                  <div class="input-group">
                   <input type="text" class="form-control" ng-model="inputMessage">
                   <span class="input-group-btn">
-                    <button class="btn btn-default" type="button" ng-click="sendMessage()">Send</button>
+                    <button class="btn btn-default" type="button" ng-click="sendMessage()">{{ "send" | translate }}</button>
                   </span>
                 </div>
             </div>
