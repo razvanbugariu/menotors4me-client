@@ -32,15 +32,15 @@
   "invitation" : "Invitație",
   "send" : "Trimite",
   "view_details" : "Vizualizare detalii",
-  "mentor_details" : "Detalii Mentor", 
+  "mentor_details" : "Detalii Mentor",
   "name" : "Nume",
   "send_message" : "Trimite mesaj",
   "send_invitation" : "Trimite invitație",
   "edit" : "Editează",
-  "email" : "E-mail", 
+  "email" : "E-mail",
   "skills" : "Aptitudini",
   "propose_mentor" : "Propune un Mentor",
-  "save" : "Salvează", 
+  "save" : "Salvează",
   "approve" : "Acceptă",
   "decline" : "Refuză",
   "description" : "Descriere",
@@ -50,7 +50,7 @@
   "sign_in" : "Înregistrare",
   "assignee" : "Responsabil",
   "organisation_name" : "Nume organizație",
-  "events" : "Evenimente",  
+  "events" : "Evenimente",
   "profile" : "Profil",
   "edit_profile" : "Editează Profil",
   "first_name" : "Prenume",
@@ -71,6 +71,7 @@
   "confirm_password" : "Confirmă parolă",
   "about_yourself" : "Despre tine...",
   "status" : "Status",
-  "motivation" : "Motivare..."
+  "motivation" : "Motivare...",
+  "forMentorDetails" : "pentru detalii despre mentor."
 }
- 
+
