@@ -57,7 +57,6 @@
   "last_name" : "Nume",
   "city" : "Oraș",
   "phone_number" : "Număr de Telefon",
-  "name" : "Nume",
   "home" : "Acasă",
   "about" : "Despre",
   "contact" : "Contact",
@@ -72,6 +71,8 @@
   "about_yourself" : "Despre tine...",
   "status" : "Status",
   "motivation" : "Motivare...",
-  "forMentorDetails" : "pentru detalii despre mentor."
+  "forMentorDetails" : " pentru detalii despre mentor.",
+  "address" : "Adresă",
+  "small_description" : "Scurtă descriere..."
 }
 
