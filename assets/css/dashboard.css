@@ -1,0 +1,53 @@
+.content {
+  background: #fff;
+  padding: 0px;
+  border: 1px solid #dee2e2;
+  border-radius: 3px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+@media (max-width: 768px) {
+  .content {
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+ }
+
+.tab-content {
+  padding: 10px;
+}
+
+.chat {
+  cursor: pointer;
+}
+.nav {
+  overflow-y: hidden;
+  border: 0;
+}
+
+.nav-tabs > li {
+  border: 0;
+  width: 50%;
+  text-align: center;
+}
+
+.nav-tabs > li > a {
+  border: 0;
+  background-color: #fff;
+  font-size: 1.2em;
+  font-weight: 300;
+  color: #95a5a6;
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li > a:hover,
+.nav-tabs > li > a:focus,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  border: 0;
+  color: #3498db;
+  border-bottom: 4px solid #3498db;
+  background-color: #fff;
+  padding-bottom: 6px;
+}
