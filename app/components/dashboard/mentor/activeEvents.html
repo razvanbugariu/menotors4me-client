@@ -1,0 +1,22 @@
+<div class="tab-content">
+  <table class="table table-hover text-ellipsis">
+    <thead>
+      <tr>
+        <th class="col-lg-4 col-md-4 col-sm-4">{{ "email" | translate }}</th>
+        <th>{{ "description" | translate }}</th>
+        <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center">{{ "status" | translate }}</th>
+        <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center">{{ "actions" | translate }}</th>
+      </tr>
+    </thead>
+    <tbody ng-repeat="context in accRejContexts">
+      <tr>
+        <td class="col-lg-4 col-md-4 col-sm-4 wrap-text">{{context.organization_email}}</td>
+        <td>{{context.description}}</td>
+        <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center">{{ context.status | translate }}</td>
+        <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center" ng-click="goToDetails(context)">
+          <img class="chat" src="http://iconshow.me/media/images/ui/ios7-icons/png/512/chatbubble-working.png" alt="" style="width:20px; height:auto;">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
