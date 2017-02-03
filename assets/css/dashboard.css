@@ -32,6 +32,12 @@
   text-align: center;
 }
 
+.admin .nav-tabs > li {
+  border: 0;
+  width: 33%;
+  text-align: center;
+}
+
 .nav-tabs > li > a {
   border: 0;
   background-color: #fff;

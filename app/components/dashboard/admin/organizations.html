@@ -1,0 +1,20 @@
+<div class="tab-content">
+  <table class="table table-hover text-ellipsis">
+    <thead>
+      <tr>
+        <th class="col-lg-4 col-md-4 col-sm-4">{{ "email" | translate }}</th>
+        <th>{{ "description" | translate }}</th>
+        <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center">{{ "actions" | translate }}</th>
+      </tr>
+    </thead>
+    <tbody ng-repeat="organization in organizations">
+      <tr>
+        <td class="col-lg-4 col-md-4 col-sm-4 wrap-text">{{organization.email}}</td>
+        <td>{{organization.description}}</td>
+        <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center">
+          <span class="glyphicon glyphicon-remove" aria-hidden="true" title="{{ 'decline' | translate }}" ng-click="deleteOrganization(organization.id)"></span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
