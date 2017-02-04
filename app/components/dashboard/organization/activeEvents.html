@@ -1,4 +1,4 @@
-<div class="tab-content">
+<div class="tab-content table-responsive">
   <table class="table table-hover text-ellipsis">
     <thead>
       <tr>
@@ -7,8 +7,8 @@
         <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center">{{ "actions" | translate }}</th>
       </tr>
     </thead>
-    <tbody ng-repeat="context in acceptedContexts">
-      <tr>
+    <tbody>
+      <tr ng-repeat="context in acceptedContexts">
         <td class="col-lg-4 col-md-4 col-sm-4 wrap-text">{{context.mentor_email}}</td>
         <td>{{context.description}}</td>
         <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center">

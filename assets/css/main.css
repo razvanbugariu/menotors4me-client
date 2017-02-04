@@ -69,3 +69,11 @@ a, li {
   overflow: hidden;
   white-space: nowrap;
 }
+
+.table-striped > tbody > tr:nth-child(odd) > td {
+    background-color: #ffffff;
+}
+
+.table-striped > tbody > tr:nth-child(even) > td {
+    background-color: #ecf0f1;
+}
