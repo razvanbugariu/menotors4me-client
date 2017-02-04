@@ -27,8 +27,6 @@ body{
   height:100vh;
   margin-top: 10px;
   align-self: auto;
-
-  /* line-height: 50px;*/
   color: black;
   font-weight: normal;
   font-size: 1.2em;
@@ -71,9 +69,13 @@ a, li {
 }
 
 .table-striped > tbody > tr:nth-child(odd) > td {
-    background-color: #ffffff;
+  background-color: #ffffff;
 }
 
 .table-striped > tbody > tr:nth-child(even) > td {
-    background-color: #ecf0f1;
+  background-color: #ecf0f1;
+}
+
+.table-responsive>.table>tbody>tr>td:nth-child(2) {
+  white-space:normal;
 }
