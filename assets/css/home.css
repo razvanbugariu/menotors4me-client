@@ -3,40 +3,47 @@ html, body {
   margin: 0;
   padding: 0;
 }
+
 body{
-	padding-top: 60px;
-	padding-bottom: 60px;
-	padding-left: 10px;
-	padding-right: 10px;
-  	display: grid;
-  	grid-template-rows: 150px auto 100px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: grid;
+  grid-template-rows: 150px auto 100px;
 }
+
 .main-content {
-	margin: 0;
-	text-align: center;
+  margin: 0;
+  text-align: center;
 }
+
 .main-content-about p {
-	font-size: 100%;
-	font-family: Helvetica;
-	font-style: bold;
-	font-weight: 20px;
-	padding: 20px;
+  font-size: 100%;
+  font-family: Helvetica;
+  font-style: bold;
+  font-weight: 20px;
+  padding: 20px;
 }
 .col-centered{
-    float: none;
-    margin: 0 auto;
+  float: none;
+  margin: 0 auto;
 }
-#content-paragraf{
-	font-style:italic;
-	font-size: 3vmin;
+
+.content-paragraf{
+  font-style:italic;
+  font-size: 1.4em;
+  text-align: justify;
 }
+
 .main-content h1 {
-	font-size: 5.0vw;
+  font-size: 5.0vw;
 }
+
 .nav {
-    /*height: 100vh;*/
-    overflow-y:scroll; 
+  overflow-y:scroll;
 }
+
 .margins {
-	margin-right: 20px;
+  margin-right: 20px;
 }

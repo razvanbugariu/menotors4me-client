@@ -1,31 +1,10 @@
-<div class="row flex-container">
- <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6
- dashboard-futureEvents sidebar-offcanvas"
-      id="sidebar" role="navigation"   style="float:left">
-      <div class="well sidebar-nav">
-      <H3>{{ "pending_events" | translate }}</H3>
-        <ul class="nav flex-item">
-          <li class="active li-dsh" ng-repeat="context in pendingContexts">
-              <h4>{{context.description}}</h4>
-              <div class='nav-divider'></div>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 dashboard-requests sidebar-offcanvas" id="sidebar" role="navigation"   style="float:left">
-      <div class="well sidebar-nav">
-      <H3>{{ "incoming_events" | translate }}</H3>
-        <ul class="nav flex-item">
-          <li class="active li-dsh" ng-repeat="context in acceptedContexts" ng-click="goToDetails(context)">
-            <h4>{{context.description}}</h4>
-            <div class='nav-divider'></div>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <ul style="list-style-type: none;">
-      <li ng-repeat="error in errors">
-        <span class="errorMessage">{{ error | translate }}</span>
-      <li>
-    </ul>
+<div class="row">
+  <div class="content">
+    <uib-tabset active="active">
+      <uib-tab index="$index + 1" ng-repeat="tab in tabs" heading="{{tab.title}}" disable="tab.disabled">
+        <div ng-include="tab.templateUrl"></div>
+      </uib-tab>
+    </uib-tabset>
   </div>
+</div>
+

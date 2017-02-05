@@ -1,59 +1,9 @@
-<div class="row flex-container">
-    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4
- sidebar-offcanvas"
-      id="sidebar" role="navigation">
-    	<div class="well sidebar-nav">
-    		<H3 class="text-center">{{ "approval_requests" | translate }}</H3>
-        	<ul class="nav flex-item">
-          		<li ng-repeat="proposal in proposals "  class="active li-dsh wrap-style-dsh">
-          			<label>{{ "email" | translate }}:</label>
-          			<span> {{proposal.email}}</span><br/>
-          			<label>{{ "description" | translate }}:</label>
-          	  		<span> {{proposal.description}}</span><br/>
-	          		<button type="button" class="btn btn-default btn-sm " ng-click="approveMentor(proposal)">
-	          		<span class="glyphicon glyphicon-ok" aria-hidden="true"></span></button>
-	          		<button type="button" class="btn btn-default btn-sm " ng-click="rejectMentor(proposal)">
-	          		<span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-                <div class='nav-divider'></div>
-				      </li>
-        	</ul>
-    	</div>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 sidebar-offcanvas" id="sidebar" role="navigation"   style="float:left">
-    	<div class="well sidebar-nav">
-    		<H3 class="text-center">{{ "active_mentors" | translate }}</H3>
-        	<ul class="nav flex-item">
-          	<li class="active li-dsh wrap-style-dsh" ng-repeat="mentor in mentors">
-              <label>{{ "email" | translate }}:</label>
-              <span> {{mentor.email}}</span><br/>
-              <label>{{ "description" | translate }}:</label>
-                <span> {{mentor.first_name}} {{mentor.last_name}}</span><br/>
-                <button type="button" class="btn btn-default btn-sm " ng-click="deleteMentor(mentor.id)">
-                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-              <div class='nav-divider'></div>
-            </li>
-          </ul>
-	    </div>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 sidebar-offcanvas " id="sidebar" role="navigation"   style="float:left">
-    	<div class="well sidebar-nav">
-    		<H3 class="text-center">{{ "active_organizations" | translate }}</H3>
-        <ul class="nav flex-item">
-          <li class="active li-dsh wrap-style-dsh" ng-repeat="organization in organizations">
-            <label>{{ "assignee" | translate }}:</label>
-            <span> {{organization.asignee}}</span><br/>
-            <label>{{ "organisation_name" | translate }}:</label>
-              <span> {{organization.name}}</span><br/>
-              <button type="button" class="btn btn-default btn-sm " ng-click="deleteOrganization(organization.id)">
-                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-            <div class='nav-divider'></div>
-          </li>
-        </ul>
-      	</div>
-    </div>
-    <ul style="list-style-type: none;">
-      <li ng-repeat="error in errors">
-        <span class="errorMessage">{{ error | translate }}</span>
-      <li>
-    </ul>
+<div class="row">
+  <div class="content">
+    <uib-tabset active="active" class="admin">
+      <uib-tab index="$index + 1" ng-repeat="tab in tabs" heading="{{tab.title}}" disable="tab.disabled">
+        <div ng-include="tab.templateUrl"></div>
+      </uib-tab>
+    </uib-tabset>
+  </div>
 </div>
