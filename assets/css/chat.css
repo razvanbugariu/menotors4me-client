@@ -1,23 +1,68 @@
-.message-bubble
-{
-    padding: 10px 0px 10px 0px;
+.message-bubble {
+  padding: 0px 20px;
+  color: #34495e;
 }
 
-.message-bubble:nth-child(even) { background-color: #F5F5F5; }
-
-.message-bubble > *
-{
-    padding-left: 10px;
+.chat {
+  padding: 0;
 }
 
-.panel-body { padding: 0px; }
+.message-bubble > * {
+  padding-left: 10px;
+}
 
-.panel-heading { background-color: #3d6da7 !important; color: white !important; }
+
+.timestamp {
+  margin-left: 10px;
+  font-weight: 300;
+}
 
 .receiver{
-  float: left;
+ color: #2c3e50;
 }
 
 .sender{
-  float: right;
+  color: #2980b9;
 }
+
+.name {
+ padding-top: 10px;
+ font-size: 1em;
+ border-top: 1px solid #dee2e2;
+}
+
+.message {
+  margin-top: -10px;
+}
+
+@media (min-width: 1200px) {
+  .send-message {
+    width: 63.9%;
+  }
+
+  .message-bubble{
+    width: 63.9%;
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1199px) {
+  .send-message {
+    width: 80%;
+  }
+
+  .message-bubble{
+    width: 80%;
+  }
+}
+
+@media (min-width: 767px) and (max-width: 999px) {
+  .send-message {
+    width: 95.7%;
+  }
+
+  .message-bubble{
+    width: 95.7%;
+  }
+}
+
+
