@@ -1,61 +1,72 @@
 'use strict';
 
 angular
-	.module('mentors4me')
-	.controller('dashboardMentorController', dashboardMentorController);
+  .module('mentors4me')
+  .controller('dashboardMentorController', dashboardMentorController);
 
-function dashboardMentorController($scope, $location, dashboardMentorService, growl) {
+function dashboardMentorController($scope, $location, $translate, dashboardMentorService, growl) {
 
-	$scope.errors = [];
+  $scope.errors = [];
 
-	$scope.accRejContexts = [];
-	$scope.pendingContexts = [];
+  $scope.accRejContexts = [];
+  $scope.pendingContexts = [];
 
-	$scope.acceptContext = acceptContext;
-	$scope.declineContext = declineContext;
+  $scope.acceptContext = acceptContext;
+  $scope.declineContext = declineContext;
 
-	function acceptContext(contextId){
-		dashboardMentorService.acceptContext(contextId).then(handleAccDeclSuccess, handleErrors);
-	}
+  $scope.tabs = [
+    {
+      title: $translate.instant('events'),
+      templateUrl: 'app/components/dashboard/mentor/activeEvents.html'
+    },
+    {
+      title: $translate.instant('pending_events'),
+      templateUrl: 'app/components/dashboard/mentor/pendingEvents.html'
+    },
+  ];
 
-	function declineContext(contextId){
-		dashboardMentorService.declineContext(contextId).then(handleAccDeclSuccess, handleErrors);
-	}
+  function acceptContext(contextId){
+    dashboardMentorService.acceptContext(contextId).then(handleAccDeclSuccess, handleErrors);
+  }
 
-	function handleAccDeclSuccess(){
-		getPendingContexts();
-		getRejectedAndAcceptedContexts();
-	}
+  function declineContext(contextId){
+    dashboardMentorService.declineContext(contextId).then(handleAccDeclSuccess, handleErrors);
+  }
 
-	function getPendingContexts(){
-		dashboardMentorService.getPendingContexts().then(handleGetPendingCtxSuccess, handleErrors);
-	}
+  function handleAccDeclSuccess(){
+    getPendingContexts();
+    getRejectedAndAcceptedContexts();
+  }
 
-	function handleGetPendingCtxSuccess(response){
-		$scope.pendingContexts = response.data.data;
-	}
+  function getPendingContexts(){
+    dashboardMentorService.getPendingContexts().then(handleGetPendingCtxSuccess, handleErrors);
+  }
 
-	function getRejectedAndAcceptedContexts(){
-		dashboardMentorService.getAcceptedContexts().then(handleGetContextsSuccess, handleErrors);
-		dashboardMentorService.getRejectedContexts().then(handleGetContextsSuccess, handleErrors);
-	}
+  function handleGetPendingCtxSuccess(response){
+    $scope.pendingContexts = response.data.data;
+  }
 
-	function handleGetContextsSuccess(response){
-		$scope.accRejContexts = $scope.accRejContexts.concat(response.data.data);
-	}
+  function getRejectedAndAcceptedContexts(){
+    dashboardMentorService.getAcceptedContexts().then(handleGetContextsSuccess, handleErrors);
+    dashboardMentorService.getRejectedContexts().then(handleGetContextsSuccess, handleErrors);
+  }
 
-	function handleErrors(responseError){
-		$scope.errors = responseError.data.errors;
-	}
+  function handleGetContextsSuccess(response){
+    $scope.accRejContexts = $scope.accRejContexts.concat(response.data.data);
+  }
 
-	$scope.goToDetails = function (selectedContext){
-		if(selectedContext.status === 'accepted'){
-			$location.path("/contexts/" + selectedContext.id);
-		} else {
-			growl.error("Faceti click pe un context cu status: accepted!");
-		}
-	}
+  function handleErrors(responseError){
+    $scope.errors = responseError.data.errors;
+  }
 
-	getPendingContexts();
-	getRejectedAndAcceptedContexts();
+  $scope.goToDetails = function (selectedContext){
+    if(selectedContext.status === 'accepted'){
+      $location.path("/contexts/" + selectedContext.id);
+    } else {
+      growl.error("Faceti click pe un context cu status: accepted!");
+    }
+  }
+
+  getPendingContexts();
+  getRejectedAndAcceptedContexts();
 }

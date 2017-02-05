@@ -1,0 +1,22 @@
+<div class="tab-content table-responsive">
+  <table class="table table-striped text-ellipsis">
+    <thead>
+      <tr>
+        <th class="col-lg-4 col-md-4 col-sm-4">{{ "email" | translate }}</th>
+        <th>{{ "description" | translate }}</th>
+        <th class="col-lg-1 col-md-1 col-sm-1 col-xs-2 text-center">{{ "actions" | translate }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="proposal in proposals">
+        <td class="col-lg-4 col-md-4 col-sm-4 wrap-text">{{proposal.email}}</td>
+        <td class="col-xs-2">{{proposal.description}}</td>
+        <td class="col-lg-1 col-md-1 col-sm-1 col-xs-2 text-center">
+            <span class="glyphicon glyphicon-ok" aria-hidden="true" title="{{ 'approve' | translate }}" ng-click="approveMentor(proposal)" ></span> |
+            <span class="glyphicon glyphicon-remove" aria-hidden="true" title="{{ 'decline' | translate }}" ng-click="rejectMentor(proposal)"></span>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,3 +1,7 @@
+body{
+  background: #ecf0f1;
+}
+
 .errorMessage{
   color: red;
 }
@@ -23,24 +27,10 @@
   height:100vh;
   margin-top: 10px;
   align-self: auto;
-
-  /* line-height: 50px;*/
   color: black;
   font-weight: normal;
   font-size: 1.2em;
   text-align: center;
-}
-.button-style-dsh {
-	float:center;
-	margin-left:20%;
-}
-.wrap-style-dsh {
-    white-space: nowrap; 
-    overflow: hidden;
-    text-overflow: ellipsis; 
-}
-.li-dsh {
-  font-size: 2.2vmin;
 }
 
 .plus-sign{
@@ -55,4 +45,37 @@
   width: 20px;
   height: 20px;
   float : right;
+}
+
+a, li {
+  cursor: pointer;
+}
+
+.table.text-ellipsis {
+  table-layout:fixed;
+
+  td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.wrap-text {
+  max-width: 20%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.table-striped > tbody > tr:nth-child(odd) > td {
+  background-color: #ffffff;
+}
+
+.table-striped > tbody > tr:nth-child(even) > td {
+  background-color: #ecf0f1;
+}
+
+.table-responsive>.table>tbody>tr>td:nth-child(2) {
+  white-space:normal;
 }

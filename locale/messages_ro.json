@@ -27,7 +27,7 @@
   "approval_requests" : "Aprobare cereri",
   "active_mentors" : "Mentori activi",
   "active_organizations" : "Organizații active",
-  "pending_events" : "Evenimente în curs de aprobare",
+  "pending_events" : "Evenimente în așteptare",
   "incoming_events" : "Evenimente în curs de desfășurare",
   "invitation" : "Invitație",
   "send" : "Trimite",
@@ -74,5 +74,9 @@
   "forMentorDetails" : " pentru detalii despre mentor.",
   "address" : "Adresă",
   "small_description" : "Scurtă descriere..."
+  "actions": "Acțiuni",
+  "accepted": "Acceptat",
+  "rejected": "Refuzat",
+  "pending": "În așteptare"
 }
 
