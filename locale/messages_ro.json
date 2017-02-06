@@ -73,10 +73,9 @@
   "motivation" : "Motivare...",
   "forMentorDetails" : " pentru detalii despre mentor.",
   "address" : "Adresă",
-  "small_description" : "Scurtă descriere..."
+  "small_description" : "Scurtă descriere...",
   "actions": "Acțiuni",
   "accepted": "Acceptat",
   "rejected": "Refuzat",
   "pending": "În așteptare"
 }
-
