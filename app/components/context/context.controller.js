@@ -1,102 +1,118 @@
 'use strict';
 
 angular
-	.module('mentors4me')
-	.controller('contextController', contextController);
+  .module('mentors4me')
+  .controller('contextController', contextController);
 
 function contextController($scope, $routeParams, $rootScope, CHAT_EVENTS, ActionCableChannel, contextsService, authorizationService, $location, growl, $cookies, $window) {
 
-	var senderId;
-	var receiverId;
-	$scope.messages = [];
-	$scope.isSender;
-	$scope.goToMentorDetails = goToMentorDetails;
+  var senderId;
+  var receiverId;
+  $scope.messages = [];
+  $scope.goToMentorDetails = goToMentorDetails;
 
-	console.log($location.$$path);
+  console.log($location.$$path);
 
-	var consumer = new ActionCableChannel("ChatChannel", {context_id: $routeParams.id})
+  var consumer = new ActionCableChannel("ChatChannel", {
+    context_id: $routeParams.id
+  })
 
-	consumer.subscribe(function(messages){
-			  if($scope.messages.length === 0){
-					addToMessages(JSON.parse(messages));
-				} else {
-					if(JSON.parse(messages).length === 1){
-						addToMessages(JSON.parse(messages));
-					}
-				}
-		 });
+  consumer.subscribe(function(messages) {
+    if ($scope.messages.length === 0) {
+      addToMessages(JSON.parse(messages));
+    } else {
+      if (JSON.parse(messages).length === 1) {
+        addToMessages(JSON.parse(messages));
+      }
+    }
+  });
 
-  function addToMessages(messages){
-		var i;
-		for(i = 0; i < messages.length ; i++){
-			$scope.messages.push(messages[i]);
-		}
-	}
+  $scope.isSender  = function isSender(message){
+    var response = (message.sender_id == senderId ? "sender" : "receiver");
+    return response;
+  }
 
-	$scope.sendMessage = function(){
-		var object = {
-			sender_id: senderId,
-			receiver_id: receiverId,
-			message: $scope.inputMessage
-		};
-		consumer.send(object);
-		$scope.inputMessage = "";
-	}
+  function addToMessages(messages) {
+    var i;
+    for (i = 0; i < messages.length; i++) {
+      if($scope.messages.length > 0) {
+        var lastMessage = $scope.messages[$scope.messages.length -1]
+        if(lastMessage.sender_id == messages[i].sender_id){
+          if((new Date(messages[i].sent_at) - new Date(lastMessage.sent_at)) < 100000){
+            messages[i].sender=false;
+          }
+        }
+      }
+      $scope.messages.push(messages[i]);
+    }
+  }
 
-	function getCurrentContext(){
-		contextsService.getContextById($routeParams.id).then(handleGetCurrentContextSuccess,handleErrors);
-	}
+  $scope.sendMessage = function() {
+    var object = {
+      sender_id: senderId,
+      receiver_id: receiverId,
+      message: $scope.inputMessage
+    };
+    consumer.send(object);
+    $scope.inputMessage = "";
+  }
 
-	function handleGetCurrentContextSuccess(response){
-		$scope.currentContext = response.data.data;
-		decideSenderAndReceiver();
-	}
+  function getCurrentContext() {
+    contextsService.getContextById($routeParams.id).then(handleGetCurrentContextSuccess, handleErrors);
+  }
 
-	function handleErrors(responseError){
-		$scope.errors = responseError.data.errors;
-	}
+  function handleGetCurrentContextSuccess(response) {
+    $scope.currentContext = response.data.data;
+    decideSenderAndReceiver();
+  }
 
-	function decideSenderAndReceiver(){
-		if(authorizationService.isMentor()){
-			senderId = $scope.currentContext.mentor_id;
-			receiverId = $scope.currentContext.organization_id;
-		} else {
-			senderId = $scope.currentContext.organization_id;
-			receiverId = $scope.currentContext.mentor_id;
-		}
-	}
+  function handleErrors(responseError) {
+    $scope.errors = responseError.data.errors;
+  }
 
-	function goToMentorDetails(){
-		$location.path("/mentors/" + $scope.currentContext.mentor_id);
-	}
+  function decideSenderAndReceiver() {
+    if (authorizationService.isMentor()) {
+      senderId = $scope.currentContext.mentor_id;
+      receiverId = $scope.currentContext.organization_id;
+    } else {
+      senderId = $scope.currentContext.organization_id;
+      receiverId = $scope.currentContext.mentor_id;
+    }
+  }
 
-	function isEligible(){
-			contextsService.getContexts().then(checkIsEligible, handleErrors)
-	}
+  function goToMentorDetails() {
+    $location.path("/mentors/" + $scope.currentContext.mentor_id);
+  }
 
-	function checkIsEligible(response){
-		var acceptedContexts = [];
-		acceptedContexts = response.data.data;
-		if(checkContext(acceptedContexts)){
-			growl.error("No Auth");
-			$window.history.back();
-		}
-	}
+  function isEligible() {
+    contextsService.getContexts().then(checkIsEligible, handleErrors)
+  }
 
-	function checkContext(contexts){
-		for(var i = 0 ; i < contexts.length ; i++){
-			if(contexts[i].id === $scope.currentContext.id){
-				return false;
-			}
-		}
-		return true;
-	}
+  function checkIsEligible(response) {
+    var acceptedContexts = [];
+    acceptedContexts = response.data.data;
+    if (checkContext(acceptedContexts)) {
+      growl.error("No Auth");
+      $window.history.back();
+    }
+  }
 
-	$scope.$on('$locationChangeStart', function( event ) {
-		consumer.unsubscribe().then(function (){console.log("Unsubcribe successfull")});
-});
+  function checkContext(contexts) {
+    for (var i = 0; i < contexts.length; i++) {
+      if (contexts[i].id === $scope.currentContext.id) {
+        return false;
+      }
+    }
+    return true;
+  }
 
-	getCurrentContext();
-	isEligible();
+  $scope.$on('$locationChangeStart', function(event) {
+    consumer.unsubscribe().then(function() {
+      console.log("Unsubcribe successfull")
+    });
+  });
+
+  getCurrentContext();
+  isEligible();
 
 }

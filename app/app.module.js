@@ -6,6 +6,7 @@ angular.module('mentors4me',[
   'pascalprecht.translate',
   'angular-growl',
   'ngActionCable',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'luegg.directives'
   ]
 );
