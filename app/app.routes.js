@@ -3,9 +3,7 @@
 angular
   .module('mentors4me')
   .config(function($routeProvider, $locationProvider, USER_ROLES){
-    $locationProvider.html5Mode({
-    enabled:true
-    });
+    $locationProvider.hashPrefix('');
     $routeProvider.when('/home', {
       templateUrl : 'app/components/home/home.html',
       controller : 'homeController'
