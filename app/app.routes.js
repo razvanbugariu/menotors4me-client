@@ -2,7 +2,10 @@
 
 angular
   .module('mentors4me')
-  .config(function($routeProvider, USER_ROLES){
+  .config(function($routeProvider, $locationProvider, USER_ROLES){
+    $locationProvider.html5Mode({
+    enabled:true
+    });
     $routeProvider.when('/home', {
       templateUrl : 'app/components/home/home.html',
       controller : 'homeController'
