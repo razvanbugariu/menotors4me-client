@@ -13,11 +13,11 @@
               <table class="table table-mentor-information">
                 <tbody>
                   <tr>
-                     <textarea name="address" placeholder="Address..."
+                     <textarea name="address" placeholder="{{ 'address' | translate }}"
                      class="form-control input-lg"  style=" border: 0px"  id="form-about-yourself" ng-model="invitation.address" ></textarea>
                    </tr>
                    <tr>
-                     <input name="topic" placeholder="Small description" required class="form-control input-lg"  style=" border: 0px" ng-model="invitation.description" />
+                     <input name="topic" placeholder="{{ 'small_description' | translate }}" required class="form-control input-lg"  style=" border: 0px" ng-model="invitation.description" />
                    </tr>
                    <tr><br/></tr>
                 </tbody>

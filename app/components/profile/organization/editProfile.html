@@ -18,30 +18,30 @@
                 <tbody>
                   <tr>
                   <label>{{ "email" | translate }}</label>
-                  <input name="email" placeholder="Email" required class="form-control input-lg input-profile-res" ng-model="currentUser.email" />
+                  <input name="email" placeholder="{{ 'email' | translate }}" required class="form-control input-lg input-profile-res" ng-model="currentUser.email" />
                  </tr>
                  <tr>
                  <label>{{ "assignee" | translate }}</label>
-                   <input name="asignee" placeholder="Name" required class="form-control input-lg input-profile-res" ng-model="currentUser.asignee" />
+                   <input name="asignee" placeholder="{{ 'assignee' | translate }}" required class="form-control input-lg input-profile-res" ng-model="currentUser.asignee" />
                  </tr>
                   <tr>
                   <label>{{ "organisation_name" | translate }}</label>
-                  <input name="name" placeholder="Organization Name" required class="form-control input-lg input-profile-res" ng-model="currentUser.name" />
+                  <input name="name" placeholder="{{ 'organisation_name' | translate }}" required class="form-control input-lg input-profile-res" ng-model="currentUser.name" />
                  </tr>
                  <tr>
                  <label>{{ "city" | translate }}</label>
-                   <input name="city" placeholder="City" required class="form-control input-lg input-profile-res" ng-model="currentUser.city" />
+                   <input name="city" placeholder="{{ 'city' | translate }}" required class="form-control input-lg input-profile-res" ng-model="currentUser.city" />
                 </tr>
                 <tr>
                 <label>{{ "description" | translate }}</label>
-                  <textarea name="form-about-yourself" placeholder="About yourself..."
+                  <textarea name="form-about-yourself" placeholder="{{ 'about_yourself' | translate }}"
                   class="form-control input-lg input-profile-res" id="form-about-yourself" ng-model="currentUser.description" ></textarea>
                 </tr>
               </tbody>
             </table>
             <!-- End of mentor details -->
             <div style="text-align:center">
-            <a ng-click="updateOrganization()" class="btn btn-primary"> Save </a>
+            <a ng-click="updateOrganization()" class="btn btn-primary"> {{ "save" | translate }} </a>
             </div>
             <ul style="list-style-type: none;">
           		<li ng-repeat="error in errors">
