@@ -7,8 +7,8 @@
           </br>
           <div>{{ "click" | translate }} <span class="btn-link" ng-click="goToMentorDetails()" >{{ "here" | translate }}</span> {{ "forMentorDetails" | translate }}</div>
         </div>
-        <div class="panel-body chat">
-          <div class="chat container">
+        <div class="panel-body chat chat-panel">
+          <div class="chat container" scroll-glue>
             <div ng-repeat="message in messages">
               <div class="row message-bubble" >
                 <p class="name" ng-if="message.sender" ng-class="isSender(message)">
@@ -20,12 +20,14 @@
               </div>
             </div>
             <div class="send-message panel-footer">
-              <div class="input-group">
-                <input type="text" class="form-control" ng-model="inputMessage">
-                <span class="input-group-btn">
-                  <button class="btn btn-default" type="button" ng-click="sendMessage()">{{ "send" | translate }}</button>
-                </span>
-              </div>
+              <form class= "chat-form" ng-submit="sendMessage()">
+                <div class="input-group">
+                  <input type="text" class="form-control" id="chat-input" ng-model="inputMessage">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" id="send-message" type="button" ng-click="sendMessage()">{{ "send" | translate }}</button>
+                  </span>
+                </div>
+              </form>
             </div>
           </div>
         </div>
