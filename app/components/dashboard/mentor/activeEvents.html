@@ -13,8 +13,8 @@
         <td class="col-lg-4 col-md-4 col-sm-4 wrap-text">{{context.organization_email}}</td>
         <td>{{context.description}}</td>
         <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center">{{ context.status | translate }}</td>
-        <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center" ng-click="goToDetails(context)">
-          <img class="chat" src="http://iconshow.me/media/images/ui/ios7-icons/png/512/chatbubble-working.png" alt="" style="width:20px; height:auto;">
+        <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center">
+          <span class="glyphicon glyphicon-comment" aria-hidden="true" ng-click="goToDetails(context)"></span>
         </td>
       </tr>
     </tbody>

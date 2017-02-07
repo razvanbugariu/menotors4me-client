@@ -1,34 +1,42 @@
 <div class="container">
-    <div class="row">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-              {{currentContext.description}}
-            </br>
-            <div>{{ "click" | translate }} <span class="btn-link" ng-click="goToMentorDetails()" >{{ "here" | translate }}</span> {{ "forMentorDetails" | translate }}</div>
-          </div>
-
-          <div class="panel-body">
-            <div class="container">
-                <div class="row message-bubble" ng-repeat="message in messages">
-                    <p class="text-muted">{{message.sender}}</p>
-                     <small class="text-muted" >
-                     <span class="glyphicon glyphicon-time" style="float: right"></span>{{message.sent_at}}</small>
-                    <p>{{message.message}}</p>
-                </div>
-            <div class="panel-footer">
-                 <div class="input-group">
-                  <input type="text" class="form-control" ng-model="inputMessage">
+  <div class="row">
+    <div class=" col-md-offset-1 col-lg-offset-2 col-lg-8 col-md-10 col-sm-12 col-xs-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          {{currentContext.description}}
+          </br>
+          <div>{{ "click" | translate }} <span class="btn-link" ng-click="goToMentorDetails()" >{{ "here" | translate }}</span> {{ "forMentorDetails" | translate }}</div>
+        </div>
+        <div class="panel-body chat chat-panel">
+          <div class="chat container" scroll-glue>
+            <div ng-repeat="message in messages">
+              <div class="row message-bubble" >
+                <p class="name" ng-if="message.sender" ng-class="isSender(message)">
+                  <span>{{message.sender}}
+                    <small class="text-muted timestamp">{{message.sent_at}}</small>
+                  </span>
+                </p>
+                <p class="message">{{message.message}}</p>
+              </div>
+            </div>
+            <div class="send-message panel-footer">
+              <form class= "chat-form" ng-submit="sendMessage()">
+                <div class="input-group">
+                  <input type="text" class="form-control" id="chat-input" ng-model="inputMessage">
                   <span class="input-group-btn">
-                    <button class="btn btn-default" type="button" ng-click="sendMessage()">{{ "send" | translate }}</button>
+                    <button class="btn btn-default" id="send-message" type="button" ng-click="sendMessage()">{{ "send" | translate }}</button>
                   </span>
                 </div>
+              </form>
             </div>
           </div>
         </div>
+      </div>
     </div>
     <ul style="list-style-type: none;">
       <li ng-repeat="error in errors">
         <span class="errorMessage">{{ error | translate }}</span>
-      <li>
+      </li>
     </ul>
+  </div>
 </div>

@@ -2,7 +2,8 @@
 
 angular
   .module('mentors4me')
-  .config(function($routeProvider, USER_ROLES){
+  .config(function($routeProvider, $locationProvider, USER_ROLES){
+    $locationProvider.hashPrefix('');
     $routeProvider.when('/home', {
       templateUrl : 'app/components/home/home.html',
       controller : 'homeController'
