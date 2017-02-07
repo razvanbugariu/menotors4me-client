@@ -7,6 +7,7 @@ angular.module('mentors4me',[
   'angular-growl',
   'ngActionCable',
   'ui.bootstrap',
-  'luegg.directives'
+  'luegg.directives',
+  'multipleSelect'
   ]
 );
