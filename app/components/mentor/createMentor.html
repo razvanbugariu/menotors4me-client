@@ -1,40 +1,29 @@
-<div>
-  <section class="container">
-    <div class="col-md-offset-2 col-lg-offset-2 col-md-8 col-lg-8">
-      <section class="create-mentor-form">
-        <form role="form" ng-submit="register()">
-          <label>{{ "email" | translate }}</label>
-          <input type="email" name="email" placeholder="{{ 'email' | translate }}" required class="form-control input-lg" ng-model="user.email" />
-          <label>{{ "first_name" | translate }}</label>
-          <input name="name"  placeholder="{{ 'first_name' | translate }}" required class="form-control input-lg" ng-model="user.first_name" />
-          <label>{{ "last_name" | translate }}</label>
-          <input name="surname" placeholder="{{ 'last_name' | translate }}" required class="form-control input-lg" ng-model="user.last_name" />
-          <label>{{ "city" | translate }}</label>
-          <input name="city" placeholder="{{ 'city' | translate }}" required class="form-control input-lg" ng-model="user.city" />
-          <label>{{ "password" | translate }}</label>
-          <input type="password" name="password" placeholder="{{ 'password' | translate }}" required class="form-control input-lg" ng-model="user.password"/>
-          <label>{{ "confirm_password" | translate }}</label>
-          <input type="password" name="passwordConfirmation" placeholder="{{ 'confirm_password' | translate }}" required class="form-control input-lg" ng-model="user.confirm_password"/>
-          <label>{{ "phone_number" | translate }}</label>
-          <input type="number" name="phoneNumber" placeholder="{{ 'phone_number' | translate }}" required class="form-control input-lg" ng-model="user.phone_number" />
-          <label>{{ "skills" | translate }}</label>
-          </br>
-          <multiple-autocomplete ng-model="selectedSkills"
-          object-property="name"
-          suggestions-arr="optionsList">
-          </multiple-autocomplete>
-          </br>
-          <label>{{ "about_yourself" | translate }}</label>
-          <textarea name="form-about-yourself" placeholder="{{ 'about_yourself' | translate }}"
-          class="form-control input-lg" id="form-about-yourself" ng-model="user.description" ></textarea>
-          <button type="submit" class="btn btn-lg btn-primary btn-block">{{ "create_account" | translate }}</button>
-        </form>
-        <ul style="list-style-type: none;">
-          <li ng-repeat="error in errors">
-            <span class="errorMessage">{{ error | translate }}</span>
-          </li>
-        </ul>
-      </section>
-    </div>
-  </section>
+<div class="form-page">
+  <div class="form">
+    <h1>{{ "create_mentor_account" | translate }}</h1>
+    <form ng-submit="register()">
+      <input type="email" name="email" placeholder="{{ 'email' | translate }}" required class="form-control input-lg" ng-model="user.email" />
+      <input name="name"  placeholder="{{ 'first_name' | translate }}" required class="form-control input-lg" ng-model="user.first_name" />
+      <input name="surname" placeholder="{{ 'last_name' | translate }}" required class="form-control input-lg" ng-model="user.last_name" />
+      <input name="city" placeholder="{{ 'city' | translate }}" required class="form-control input-lg" ng-model="user.city" />
+      <input type="password" name="password" placeholder="{{ 'password' | translate }}" required class="form-control input-lg" ng-model="user.password"/>
+      <input type="password" name="passwordConfirmation" placeholder="{{ 'confirm_password' | translate }}" required class="form-control input-lg" ng-model="user.confirm_password"/>
+      <input name="phoneNumber" placeholder="{{ 'phone_number' | translate }}" required class="form-control input-lg" ng-model="user.phone_number" />
+      </br>
+      <multiple-autocomplete ng-model="selectedSkills"
+      object-property="name"
+      suggestions-arr="optionsList">
+      </multiple-autocomplete>
+      </br>
+      <textarea name="form-about-yourself" placeholder="{{ 'about_yourself' | translate }}"
+      class="form-control input-lg" id="form-about-yourself" ng-model="user.description" ></textarea>
+      <button type="submit" class="btn btn-lg btn-primary btn-block">{{ "create_mentor_account" | translate }}</button>
+    </form>
+    <ul style="list-style-type: none;">
+      <li ng-repeat="error in errors">
+        <span class="errorMessage">{{ error | translate }}</span>
+      </li>
+    </ul>
+  </div>
+</div>
 </div>

@@ -1,58 +1,20 @@
-
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xs-offset-0 col-sm-offset-0 col-md-offset-2 col-lg-offset-2 toppad" >
-      <div class="panel panel-info">
-        <div class="panel-heading">
-          <h3 class="panel-title"> {{ "edit_profile" | translate }} </h3>
-        </div>
-        <div class="panel-body">
-          <div class="row">
-            <div class="col-md-3 col-lg-3 " align="center"> <img alt="mentor Pic" src="../../../assets/images/img.png" class="img-circle img-responsive"> </div>
-            <div class=" col-md-9 col-lg-9 ">
-
-              <!-- Mentor details here -->
-              <form>
-              <table class="table table-mentor-information">
-
-                <tbody>
-                  <tr>
-                  <label>{{ "email" | translate }}</label>
-                  <input name="email" placeholder="{{ 'email' | translate }}" required class="form-control input-lg input-profile-res" ng-model="currentUser.email" />
-                 </tr>
-                 <tr>
-                 <label>{{ "assignee" | translate }}</label>
-                   <input name="asignee" placeholder="{{ 'assignee' | translate }}" required class="form-control input-lg input-profile-res" ng-model="currentUser.asignee" />
-                 </tr>
-                  <tr>
-                  <label>{{ "organisation_name" | translate }}</label>
-                  <input name="name" placeholder="{{ 'organisation_name' | translate }}" required class="form-control input-lg input-profile-res" ng-model="currentUser.name" />
-                 </tr>
-                 <tr>
-                 <label>{{ "city" | translate }}</label>
-                   <input name="city" placeholder="{{ 'city' | translate }}" required class="form-control input-lg input-profile-res" ng-model="currentUser.city" />
-                </tr>
-                <tr>
-                <label>{{ "description" | translate }}</label>
-                  <textarea name="form-about-yourself" placeholder="{{ 'about_yourself' | translate }}"
-                  class="form-control input-lg input-profile-res" id="form-about-yourself" ng-model="currentUser.description" ></textarea>
-                </tr>
-              </tbody>
-            </table>
-            <!-- End of mentor details -->
-            <div style="text-align:center">
-            <a ng-click="updateOrganization()" class="btn btn-primary"> {{ "save" | translate }} </a>
-            </div>
-            <ul style="list-style-type: none;">
-          		<li ng-repeat="error in errors">
-          			<span class="errorMessage">{{ error | translate }}</span>
-          		<li>
-          	</ul>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
+<div class="form-page">
+  <div class="form">
+    <h1> {{ "edit_profile" | translate }}</h1>
+    <form ng-submit="updateOrganization()">
+      <input name="email" placeholder="{{ 'email' | translate }}" required class="form-control input-lg input-profile-res" ng-model="currentUser.email" disabled="" />
+      <input name="asignee" placeholder="{{ 'assignee' | translate }}" required class="form-control input-lg input-profile-res" ng-model="currentUser.asignee" />
+      <input name="name" placeholder="{{ 'organisation_name' | translate }}" required class="form-control input-lg input-profile-res" ng-model="currentUser.name" />
+      <input name="city" placeholder="{{ 'city' | translate }}" required class="form-control input-lg input-profile-res" ng-model="currentUser.city" />
+      <input name="phoneNumber" placeholder="{{ 'phone_number' | translate }}" required class="form-control input-lg" ng-model="currentUser.phone_number" />
+      <textarea name="form-about-yourself" placeholder="{{ 'about_yourself' | translate }}"
+      class="form-control input-lg input-profile-res" id="form-about-yourself" ng-model="currentUser.description" ></textarea>
+      <button type="submit" class="btn btn-lg btn-primary btn-block"> {{ "save" | translate }} </button>
+      <ul style="list-style-type: none;">
+        <li ng-repeat="error in errors">
+          <span class="errorMessage">{{ error | translate }}</span>
+        </li>
+      </ul>
+    </form>
   </div>
-</div>
 </div>

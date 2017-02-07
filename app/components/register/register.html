@@ -1,7 +1,7 @@
-<div>
-  <section class="container">
-    <section class="general-form">
-    <form role="form" ng-submit="register()">
+<div class="form-page">
+  <div class="form">
+    <h1>{{ "create_account" | translate }}</h1>
+    <form ng-submit="register()">
       <input type="email" name="email" placeholder="{{ 'email' | translate }}" required class="form-control input-lg" ng-model="user.email" />
       <input name="name"  placeholder="{{ 'first_name' | translate }}" required class="form-control input-lg" ng-model="user.first_name" />
       <input name="surname" placeholder="{{ 'last_name' | translate }}" required class="form-control input-lg" ng-model="user.last_name" />
@@ -9,16 +9,15 @@
       <input name="organizationName" placeholder="{{ 'organisation_name' | translate }}" required class="form-control input-lg" ng-model="user.organization.name" />
       <input type="password" name="password" placeholder="{{ 'password' | translate }}" required class="form-control input-lg" ng-model="user.password"/>
       <input type="password" name="passwordConfirmation" placeholder="{{ 'confirm_password' | translate }}" required class="form-control input-lg" ng-model="user.confirm_password"/>
-      <input type="number" name="phoneNumber" placeholder="{{ 'phone_number' | translate }}" required class="form-control input-lg" ng-model="user.phone_number" />
+      <input name="phoneNumber" placeholder="{{ 'phone_number' | translate }}" required class="form-control input-lg" ng-model="user.phone_number" />
       <textarea name="form-about-yourself" placeholder="{{ 'about_yourself' | translate }}"
       class="form-control input-lg" id="form-about-yourself" ng-model="user.description" ></textarea>
       <button type="submit" class="btn btn-lg btn-primary btn-block">{{ "create_account" | translate }}</button>
     </form>
-   <ul style="list-style-type: none;">
-     <li ng-repeat="error in errors">
-       <span class="errorMessage">{{ error | translate }}</span>
-     <li>
-   </ul>
-  </section>
-  </section>
+    <ul style="list-style-type: none;">
+      <li ng-repeat="error in errors">
+        <span class="errorMessage">{{ error | translate }}</span>
+      </li>
+    </ul>
+  </div>
 </div>

@@ -1,20 +1,16 @@
-<div>
-  <section class="container">
-			<section class="general-form">
-        <form role="form" ng-submit="login()">
-
-					<input type="email" name="email" placeholder="{{ 'email' | translate }}" required class="form-control input-lg" ng-model="user.email"/>
-					<input type="password" name="password" placeholder="{{ 'password' | translate }}" required class="form-control input-lg" ng-model="user.password" />
-					<button type="submit" class="btn btn-lg btn-primary btn-block">{{ "login" | translate }}</button>
-        </form>
-        <ul style="list-style-type: none;">
-          <li ng-repeat="error in errors">
-            <span class="errorMessage">{{ error | translate }}</span>
-          <li>
-        </ul>
-        <div>
-        <a ng-click="goToRegister()">{{ "create_account" | translate }}</a>
-        </div>
-			</section>
-	</section>
+<div class="form-page">
+  <div class="form">
+    <h1>{{ "login" | translate }}</h1>
+    <form ng-submit="login()">
+      <input type="email" name="email" placeholder="{{ 'email' | translate }}" required class="form-control input-lg" ng-model="user.email"/>
+      <input type="password" name="password" placeholder="{{ 'password' | translate }}" required class="form-control input-lg" ng-model="user.password" />
+      <button type="submit" class="btn btn-lg btn-primary btn-block">{{ "login" | translate }}</button>
+      <p class="message pull-right"><a ng-click="goToRegister()">{{ "create_account" | translate }}</a></p>
+    </form>
+    <ul style="list-style-type: none;">
+      <li ng-repeat="error in errors">
+        <span class="errorMessage">{{ error | translate }}</span>
+      </li>
+    </ul>
+  </div>
 </div>

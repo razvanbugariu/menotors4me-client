@@ -1,37 +1,17 @@
-
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
-      <div class="panel panel-info">
-        <div class="panel-heading">
-          <h3 class="panel-title"> {{ "invitation" | translate }} </h3>
-        </div>
-        <div class="panel-body">
-          <div class="row">
-            <div class="col-md-3 col-lg-3 " align="center"> <img alt="mentor Pic" src="../../../assets/images/img.png" class="img-circle img-responsive"> </div>
-            <div class=" col-md-9 col-lg-9 ">
-              <table class="table table-mentor-information">
-                <tbody>
-                  <tr>
-                     <textarea name="address" placeholder="{{ 'address' | translate }}"
-                     class="form-control input-lg"  style=" border: 0px"  id="form-about-yourself" ng-model="invitation.address" ></textarea>
-                   </tr>
-                   <tr>
-                     <input name="topic" placeholder="{{ 'small_description' | translate }}" required class="form-control input-lg"  style=" border: 0px" ng-model="invitation.description" />
-                   </tr>
-                   <tr><br/></tr>
-                </tbody>
-              </table>
-              <a ng-click="sendInvitation()" class="btn btn-primary"> {{ "send" | translate }}  <i class="glyphicon glyphicon-send"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<div class="form-page">
+  <div class="form">
+    <h1>{{ "invitation" | translate }} </h1>
+    <form ng-submit="sendInvitation()">
+      <input name="address" placeholder="{{ 'address' | translate }}"
+      class="form-control input-lg"  style=" border: 0px"  id="form-about-yourself" ng-model="invitation.address" ></input>
+      <textarea name="topic" placeholder="{{ 'small_description' | translate }}" required class="form-control input-lg"  ng-model="invitation.description" >
+      </textarea>
+      <button type="submit" class="btn btn-lg btn-primary btn-block">{{ "submit" | translate }}</button>
+    </form>
+    <ul style="list-style-type: none;">
+      <li ng-repeat="error in errors">
+        <span class="errorMessage">{{ error | translate }}</span>
+      </li>
+    </ul>
   </div>
-  <ul style="list-style-type: none;">
-    <li ng-repeat="error in errors">
-      <span class="errorMessage">{{ error | translate }}</span>
-    <li>
-  </ul>
 </div>
