@@ -79,6 +79,10 @@ angular
         $cookies.remove("token");
       }
 
+      $rootScope.$on(AUTH_EVENTS.received401, function(event, args) {
+    		loginService.logout();
+    	});
+
       return loginService;
     }
 
