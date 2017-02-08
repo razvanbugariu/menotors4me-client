@@ -1,87 +1,62 @@
 'use strict';
 
 angular
-	.module('mentors4me')
-	.controller('editMentorController', editMentorController);
+  .module('mentors4me')
+  .controller('editMentorController', editMentorController);
 
 function editMentorController($scope, editMentorService, $cookies, $location, Constants, growl) {
 
-	$scope.error = [];
+  $scope.error = [];
 
-	$scope.selectedSkillsIds = [];
-	$scope.edit = edit;
-	$scope.addSkillToList = addSkillToList;
-	$scope.removeSkillFromList = removeSkillFromList;
-	$scope.displayButton = displayButton;
+  $scope.selectedSkills = [];
+  $scope.edit = edit;
+  $scope.displayButton = displayButton;
 
-	function getCurrentMentor(){
-		editMentorService.getCurrentMentor().then(handleGetCurrentMentorSuccess, handleErrors);
-	}
+  function getCurrentMentor() {
+    editMentorService.getCurrentMentor().then(handleGetCurrentMentorSuccess, handleErrors);
+  }
 
-	function handleGetCurrentMentorSuccess(response){
-		$scope.currentMentor = response.data.data;
-		getSkills();
-	}
+  function handleGetCurrentMentorSuccess(response) {
+    $scope.currentMentor = response.data.data;
+    getSkills();
+  }
 
-	function handleErrors(responseError){
-		$scope.errors= responseError.data.errors;
-	}
+  function handleErrors(responseError) {
+    $scope.errors = responseError.data.errors;
+  }
 
-	function edit(){
-		$scope.currentMentor.skills = $scope.selectedSkillsIds;
-		editMentorService.updateMentor($scope.currentMentor).then(handleUpdateSuccess, handleErrors);
-	}
+  function selectIds(skillsArray) {
+    var skillsIds = [];
+    skillsArray.forEach(function(skill) {
+      skillsIds.push(skill.id)
+    });
+    return skillsIds
+  }
 
-	function handleUpdateSuccess(){
-		$location.path(Constants.MENTORS + "/" + $cookies.get("userId"));
-		growl.info("Profilul dumneavoastra a fost salvat cu succes!");
-	}
+  function edit() {
+    $scope.currentMentor.skills = selectIds($scope.selectedSkills);
+    editMentorService.updateMentor($scope.currentMentor).then(handleUpdateSuccess, handleErrors);
+  }
 
-	function getSkills(){
-		editMentorService.getSkills().then(handleGetSkillsSuccess, handleErrors);
-	}
+  function handleUpdateSuccess() {
+    $location.path(Constants.MENTORS + "/" + $cookies.get("userId"));
+    growl.info("Profilul dumneavoastra a fost salvat cu succes!");
+  }
 
-	function handleGetSkillsSuccess(response){
-		$scope.skills = response.data.data;
-		sincronizeSkills();
-	}
+  function getSkills() {
+    editMentorService.getSkills().then(handleGetSkillsSuccess, handleErrors);
+  }
 
-	function pushToList(skillId){
-		$scope.selectedSkillsIds.push(skillId);
-	}
+  function handleGetSkillsSuccess(response) {
+    $scope.optionsList = response.data.data;
+    $scope.selectedSkills = $.grep($scope.optionsList, function(e) {
+      return $scope.currentMentor.skills.indexOf(e.name) > -1
+    });
+  }
 
-	function addSkillToList(skill){
-		if($scope.selectedSkillsIds.indexOf(skill.id) === -1){
-			pushToList(skill.id);
-			growl.info(skill.name + " a fost adaugat la profilul dumneavoastra");
-		} else {
-			growl.warning(skill.name + " face parte din profilul dumneavoastra!");
-		}
-	}
+  function displayButton(skill) {
+    return $scope.currentMentor.skills.indexOf(skill.name) === -1 ? false : true;
+  }
 
-	function removeSkillFromList(skill){
-		if($scope.selectedSkillsIds.indexOf(skill.id) === -1){
-			growl.warning(skill.name + " nu poate fi sters deoarece nu face parte din profilul dumneavoastra");
-		} else {
-			var index = $scope.selectedSkillsIds.indexOf(skill.id);
-			$scope.selectedSkillsIds.splice(index, 1);
-			growl.info(skill.name + " a fost sters din profilul dumneavoastra!");
-		}
-	}
-
-	function displayButton(skill){
-		return $scope.currentMentor.skills.indexOf(skill.name) === -1 ? false : true;
-	}
-
-	function sincronizeSkills(){
-		var i = 0;
-		for(i = 0 ; i < $scope.skills.length; i++){
-			if($scope.currentMentor.skills.indexOf($scope.skills[i].name) != -1){
-				pushToList($scope.skills[i].id);
-			}
-		}
-		console.log($scope.selectedSkillsIds);
-	}
-
-	getCurrentMentor();
+  getCurrentMentor();
 }
