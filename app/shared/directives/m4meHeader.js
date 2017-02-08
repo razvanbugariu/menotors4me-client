@@ -6,7 +6,7 @@ angular
 			restrict: "EA",
 			templateUrl: "app/shared/templates/m4meHeader.html",
 	        controller: function ($scope, $location, $rootScope, loginService, $cookies, Constants, AUTH_EVENTS, authorizationService) {
-
+						
 						$scope.isAuth = false;
 						$scope.goToMentors = goToMentors;
 						$scope.goToDashboard = goToDashboard;
