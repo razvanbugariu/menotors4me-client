@@ -1,6 +1,12 @@
-body{
-  background: #ecf0f1;
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+  background: #f3f3f3; /* fallback for old browsers */
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
 
 .errorMessage{
   color: red;

@@ -8,6 +8,7 @@
       <input name="city" placeholder="{{ 'city' | translate }}" required class="form-control input-lg input-profile-res" ng-model="currentMentor.city" />
       <input name="number" placeholder="{{ 'phone_number' | translate }}" required class="form-control input-lg input-profile-res" ng-model="currentMentor.phone_number" />
       </br>
+      <label>{{'skills' | translate}}:</label>
       <multiple-autocomplete ng-model="selectedSkills"
       object-property="name"
       suggestions-arr="optionsList">

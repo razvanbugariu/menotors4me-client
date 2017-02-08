@@ -10,6 +10,7 @@
       <input type="password" name="passwordConfirmation" placeholder="{{ 'confirm_password' | translate }}" required class="form-control input-lg" ng-model="user.confirm_password"/>
       <input name="phoneNumber" placeholder="{{ 'phone_number' | translate }}" required class="form-control input-lg" ng-model="user.phone_number" />
       </br>
+      <label>{{'skills' | translate}}:</label>
       <multiple-autocomplete ng-model="selectedSkills"
       object-property="name"
       suggestions-arr="optionsList">
