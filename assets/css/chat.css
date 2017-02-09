@@ -5,7 +5,17 @@
 
 .chat {
   padding: 0;
-  height:70vh;
+  height:73vh;
+}
+
+.chat-header {
+  display:table;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.messages-container{
+  height: 384px;
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -36,40 +46,14 @@
 
 .message {
   margin-top: -10px;
+  word-break: break-all;
 }
 
 .chat-form{
   padding: 0px 0px 15px 0px;
 }
 
-@media (min-width: 1200px) {
-  .send-message {
-    width: 63.9%;
-  }
-
-  .message-bubble{
-    width: 63.9%;
-  }
+.send-message{
+  padding: 20px 15px 0 15px;
 }
-
-@media (min-width: 1000px) and (max-width: 1199px) {
-  .send-message {
-    width: 80%;
-  }
-
-  .message-bubble{
-    width: 80%;
-  }
-}
-
-@media (min-width: 767px) and (max-width: 999px) {
-  .send-message {
-    width: 95.7%;
-  }
-
-  .message-bubble{
-    width: 95.7%;
-  }
-}
-
 
