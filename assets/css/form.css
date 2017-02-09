@@ -6,7 +6,7 @@
   position: relative;
   z-index: 1;
   background: #FFFFFF;
-  max-width: 500px;
+  max-width: 400px;
   margin: 0 auto 100px;
   padding: 5px 45px  45px 45px;
   text-align: left;
@@ -30,8 +30,8 @@
   padding: 15px;
   box-sizing: border-box;
   font-size: 1em;
-  border-radius: 0px;
-  max-width: 410px;
+  border-radius: 2px;
+  max-width: 310px;
   display: inline-block;
 }
 
@@ -69,7 +69,7 @@
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
   cursor: pointer;
-  border-radius: 0px;
+  border-radius: 2px;
 }
 .form button:hover,.form button:active,.form button:focus {
   background: #2980b9;
@@ -96,26 +96,30 @@
 .form-item-container .list-inline input {
   box-shadow: none;
   padding: 4px;
-  border-radius: 0px;
+  border-radius: 2px;
   text-align: left;
 }
 
 .form-item-container .list-inline li span {
   border: 1px solid #3498db;
   padding: 4px;
-  border-radius: 0px;
+  border-radius: 2px;
   }
 
  .autocomplete-list {
-   background-color: #fff;
-   border: 1px solid #e4e4e4;
+   background-color: #dcdfe5;
+   border: none;
    border-radius: 0px;
    box-shadow: none;
    position: absolute;
-   width: 50%;
-   left: 25%;
    z-index: 100;
  }
+
+.autocomplete-list > ul > li{
+  text-align: center;
+}
+
+
 
  .autocomplete-list ul li.autocomplete-active {
      background-color: #3498db;
