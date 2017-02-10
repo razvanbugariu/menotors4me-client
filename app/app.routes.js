@@ -12,11 +12,11 @@ angular
         templateUrl: 'app/components/mentor/mentor.html',
         controller: 'mentorController'
       })
-      .when('/mentors/:mentorId', {
+      .when('/profile/:mentorId', {
         templateUrl: 'app/components/mentor/mentorDetails.html',
         controller: 'mentorDetailsController',
       })
-      .when('/organizations/:organizationId', {
+      .when('/profile/:organizationId', {
         templateUrl: 'app/components/profile/organization/profile.html',
         controller: 'editOrganizationController',
         data: {

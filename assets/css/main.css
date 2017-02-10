@@ -11,6 +11,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+#myNavbar > li > a.active,
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover {
+  color: #fff;
+  background-color: #222;
+}
+
 .body-container {
   position: fixed;
   margin-top: 9vh;
