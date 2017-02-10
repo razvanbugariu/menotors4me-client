@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
 body {
-  background: #f3f3f3; /* fallback for old browsers */
+  background: #f3f3f3;
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -37,20 +37,6 @@ body {
   font-weight: normal;
   font-size: 1.2em;
   text-align: center;
-}
-
-.plus-sign{
-  background-image: url(../images/plus_1x.png);
-  width: 20px;
-  height: 20px;
-  float : right;
-}
-
-.clear-sign{
-  background-image: url(../images/clear_1x.png);
-  width: 20px;
-  height: 20px;
-  float : right;
 }
 
 a, li {
