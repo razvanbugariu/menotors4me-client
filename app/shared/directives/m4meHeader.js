@@ -6,7 +6,7 @@ angular
 			restrict: "EA",
 			templateUrl: "app/shared/templates/m4meHeader.html",
 	        controller: function ($scope, $location, $rootScope, loginService, $cookies, Constants, AUTH_EVENTS, authorizationService) {
-
+						
 						$scope.isAuth = false;
 						$scope.goToMentors = goToMentors;
 						$scope.goToDashboard = goToDashboard;
@@ -14,6 +14,13 @@ angular
 						$scope.goToLogin = goToLogin;
 						$scope.logout = logout;
 						$scope.goToProfile = goToProfile;
+
+						$(function() {
+        				$('#myNavbar li ').click(function() {
+           				$('#myNavbar li').removeClass();
+           				$(this).addClass('active');
+        				});
+     				});
 
 						function goToProfile (){
 							var path = "/" + $cookies.get("userRole") + "s/" + $cookies.get("userId");
