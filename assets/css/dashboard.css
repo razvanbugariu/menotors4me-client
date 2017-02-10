@@ -1,10 +1,10 @@
 .content {
   background: #fff;
-  padding: 0px;
   border: 1px solid #dee2e2;
   border-radius: 3px;
   margin-left: 10%;
   margin-right: 10%;
+  height: 90%;
 }
 
 @media (max-width: 768px) {

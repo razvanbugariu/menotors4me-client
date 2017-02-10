@@ -1,12 +1,12 @@
 .form-page {
-  padding: 50px 0 0;
+  width: 420px;
   margin: auto;
+  margin-top: 30px;
 }
 .form {
   position: relative;
   z-index: 1;
   background: #FFFFFF;
-  max-width: 400px;
   margin: 0 auto 100px;
   padding: 5px 45px  45px 45px;
   text-align: left;
@@ -31,26 +31,14 @@
   box-sizing: border-box;
   font-size: 1em;
   border-radius: 2px;
-  max-width: 310px;
   display: inline-block;
+  max-width: 330px;
 }
 
 .form label{
   color: #555;
   font-weight: 300;
 }
-
-@media (max-width: 768px) {
-  .form input, .form textarea {
-    width: 100%;
-    display: block;
-    max-width: 510px;
-  }
-  .form {
-    padding: 5px 10px;
-  }
-}
-
 
 .form textarea {
   min-height: 100px;

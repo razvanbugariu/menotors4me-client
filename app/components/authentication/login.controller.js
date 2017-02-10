@@ -5,10 +5,6 @@ angular
   .controller('loginController', loginController);
 
 function loginController($scope, $location, $rootScope, AUTH_EVENTS, loginService, Constants) {
-
-  $scope.errors = [];
-  $scope.login = login;
-
   function login() {
     var user = {
       email: $scope.user.email,
@@ -16,6 +12,9 @@ function loginController($scope, $location, $rootScope, AUTH_EVENTS, loginServic
     };
     loginService.login(user);
   }
+
+  $scope.errors = [];
+  $scope.login = login;
 
   $rootScope.$on(AUTH_EVENTS.loginSuccess, function(event, args) {
     $location.path(args);
@@ -28,5 +27,4 @@ function loginController($scope, $location, $rootScope, AUTH_EVENTS, loginServic
   $rootScope.$on(AUTH_EVENTS.logoutFailed, function(event, args) {
     $scope.errors = args;
   });
-
 }

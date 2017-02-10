@@ -1,19 +1,19 @@
-<section class="mentors">
-
-	<ul class="ch-grid" id="mentorsList" >
-		<li ng-repeat="mentor in mentors">
-			<div class="ch-item" style="background-image: url(../../../assets/images/img.png)">
-				<div class="ch-info">
-					<h3>{{mentor.first_name}} {{mentor.last_name}}</h3>
-					<p><a ng-click="goToDetails(mentor)">{{ "view_details" | translate }}</a></p>
-				</div>
-			</div>
-		</li>
-	</ul>
-	<ul style="list-style-type: none;">
-		<li ng-repeat="error in errors">
-			<span class="errorMessage">{{ error | translate }}</span>
-		<li>
-	</ul>
-
-</section>
+<div class="body-container">
+  <section class="mentors">
+    <ul class="ch-grid" id="mentorsList" >
+      <li ng-repeat="mentor in mentors">
+        <div class="ch-item" style="background-image: url(../../../assets/images/img.png)">
+          <div class="ch-info">
+            <h3>{{mentor.first_name}} {{mentor.last_name}}</h3>
+            <p><a ng-click="goToDetails(mentor)">{{ "view_details" | translate }}</a></p>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <ul style="list-style-type: none;">
+      <li ng-repeat="error in errors">
+        <span class="errorMessage">{{ error | translate }}</span>
+      </li>
+    </ul>
+  </section>
+</div>
