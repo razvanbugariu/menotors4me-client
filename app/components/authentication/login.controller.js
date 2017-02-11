@@ -8,7 +8,6 @@ function loginController($scope, $location, $rootScope, AUTH_EVENTS, loginServic
 
   $scope.errors = [];
   $scope.login = login;
-
   function login() {
     var user = {
       email: $scope.user.email,
@@ -35,5 +34,4 @@ function loginController($scope, $location, $rootScope, AUTH_EVENTS, loginServic
   $rootScope.$on(AUTH_EVENTS.logoutSuccess, function(event, args) {
     growl.info("Logout successful");
   });
-
 }

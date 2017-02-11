@@ -1,6 +1,31 @@
 'use strict';
 angular
   .module('mentors4me')
+  .directive('autoActive', ['$location', function($location) {
+    return {
+      restrict: 'A',
+      scope: false,
+      link: function(scope, element) {
+        function setActive() {
+          var path = $location.path();
+          if (path) {
+            angular.forEach(element.find('li'), function(li) {
+              var anchor = li.querySelector('a');
+              if (('#' + path).match(anchor.getAttribute('data') +  '\/?[0-9]*')) {
+                angular.element(li).addClass('active');
+              } else {
+                angular.element(li).removeClass('active');
+              }
+            });
+          }
+        }
+
+        setActive();
+
+        scope.$on('$locationChangeSuccess', setActive);
+      }
+    };
+  }])
   .directive('m4meHeader', function() {
     return {
       restrict: "EA",
@@ -21,7 +46,7 @@ angular
         }
 
         function goToProfile() {
-          var path = "/" + $cookies.get("userRole") + "s/" + $cookies.get("userId");
+          var path = "/" + 'profile/' + $cookies.get("userId");
           $location.path(path);
         }
 

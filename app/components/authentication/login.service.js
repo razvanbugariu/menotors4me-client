@@ -80,8 +80,8 @@ angular
       }
 
       $rootScope.$on(AUTH_EVENTS.received401, function(event, args) {
-    		loginService.logout();
-    	});
+        loginService.logout();
+      });
 
       return loginService;
     }

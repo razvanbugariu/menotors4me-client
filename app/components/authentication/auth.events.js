@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 angular
 	.module('mentors4me').constant('AUTH_EVENTS', {

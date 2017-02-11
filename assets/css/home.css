@@ -1,20 +1,4 @@
-html, body {
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-}
-
-body{
-  padding-top: 60px;
-  padding-bottom: 60px;
-  padding-left: 10px;
-  padding-right: 10px;
-  display: grid;
-  grid-template-rows: 150px auto 100px;
-}
-
 .main-content {
-  margin: 0;
   text-align: center;
 }
 
