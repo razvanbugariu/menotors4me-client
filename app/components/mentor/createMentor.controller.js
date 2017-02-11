@@ -35,7 +35,7 @@ function createMentorController($scope, $location, registerService, skillsServic
   }
 
   function handleCreateSuccess(response) {
-    growl.info("Contul dumneavoastra a fost creat cu succes!");
+    growl.info("accout_created_success");
     $location.path(Constants.LOGIN);
   }
 

@@ -20,9 +20,9 @@ angular
     dashboardMentorService.acceptContext = function(contextId) {
       var req = {
         method: 'POST',
-        url: Constants.DOMAIN + Constants.CONTEXTS + "/" + contextId + "/" + Constants.ACCEPT,
+        url: Constants.DOMAIN + Constants.API + Constants.CONTEXTS + "/" + contextId + "/" + Constants.ACCEPT,
         headers: {
-          'Authorization': $cookies.get("token")
+          'Authorization': $cookies.get(Constants.TOKEN)
         }
       };
       return $http(req);
@@ -31,9 +31,9 @@ angular
     dashboardMentorService.rejectContext = function(contextId) {
       var req = {
         method: 'POST',
-        url: Constants.DOMAIN + Constants.CONTEXTS + "/" + contextId + "/" + Constants.REJECT,
+        url: Constants.DOMAIN + Constants.API + Constants.CONTEXTS + "/" + contextId + "/" + Constants.REJECT,
         headers: {
-          'Authorization': $cookies.get("token")
+          'Authorization': $cookies.get(Constants.TOKEN)
         }
       };
       return $http(req);

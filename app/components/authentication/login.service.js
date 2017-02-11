@@ -18,7 +18,7 @@ angular
       }
 
       function saveToken(token) {
-        $cookies.put("token", token);
+        $cookies.put(Constants.TOKEN, token);
       }
 
       function handleGetCurrentUserSuccess(response) {
@@ -28,9 +28,9 @@ angular
       }
 
       function saveUser(currentUser) {
-        $cookies.put("userId", currentUser.id);
-        $cookies.put("userRole", currentUser.role[0]);
-        $cookies.put("userName", currentUser.first_name + " " + currentUser.last_name);
+        $cookies.put(Constants.USER_ID, currentUser.id);
+        $cookies.put(Constants.USER_ROLE, currentUser.role[0]);
+        $cookies.put(Constants.USER_NAME, currentUser.first_name + " " + currentUser.last_name);
       }
 
       function notifyLoginSucces() {
@@ -59,9 +59,8 @@ angular
       }
 
       loginService.logout = function() {
-        var token = $cookies.get("token");
-        $http.delete(Constants.DOMAIN + Constants.SESSIONS + "/" + token);
-        handleLogout();
+        var token = $cookies.get(Constants.TOKEN);
+        $http.delete(Constants.DOMAIN + Constants.SESSIONS + "/" + token).then(handleLogout, notifyLogoutError);
       }
 
       function handleLogout() {
@@ -69,14 +68,19 @@ angular
         notifyLogoutSuccess();
       }
 
+      function notifyLogoutError(responseError) {
+        $rootScope.$broadcast(AUTH_EVENTS.logoutFailed, responseError.data.errors);
+      }
+
       function notifyLogoutSuccess() {
         $rootScope.$broadcast(AUTH_EVENTS.logoutSuccess);
       }
 
       function deleteUserData() {
-        $cookies.remove("userId");
-        $cookies.remove("userRole");
-        $cookies.remove("token");
+        $cookies.remove(Constants.TOKEN);
+        $cookies.remove(Constants.USER_ID);
+        $cookies.remove(Constants.USER_ROLE);
+        $cookies.remove(Constants.USER_NAME);
       }
 
       $rootScope.$on(AUTH_EVENTS.received401, function(event, args) {

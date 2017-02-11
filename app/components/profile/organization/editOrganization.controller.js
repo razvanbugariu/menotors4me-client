@@ -24,7 +24,7 @@ function editOrganizationController($scope, editOrganizationService, $location, 
   }
 
   function handleUpdateSuccess() {
-    growl.info("Profilul dumneavoastra a fost salvat cu succes!");
+    growl.info("profile_update_success");
     $location.path(Constants.PROFILE_ORGANIZATION + $cookies.get("userId"));
   }
 

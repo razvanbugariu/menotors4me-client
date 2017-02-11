@@ -30,7 +30,7 @@ angular
           method: 'DELETE',
           url: Constants.DOMAIN + Constants.API + Constants.MENTORS + "/" + mentorId,
           headers: {
-            'Authorization': $cookies.get("token")
+            'Authorization': $cookies.get(Constants.TOKEN)
           },
         };
         return $http(req);

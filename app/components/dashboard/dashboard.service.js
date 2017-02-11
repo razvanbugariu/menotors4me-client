@@ -6,23 +6,23 @@ angular
       var dashboardService = {};
 
       dashboardService.getAcceptedContexts = function() {
-        return getContextsByStatus("accepted");
+        return getContextsByStatus(Constants.ACCEPTED);
       };
 
       dashboardService.getPendingContexts = function() {
-        return getContextsByStatus("pending");
+        return getContextsByStatus(Constants.PENDING);
       };
 
       dashboardService.getRejectedContexts = function() {
-        return getContextsByStatus("rejected");
+        return getContextsByStatus(Constants.REJECTED);
       };
 
       function getContextsByStatus(status) {
         var req = {
           method: 'GET',
-          url: Constants.DOMAIN + Constants.CONTEXTS + Constants.FILTER_BY_STATUS + status,
+          url: Constants.DOMAIN + Constants.API + Constants.CONTEXTS + Constants.FILTER_BY_STATUS + status,
           headers: {
-            'Authorization': $cookies.get("token")
+            'Authorization': $cookies.get(Constants.TOKEN)
           },
         };
         return $http(req);

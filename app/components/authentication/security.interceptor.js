@@ -1,12 +1,12 @@
 'use strict';
 angular
   .module('mentors4me')
-  .factory('securityInterceptor', function($q, $rootScope, AUTH_EVENTS, $location) {
+  .factory('securityInterceptor', function($q, $rootScope, AUTH_EVENTS, Constants, $location) {
     return {
       responseError: function(rejection) {
         if (rejection && rejection.status === 401) {
           $rootScope.$broadcast(AUTH_EVENTS.received401);
-          $location.path("/login");
+          $location.path(Constants.LOGIN);
         }
         return $q.reject(rejection);
       }
