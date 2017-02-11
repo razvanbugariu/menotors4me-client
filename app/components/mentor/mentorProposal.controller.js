@@ -4,7 +4,7 @@ angular
 	.module('mentors4me')
 	.controller('mentorProposalController', mentorProposalController);
 
-function mentorProposalController($scope, $location, mentorService, Constants, chatService) {
+function mentorProposalController($scope, $location, mentorService, Constants, chatService, growl) {
 
 	$scope.errors = [];
 
