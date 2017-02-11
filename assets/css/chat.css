@@ -3,6 +3,7 @@
   border-bottom: 1px solid #ccc;
   max-width: 750px;
   margin: auto;
+  margin-top: 20px;
 }
 
 .chat-header {
@@ -16,13 +17,13 @@
   margin-right: auto;
 }
 
-.chat-body{
+.chat-body {
   background-color: #fff;
   border: 1px solid #ccc;
 }
 
 .messages-container{
-  height: 68vh;
+  height: 67vh;
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -63,8 +64,8 @@
 
 .send-message{
   border-top: 1px solid #ccc;
-  height: 12vh;
-  padding: 25px 15px 0 15px;
+  height: 100%;
+  padding: 15px;
 }
 
 #chat-input {
@@ -99,12 +100,11 @@
 
 
 @media (max-width: 768px) {
-  body {
-    padding-right: 0px;
-    padding-left: 0px;
-  }
-  .col-md-8{
-    padding: 0px;
+  .messages-container {
+    height: -moz-calc(100vh - 138px);
+    height: -webkit-calc(100vh - 138px);
+    height: -o-calc(100vh - 138px);
+    height: calc(100vh - 138px);
   }
 }
 

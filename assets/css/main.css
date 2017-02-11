@@ -32,8 +32,23 @@ body {
 
 .navbar {
   position: fixed;
-  height: 50px;
 }
+
+.navbar-fixed-bottom {
+  max-height: 50px;
+}
+
+@media (max-width: 768px) {
+  .navbar-fixed-bottom {
+    display: none;
+  }
+  .body-container {
+    height: -moz-calc(100% - 50px);
+    height: -webkit-calc(100% - 50px);
+    height: -o-calc(100% - 50px);
+    height: calc(100% - 50px);
+  }
+ }
 
 .errorMessage{
   color: red;

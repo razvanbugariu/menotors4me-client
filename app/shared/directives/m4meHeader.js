@@ -46,7 +46,7 @@ angular
         }
 
         function goToProfile() {
-          var path = "/" + 'profile/' + $cookies.get("userId");
+          var path = Constants.PROFILE + $cookies.get("userRole") + '/' + $cookies.get("userId");
           $location.path(path);
         }
 

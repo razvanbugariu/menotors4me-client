@@ -39,7 +39,7 @@ function editMentorController($scope, editMentorService, $cookies, $location, Co
   }
 
   function handleUpdateSuccess() {
-    $location.path(Constants.MENTORS + "/" + $cookies.get("userId"));
+    $location.path(Constants.PROFILE_MENTOR + $cookies.get("userId"));
     growl.info("Profilul dumneavoastra a fost salvat cu succes!");
   }
 
