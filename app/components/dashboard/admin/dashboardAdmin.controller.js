@@ -51,12 +51,12 @@ function dashboardAdminController($scope, $location, $cookies, $translate, dashb
   }
 
   function handleApproveSuccess(response){
-    growl.info("approve_success");
+    growl.info("approve_mentor");
     getPendingProposals();
   }
 
   function handleRejectSuccess(response){
-    growl.info("reject_success");
+    growl.info("reject_mentor");
     getPendingProposals();
   }
 
@@ -100,7 +100,7 @@ function dashboardAdminController($scope, $location, $cookies, $translate, dashb
   }
 
   function displayDeleteEntry(){
-    growl.info("delete_success");
+    growl.info("delete_entry");
   }
 
   getPendingProposals();

@@ -21,7 +21,7 @@ function mentorDetailsController($scope, $location, $routeParams, mentorService,
   function inviteMentorToEvent() {
     var objBody = {
       profile_id: $scope.selectedMentor.id,
-      organization_id: $cookies.get("userId"),
+      organization_id: $cookies.get(Constants.USER_ID),
       description: $scope
     }
   }
@@ -35,21 +35,21 @@ function mentorDetailsController($scope, $location, $routeParams, mentorService,
   }
 
   function goToInvitation() {
-    $location.path("/mentors/ " + $scope.selectedMentor.id + "/invite");
+    $location.path(Constants.MENTORS + "/" + $scope.selectedMentor.id + "/" + Constants.INVITE);
   }
 
   function sendInvitation() {
     var context = {
       mentor_id: $routeParams.mentorId,
-      organization_id: $cookies.get("userId"),
+      organization_id: $cookies.get(Constants.USER_ID),
       description: $scope.invitation.address + "\n" + $scope.invitation.description
     }
-    mentorService.inviteToEvent(context, $cookies.get("token")).then(handleSuccess, handleErrors);
+    mentorService.inviteToEvent(context, $cookies.get(Constants.TOKEN)).then(handleSuccess, handleErrors);
   }
 
   function handleSuccess() {
-    growl.info("Acest mentor a fost invitat cu succes!");
-    $location.path("/dashboard/organization");
+    growl.info("invite_mentor_success");
+    $location.path(Constants.DASHBOARD + "/" + Constants.ORGANIZATION);
   }
 
   function handleErrors(responseError) {
@@ -57,11 +57,11 @@ function mentorDetailsController($scope, $location, $routeParams, mentorService,
   }
 
   function edit() {
-    $location.path(Constants.PROFILE_MENTOR + $cookies.get("userId") + Constants.EDIT);
+    $location.path(Constants.PROFILE_MENTOR + $cookies.get(Constants.USER_ID) + Constants.EDIT);
   }
 
   function checkIfCurrentMentor() {
-    $scope.isCurrentMentor = mentorService.checkIfMentor() && $routeParams.mentorId === $cookies.get("userId");
+    $scope.isCurrentMentor = mentorService.checkIfMentor() && $routeParams.mentorId === $cookies.get(Constants.USER_ID);
   }
 
   checkIfCurrentMentor();

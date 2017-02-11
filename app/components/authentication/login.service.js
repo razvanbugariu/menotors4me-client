@@ -34,7 +34,7 @@ angular
       }
 
       function notifyLoginSucces() {
-        $rootScope.$broadcast(AUTH_EVENTS.loginSuccess, decideWhereToGoBasedOn($cookies.get("userRole")));
+        $rootScope.$broadcast(AUTH_EVENTS.loginSuccess, decideWhereToGoBasedOn($cookies.get(Constants.USER_ROLE)));
       }
 
       function decideWhereToGoBasedOn(role) {
