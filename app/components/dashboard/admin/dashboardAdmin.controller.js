@@ -4,7 +4,7 @@ angular
   .module('mentors4me')
   .controller('dashboardAdminController', dashboardAdminController);
 
-function dashboardAdminController($scope, $location, $cookies, $translate, dashboardAdminService) {
+function dashboardAdminController($scope, $location, $cookies, $translate, dashboardAdminService, growl) {
 
   $scope.mentors = []
   $scope.organizations = [];
@@ -51,10 +51,12 @@ function dashboardAdminController($scope, $location, $cookies, $translate, dashb
   }
 
   function handleApproveSuccess(response){
+    growl.info("Aprobarea a fost efectuata cu succes!");
     getPendingProposals();
   }
 
   function handleRejectSuccess(response){
+    growl.info("Mentor a fost respins cu succes!");
     getPendingProposals();
   }
 
@@ -79,10 +81,12 @@ function dashboardAdminController($scope, $location, $cookies, $translate, dashb
   }
 
   function deleteMentor(mentorId){
+
     dashboardAdminService.deleteMentor(mentorId).then(handleDeleteMentorSuccess, handleErrors);
   }
 
   function handleDeleteMentorSuccess(){
+    growl.info("Stergerea a fost efectuata cu succes!");
     getAllMentors();
   }
 
@@ -91,6 +95,7 @@ function dashboardAdminController($scope, $location, $cookies, $translate, dashb
   }
 
   function handleDeleteOrganizationSuccess(){
+    growl.info("Stergerea a fost efectuata cu succes!");
     getAllOrganizations();
   }
 
