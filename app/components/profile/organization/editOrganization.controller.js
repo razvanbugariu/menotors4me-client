@@ -4,7 +4,7 @@ angular
   .module('mentors4me')
   .controller('editOrganizationController', editOrganizationController);
 
-function editOrganizationController($scope, editOrganizationService, $location, Constants, $cookies) {
+function editOrganizationController($scope, editOrganizationService, $location, Constants, $cookies, growl) {
 
   $scope.errors = [];
 
@@ -23,9 +23,10 @@ function editOrganizationController($scope, editOrganizationService, $location, 
     editOrganizationService.updateOrganization($scope.currentUser).then(handleUpdateSuccess, handleErrors);
   }
 
-  function handleUpdateSuccess() {
-    $location.path("/organizations" + "/" + $cookies.get("userId"));
-  }
+	function handleUpdateSuccess(){
+    growl.info("Profilul dumneavoastra a fost salvat cu succes!");
+		$location.path("/organizations" + "/" + $cookies.get("userId"));
+	}
 
   function handleErrors(responseError) {
     $scope.errors = responseError.data.errors;

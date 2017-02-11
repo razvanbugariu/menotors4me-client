@@ -4,7 +4,7 @@ angular
   .module('mentors4me')
   .controller('mentorDetailsController', mentorDetailsController);
 
-function mentorDetailsController($scope, $location, $routeParams, mentorService, $cookies, authorizationService) {
+function mentorDetailsController($scope, $location, $routeParams, mentorService, $cookies, authorizationService, growl) {
 
   $scope.errors = [];
 
@@ -47,9 +47,10 @@ function mentorDetailsController($scope, $location, $routeParams, mentorService,
     mentorService.inviteToEvent(context, $cookies.get("token")).then(handleSuccess, handleErrors);
   }
 
-  function handleSuccess() {
-    $location.path("/dashboard/organization");
-  }
+	function handleSuccess(){
+		growl.info("Acest mentor a fost invitat cu succes!");
+		$location.path("/dashboard/organization");
+	}
 
   function handleErrors(responseError) {
     $scope.errors = responseError.data.errors;

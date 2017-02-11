@@ -26,11 +26,21 @@ function dashboardMentorController($scope, $location, $translate, dashboardMento
   ];
 
   function acceptContext(contextId){
-    dashboardMentorService.acceptContext(contextId).then(handleAccDeclSuccess, handleErrors);
+    dashboardMentorService.acceptContext(contextId).then(handleAcceptSuccess, handleErrors);
   }
 
   function declineContext(contextId){
-    dashboardMentorService.declineContext(contextId).then(handleAccDeclSuccess, handleErrors);
+    dashboardMentorService.rejectContext(contextId).then(handleDeclineSuccess, handleErrors);
+  }
+
+  function handleAcceptSuccess(){
+    growl.info("Contextul a fost acceptat cu succes!");
+    handleAccDeclSuccess();
+  }
+
+  function handleDeclineSuccess(){
+    growl.info("Contextul a fost refuzat cu succes!")
+    handleAccDeclSuccess();
   }
 
   function handleAccDeclSuccess(){
