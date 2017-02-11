@@ -79,5 +79,21 @@
   "accepted": "Acceptat",
   "rejected": "Refuzat",
   "pending": "În așteptare",
-  "chat": "Chat"
+  "chat": "Chat",
+  "login_success": "Log in realizat cu succes!",
+  "login_failed":"Operatiunea de log in a esuat!",
+  "logout_success":"Log out realizat cu succes!",
+  "logout_failed":"Operatiunea de log out a esuat!",
+  "not_authorized":"Nu sunteti autorizat pentru a efectua aceasta actiune!",
+  "approve_mentor":"Aprobarea a fost efectuata cu succes!",
+  "reject_mentor":"Mentorul a fost respins cu succes!",
+  "delete_entry":"Stergerea a fost efectuata cu succes!",
+  "accept_context":"Contextul a fost acceptat cu succes!",
+  "reject_context":"Contextul a fost refuzat cu succes!",
+  "not_accepted_context":"Faceti click pe un context cu status: accepted!",
+  "accout_created_success":"Contul dumneavoastra a fost creat cu succes!",
+  "invite_mentor_success":"Acest mentor a fost invitat cu succes!",
+  "propose_mentor_success":"Mentorul a fost recomandat cu succes",
+  "profile_update_success":"Profilul dumneavoastra a fost salvat cu succes!"
+
 }

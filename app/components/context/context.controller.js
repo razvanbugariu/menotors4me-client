@@ -4,7 +4,7 @@ angular
   .module('mentors4me')
   .controller('contextController', contextController);
 
-function contextController($scope, $routeParams, $rootScope, ActionCableChannel, contextsService, authorizationService, $location, growl, $cookies, $window) {
+function contextController($scope, Constants, $routeParams, $rootScope, ActionCableChannel, contextsService, authorizationService, $location, growl, $cookies, $window) {
 
   var senderId;
   var receiverId;
@@ -13,7 +13,7 @@ function contextController($scope, $routeParams, $rootScope, ActionCableChannel,
 
   console.log($location.$$path);
 
-  var consumer = new ActionCableChannel("ChatChannel", {
+  var consumer = new ActionCableChannel(Constants.CHAT_CHANNEL, {
     context_id: $routeParams.id
   });
 
@@ -28,7 +28,7 @@ function contextController($scope, $routeParams, $rootScope, ActionCableChannel,
   });
 
   $scope.isSender = function isSender(message) {
-    var response = (message.sender_id === senderId ? "sender" : "receiver");
+    var response = (message.sender_id === senderId ? Constants.SENDER : Constants.RECEIVER);
     return response;
   }
 
@@ -81,7 +81,7 @@ function contextController($scope, $routeParams, $rootScope, ActionCableChannel,
   }
 
   function goToMentorDetails() {
-    $location.path("/mentors/" + $scope.currentContext.mentor_id);
+    $location.path(Constants.MENTORS + "/" + $scope.currentContext.mentor_id);
   }
 
   function isEligible() {
@@ -92,7 +92,7 @@ function contextController($scope, $routeParams, $rootScope, ActionCableChannel,
     var acceptedContexts = [];
     acceptedContexts = response.data.data;
     if (checkContext(acceptedContexts)) {
-      growl.error("No Auth");
+      growl.error("not_authorized");
       $window.history.back();
     }
   }

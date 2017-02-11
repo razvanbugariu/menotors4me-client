@@ -7,7 +7,7 @@ angular
     userService.getCurrentUser = function(token) {
       var req = {
         method: 'GET',
-        url: Constants.DOMAIN + Constants.USERS + Constants.ME,
+        url: Constants.DOMAIN + Constants.API + Constants.USERS  + Constants.ME,
         headers: {
           'Authorization': token
         }

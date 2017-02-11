@@ -6,7 +6,7 @@ angular
       var editMentorService = {};
 
       editMentorService.getCurrentMentor = function() {
-        return mentorService.getMentorById($cookies.get("userId"));
+        return mentorService.getMentorById($cookies.get(Constants.USER_ID));
       };
 
       editMentorService.getSkills = function() {
@@ -16,9 +16,9 @@ angular
       editMentorService.updateMentor = function(mentor) {
         var req = {
           method: 'PUT',
-          url: Constants.DOMAIN + Constants.API + Constants.MENTORS + "/" + $cookies.get("userId"),
+          url: Constants.DOMAIN + Constants.API + Constants.MENTORS + "/" + $cookies.get(Constants.USER_ID),
           headers: {
-            'Authorization': $cookies.get("token")
+            'Authorization': $cookies.get(Constants.TOKEN)
           },
           data: mentor
         };

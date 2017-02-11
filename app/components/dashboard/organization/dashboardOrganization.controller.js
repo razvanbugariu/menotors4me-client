@@ -4,7 +4,7 @@ angular
   .module('mentors4me')
   .controller('dashboardOrganizationController', dashboardOrganizationController);
 
-function dashboardOrganizationController($scope, $location, $translate, dashboardOrganizationService, growl) {
+function dashboardOrganizationController($scope, $location, Constants, $translate, dashboardOrganizationService, growl) {
 
   $scope.errors = [];
   $scope.pendingContexts = [];
@@ -43,10 +43,10 @@ function dashboardOrganizationController($scope, $location, $translate, dashboar
   }
 
   function goToDetails(selectedContext){
-    if(selectedContext.status === 'accepted'){
-      $location.path("/contexts/" + selectedContext.id);
+    if(selectedContext.status === Constants.ACCEPTED){
+      $location.path(Constants.CONTEXTS + "/" + selectedContext.id);
     } else {
-      growl.error("Faceti click pe un context cu status: accepted!");
+      growl.error("not_accepted_context");
     }
   }
 
@@ -54,4 +54,3 @@ function dashboardOrganizationController($scope, $location, $translate, dashboar
   getAcceptedContexts();
 
 }
-

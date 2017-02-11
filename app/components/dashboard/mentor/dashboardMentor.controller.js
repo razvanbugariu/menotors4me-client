@@ -4,7 +4,7 @@ angular
   .module('mentors4me')
   .controller('dashboardMentorController', dashboardMentorController);
 
-function dashboardMentorController($scope, $location, $translate, dashboardMentorService, growl) {
+function dashboardMentorController($scope, $location, $translate, dashboardMentorService, growl, Constants) {
 
   $scope.errors = [];
 
@@ -34,12 +34,12 @@ function dashboardMentorController($scope, $location, $translate, dashboardMento
   }
 
   function handleAcceptSuccess(){
-    growl.info("Contextul a fost acceptat cu succes!");
+    growl.info("accept_context");
     handleAccDeclSuccess();
   }
 
   function handleDeclineSuccess(){
-    growl.info("Contextul a fost refuzat cu succes!")
+    growl.info("reject_context");
     handleAccDeclSuccess();
   }
 
@@ -70,10 +70,10 @@ function dashboardMentorController($scope, $location, $translate, dashboardMento
   }
 
   $scope.goToDetails = function (selectedContext){
-    if(selectedContext.status === 'accepted'){
-      $location.path("/contexts/" + selectedContext.id);
+    if(selectedContext.status === Constants.ACCEPTED){
+      $location.path(Constants.CONTEXTS + "/" + selectedContext.id);
     } else {
-      growl.error("Faceti click pe un context cu status: accepted!");
+      growl.error("not_accepted_context");
     }
   }
 

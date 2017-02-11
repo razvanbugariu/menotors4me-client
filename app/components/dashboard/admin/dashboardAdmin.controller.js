@@ -4,7 +4,7 @@ angular
   .module('mentors4me')
   .controller('dashboardAdminController', dashboardAdminController);
 
-function dashboardAdminController($scope, $location, $cookies, $translate, dashboardAdminService, growl) {
+function dashboardAdminController($scope, $location, $cookies, $translate, dashboardAdminService, growl, Constants) {
 
   $scope.mentors = [];
   $scope.organizations = [];
@@ -32,14 +32,14 @@ function dashboardAdminController($scope, $location, $cookies, $translate, dashb
   ];
 
   function getPendingProposals(){
-    dashboardAdminService.getPendingProposals($cookies.get('token')).then(handleGetProposalsSuccess, handleErrors);
+    dashboardAdminService.getPendingProposals($cookies.get(Constants.TOKEN)).then(handleGetProposalsSuccess, handleErrors);
   }
   function approveMentor(proposal){
-    dashboardAdminService.approveMentor(proposal.id, $cookies.get('token')).then(handleApproveSuccess, handleErrors);
+    dashboardAdminService.approveMentor(proposal.id, $cookies.get(Constants.TOKEN)).then(handleApproveSuccess, handleErrors);
   }
 
   function rejectMentor(proposal){
-    dashboardAdminService.rejectMentor(proposal.id, $cookies.get('token')).then(handleRejectSuccess, handleErrors);
+    dashboardAdminService.rejectMentor(proposal.id, $cookies.get(Constants.TOKEN)).then(handleRejectSuccess, handleErrors);
   }
 
   function deleteFromProposals(proposal){
@@ -51,12 +51,12 @@ function dashboardAdminController($scope, $location, $cookies, $translate, dashb
   }
 
   function handleApproveSuccess(response){
-    growl.info("Aprobarea a fost efectuata cu succes!");
+    growl.info("approve_success");
     getPendingProposals();
   }
 
   function handleRejectSuccess(response){
-    growl.info("Mentor a fost respins cu succes!");
+    growl.info("reject_success");
     getPendingProposals();
   }
 
@@ -86,7 +86,7 @@ function dashboardAdminController($scope, $location, $cookies, $translate, dashb
   }
 
   function handleDeleteMentorSuccess(){
-    growl.info("Stergerea a fost efectuata cu succes!");
+    displayDeleteEntry();
     getAllMentors();
   }
 
@@ -95,8 +95,12 @@ function dashboardAdminController($scope, $location, $cookies, $translate, dashb
   }
 
   function handleDeleteOrganizationSuccess(){
-    growl.info("Stergerea a fost efectuata cu succes!");
+    displayDeleteEntry();
     getAllOrganizations();
+  }
+
+  function displayDeleteEntry(){
+    growl.info("delete_success");
   }
 
   getPendingProposals();
