@@ -25,7 +25,7 @@ function registerController($scope, $location, registerService, growl, Constants
   }
 
   function handleCreateSuccess(response){
-		growl.info("accout_created_success");
+    growl.info("accout_created_success");
     $location.path(Constants.LOGIN);
   }
 
