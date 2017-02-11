@@ -4,7 +4,7 @@ angular
   .module('mentors4me')
   .controller('loginController', loginController);
 
-function loginController($scope, $location, $rootScope, AUTH_EVENTS, loginService, Constants) {
+function loginController($scope, $location, $rootScope, AUTH_EVENTS, loginService, growl) {
 
   $scope.errors = [];
   $scope.login = login;
@@ -18,15 +18,22 @@ function loginController($scope, $location, $rootScope, AUTH_EVENTS, loginServic
   }
 
   $rootScope.$on(AUTH_EVENTS.loginSuccess, function(event, args) {
+    growl.info("Login successful");
     $location.path(args);
   });
 
   $rootScope.$on(AUTH_EVENTS.loginFailed, function(event, args) {
+    growl.info("Login failed");
     $scope.errors = args;
   });
 
   $rootScope.$on(AUTH_EVENTS.logoutFailed, function(event, args) {
+    growl.info("Login failed");
     $scope.errors = args;
+  });
+
+  $rootScope.$on(AUTH_EVENTS.logoutSuccess, function(event, args) {
+    growl.info("Logout successful");
   });
 
 }
