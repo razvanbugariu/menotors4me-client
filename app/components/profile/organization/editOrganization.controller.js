@@ -23,17 +23,17 @@ function editOrganizationController($scope, editOrganizationService, $location, 
     editOrganizationService.updateOrganization($scope.currentUser).then(handleUpdateSuccess, handleErrors);
   }
 
-	function handleUpdateSuccess(){
+  function handleUpdateSuccess() {
     growl.info("Profilul dumneavoastra a fost salvat cu succes!");
-		$location.path("/organizations" + "/" + $cookies.get("userId"));
-	}
+    $location.path(Constants.PROFILE_ORGANIZATION + $cookies.get("userId"));
+  }
 
   function handleErrors(responseError) {
     $scope.errors = responseError.data.errors;
   }
 
   function edit() {
-    $location.path("/organizations" + "/" + $cookies.get("userId") + Constants.EDIT);
+    $location.path(Constants.PROFILE_ORGANIZATION + $cookies.get("userId") + Constants.EDIT);
   }
 
   getCurrentOrganization();

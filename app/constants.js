@@ -9,7 +9,6 @@ angular.module('mentors4me').value('Constants', {
    "INVITATION": "api/invitations",
    "REJECT": "reject",
    "ACCEPT": "accept",
-   "MENTORS": "/api/mentors",
    "ORGANIZATIONS": "/api/organizations",
    "SKILLS": "/api/skills",
    "CONTEXTS": "/api/contexts",
@@ -24,5 +23,8 @@ angular.module('mentors4me').value('Constants', {
    "ACCEPTED": "accepted",
    "PENDING": "pending",
    "REJECTED": "rejected",
-   "EDIT": "/edit"
+   "EDIT": "/edit",
+   "PROFILE": "/profile/",
+   "PROFILE_MENTOR": "/profile/mentor/",
+   "PROFILE_ORGANIZATION": "/profile/organization/"
 });

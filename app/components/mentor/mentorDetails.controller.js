@@ -4,7 +4,7 @@ angular
   .module('mentors4me')
   .controller('mentorDetailsController', mentorDetailsController);
 
-function mentorDetailsController($scope, $location, $routeParams, mentorService, $cookies, authorizationService, growl) {
+function mentorDetailsController($scope, $location, $routeParams, mentorService, $cookies, authorizationService, Constants, growl) {
 
   $scope.errors = [];
 
@@ -47,17 +47,17 @@ function mentorDetailsController($scope, $location, $routeParams, mentorService,
     mentorService.inviteToEvent(context, $cookies.get("token")).then(handleSuccess, handleErrors);
   }
 
-	function handleSuccess(){
-		growl.info("Acest mentor a fost invitat cu succes!");
-		$location.path("/dashboard/organization");
-	}
+  function handleSuccess() {
+    growl.info("Acest mentor a fost invitat cu succes!");
+    $location.path("/dashboard/organization");
+  }
 
   function handleErrors(responseError) {
     $scope.errors = responseError.data.errors;
   }
 
   function edit() {
-    $location.path("/mentors/" + $cookies.get("userId") + "/edit");
+    $location.path(Constants.PROFILE_MENTOR + $cookies.get("userId") + Constants.EDIT);
   }
 
   function checkIfCurrentMentor() {

@@ -4,7 +4,7 @@ angular
   .module('mentors4me')
   .controller('mentorController', mentorController);
 
-function mentorController($scope, $location, mentorService) {
+function mentorController($scope, $location, mentorService, Constants) {
 
   $scope.errors = []
   $scope.mentors = [];
@@ -24,7 +24,7 @@ function mentorController($scope, $location, mentorService) {
   };
 
   function goToDetails(mentor) {
-    $location.path("/mentors/" + mentor.id);
+    $location.path(Constants.PROFILE_MENTOR + mentor.id);
   };
 
   getMentors();

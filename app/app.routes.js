@@ -12,11 +12,11 @@ angular
         templateUrl: 'app/components/mentor/mentor.html',
         controller: 'mentorController'
       })
-      .when('/profile/:mentorId', {
+      .when('/profile/mentor/:mentorId', {
         templateUrl: 'app/components/mentor/mentorDetails.html',
         controller: 'mentorDetailsController',
       })
-      .when('/profile/:organizationId', {
+      .when('/profile/organization/:organizationId', {
         templateUrl: 'app/components/profile/organization/profile.html',
         controller: 'editOrganizationController',
         data: {
@@ -64,14 +64,14 @@ angular
           authorizedRoles: [USER_ROLES.MENTOR]
         }
       })
-      .when('/organizations/:id/edit', {
+      .when('/profile/organization/:id/edit', {
         templateUrl: 'app/components/profile/organization/editProfile.html',
         controller: 'editOrganizationController',
         data: {
           authorizedRoles: [USER_ROLES.ORGANIZATION]
         }
       })
-      .when('/mentors/:id/edit', {
+      .when('/profile/mentor/:id/edit', {
         templateUrl: 'app/components/profile/mentor/editProfile.html',
         controller: 'editMentorController',
         data: {
