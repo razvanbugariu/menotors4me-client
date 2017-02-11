@@ -6,7 +6,7 @@ angular
 
 function dashboardAdminController($scope, $location, $cookies, $translate, dashboardAdminService) {
 
-  $scope.mentors = []
+  $scope.mentors = [];
   $scope.organizations = [];
   $scope.proposals = [] ;
   $scope.errors = [];

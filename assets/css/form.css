@@ -1,12 +1,13 @@
 .form-page {
-  padding: 50px 0 0;
+  max-width: 420px;
   margin: auto;
+  margin-top: 30px;
 }
+
 .form {
   position: relative;
   z-index: 1;
   background: #FFFFFF;
-  max-width: 400px;
   margin: 0 auto 100px;
   padding: 5px 45px  45px 45px;
   text-align: left;
@@ -31,26 +32,14 @@
   box-sizing: border-box;
   font-size: 1em;
   border-radius: 2px;
-  max-width: 310px;
   display: inline-block;
+  max-width: 330px;
 }
 
 .form label{
   color: #555;
   font-weight: 300;
 }
-
-@media (max-width: 768px) {
-  .form input, .form textarea {
-    width: 100%;
-    display: block;
-    max-width: 510px;
-  }
-  .form {
-    padding: 5px 10px;
-  }
-}
-
 
 .form textarea {
   min-height: 100px;
@@ -74,15 +63,18 @@
 .form button:hover,.form button:active,.form button:focus {
   background: #2980b9;
 }
+
 .form .message {
   margin: 15px 0 0;
   color: #b3b3b3;
   font-size: 1.1em;
 }
+
 .form .message a {
   color: #3498db;
   text-decoration: none;
 }
+
 .form-item-container{
   position: relative;
   background-color: #fff;
@@ -106,26 +98,24 @@
   border-radius: 2px;
   }
 
- .autocomplete-list {
-   background-color: #dcdfe5;
-   border: none;
-   border-radius: 0px;
-   box-shadow: none;
-   position: absolute;
-   z-index: 100;
+.autocomplete-list {
+  background-color: #dcdfe5;
+  border: none;
+  border-radius: 0px;
+  box-shadow: none;
+  position: absolute;
+  z-index: 100;
  }
 
 .autocomplete-list > ul > li{
   text-align: center;
 }
 
-
-
- .autocomplete-list ul li.autocomplete-active {
-     background-color: #3498db;
+.autocomplete-list ul li.autocomplete-active {
+  background-color: #3498db;
  }
 
- .autocomplete-active {
-     background-color: #3498db;
-     color: #FFFFFF;
+.autocomplete-active {
+  background-color: #3498db;
+  color: #FFFFFF;
  }
