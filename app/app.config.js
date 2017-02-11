@@ -7,5 +7,5 @@ angular
 	     suffix: '.json'
 	   });
 	   $translateProvider.preferredLanguage('ro');
-		 growlProvider.globalTimeToLive(5000);
+		 growlProvider.globalTimeToLive(3000);
 	})

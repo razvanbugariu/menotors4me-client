@@ -4,7 +4,7 @@ angular
 	.module('mentors4me')
 	.controller('registerController', registerController);
 
-function registerController($scope, $location, registerService) {
+function registerController($scope, $location, registerService, growl) {
 
 	$scope.errors = [];
   $scope.register = register;
@@ -25,6 +25,7 @@ function registerController($scope, $location, registerService) {
    }
 
   function handleCreateSuccess(response){
+		growl.info("Contul dumneavoastra a fost creat cu succes!")
     $location.path("/login");
   }
 
