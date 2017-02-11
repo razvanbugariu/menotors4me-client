@@ -1,11 +1,7 @@
 'use strict';
 
 angular
-	.module('mentors4me')
-	.controller('mentorInvitationController', mentorInvitationController);
+  .module('mentors4me')
+  .controller('mentorInvitationController', mentorInvitationController);
 
-
-function mentorInvitationController($scope, $location, $routeParams, mentorService) {
-
-
-}
+function mentorInvitationController($scope, $location, $routeParams, mentorService) {}

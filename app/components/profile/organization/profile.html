@@ -1,56 +1,52 @@
-
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md- col-lg-8 col-xs-offset-0 col-sm-offset-0 col-md-offset-2 col-lg-offset-2 toppad" >
-      <div class="panel panel-info">
-        <div class="panel-heading">
-          <h3 class="panel-title"> {{ "profile" | translate }} </h3>
-        </div>
-        <div class="panel-body">
-          <div class="row">
-            <div class="col-md-3 col-lg-3 " align="center"> <img alt="mentor Pic" src="../../../assets/images/img.png" class="img-circle img-responsive"> </div>
-            <div class=" col-md-9 col-lg-9 ">
-
-              <!-- Mentor details here -->
-              <form>
-              <table class="table table-mentor-information">
-
-                <tbody>
-                  <tr>
-                  <td>{{ "email" | translate }}</td>
-                  <td>{{currentUser.email}}</td>
-                 </tr>
-                 <tr>
-                  <td>{{ "assignee" | translate }}</td>
-                   <td>{{currentUser.asignee}}</td>
-                 </tr>
-                  <tr>
-                  <td>{{ "name" | translate }}</td>
-                  <td>{{currentUser.name}}</td>
-                 </tr>
-                 <tr>
-                  <td>{{ "city" | translate }}</td>
-                   <td>{{currentUser.city}}</td>
-                </tr>
-                <tr>
-                  <td>{{ "description" | translate }}</td>
-                  <td>{{currentUser.description}}</td>
-                </tr>
-              </tbody>
-            </table>
-            <!-- End of mentor details -->
-              <div style="text-align:center">
-            <a ng-click="edit()" class="btn btn-primary"> {{ "edit" | translate }} </a>
+<div class="body-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md- col-lg-8 col-xs-offset-0 col-sm-offset-0 col-md-offset-2 col-lg-offset-2 toppad" >
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <h3 class="panel-title"> {{ "profile" | translate }} </h3>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-3 col-lg-3 " align="center"> <img alt="mentor Pic" src="../../../assets/images/img.png" class="img-circle img-responsive"> </div>
+              <div class=" col-md-9 col-lg-9 ">
+                <!-- Mentor details here -->
+                <form>
+                  <table class="table table-mentor-information">
+                    <tbody>
+                      <tr>
+                        <td>{{ "email" | translate }}</td>
+                        <td>{{currentUser.email}}</td>
+                      </tr>
+                      <tr>
+                        <td>{{ "assignee" | translate }}</td>
+                        <td>{{currentUser.asignee}}</td>
+                      </tr>
+                      <tr>
+                        <td>{{ "name" | translate }}</td>
+                        <td>{{currentUser.name}}</td>
+                      </tr>
+                      <tr>
+                        <td>{{ "city" | translate }}</td>
+                        <td>{{currentUser.city}}</td>
+                      </tr>
+                      <tr>
+                        <td>{{ "description" | translate }}</td>
+                        <td>{{currentUser.description}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div style="text-align:center">
+                    <a ng-click="edit()" class="btn btn-primary"> {{ "edit" | translate }} </a>
+                  </div>
+                </form>
+              </div>
             </div>
-            </form>
+          </div>
+          <div class="panel-footer">
           </div>
         </div>
       </div>
-
-      <div class="panel-footer">
-      </div>
-
     </div>
   </div>
-</div>
 </div>

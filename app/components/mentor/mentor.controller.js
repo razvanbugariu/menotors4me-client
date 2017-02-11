@@ -1,32 +1,32 @@
 'use strict';
 
 angular
-	.module('mentors4me')
-	.controller('mentorController', mentorController);
+  .module('mentors4me')
+  .controller('mentorController', mentorController);
 
 function mentorController($scope, $location, mentorService) {
 
-	$scope.errors = []
-	$scope.mentors = [];
+  $scope.errors = []
+  $scope.mentors = [];
 
-	$scope.goToDetails = goToDetails;
+  $scope.goToDetails = goToDetails;
 
-	function getMentors(){
-		mentorService.getAllMentors().then(handleGetAllMentorsSuccess, handleErrors);
-	};
+  function getMentors() {
+    mentorService.getAllMentors().then(handleGetAllMentorsSuccess, handleErrors);
+  };
 
-	function handleGetAllMentorsSuccess(response){
-		$scope.mentors = response.data.data;
-	};
+  function handleGetAllMentorsSuccess(response) {
+    $scope.mentors = response.data.data;
+  };
 
-	function handleErrors(responseError){
-		$scope.errors = responseError.data.errors;
-	};
+  function handleErrors(responseError) {
+    $scope.errors = responseError.data.errors;
+  };
 
-	function goToDetails(mentor){
-		$location.path("/mentors/" + mentor.id);
-	};
+  function goToDetails(mentor) {
+    $location.path("/mentors/" + mentor.id);
+  };
 
-	getMentors();
+  getMentors();
 
 }

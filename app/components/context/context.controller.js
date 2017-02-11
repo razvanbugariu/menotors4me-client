@@ -4,7 +4,7 @@ angular
   .module('mentors4me')
   .controller('contextController', contextController);
 
-function contextController($scope, $routeParams, $rootScope, CHAT_EVENTS, ActionCableChannel, contextsService, authorizationService, $location, growl, $cookies, $window) {
+function contextController($scope, $routeParams, $rootScope, ActionCableChannel, contextsService, authorizationService, $location, growl, $cookies, $window) {
 
   var senderId;
   var receiverId;
@@ -15,7 +15,7 @@ function contextController($scope, $routeParams, $rootScope, CHAT_EVENTS, Action
 
   var consumer = new ActionCableChannel("ChatChannel", {
     context_id: $routeParams.id
-  })
+  });
 
   consumer.subscribe(function(messages) {
     if ($scope.messages.length === 0) {
@@ -27,19 +27,19 @@ function contextController($scope, $routeParams, $rootScope, CHAT_EVENTS, Action
     }
   });
 
-  $scope.isSender  = function isSender(message){
-    var response = (message.sender_id == senderId ? "sender" : "receiver");
+  $scope.isSender = function isSender(message) {
+    var response = (message.sender_id === senderId ? "sender" : "receiver");
     return response;
   }
 
   function addToMessages(messages) {
     var i;
     for (i = 0; i < messages.length; i++) {
-      if($scope.messages.length > 0) {
-        var lastMessage = $scope.messages[$scope.messages.length -1]
-        if(lastMessage.sender_id == messages[i].sender_id){
-          if((new Date(messages[i].sent_at) - new Date(lastMessage.sent_at)) < 100000){
-            messages[i].sender=false;
+      if ($scope.messages.length > 0) {
+        var lastMessage = $scope.messages[$scope.messages.length - 1];
+        if (lastMessage.sender_id === messages[i].sender_id) {
+          if ((new Date(messages[i].sent_at) - new Date(lastMessage.sent_at)) < 100000) {
+            messages[i].sender = false;
           }
         }
       }
@@ -55,7 +55,7 @@ function contextController($scope, $routeParams, $rootScope, CHAT_EVENTS, Action
     };
     consumer.send(object);
     $scope.inputMessage = "";
-  }
+  };
 
   function getCurrentContext() {
     contextsService.getContextById($routeParams.id).then(handleGetCurrentContextSuccess, handleErrors);
@@ -106,13 +106,10 @@ function contextController($scope, $routeParams, $rootScope, CHAT_EVENTS, Action
     return true;
   }
 
-  $scope.$on('$locationChangeStart', function(event) {
-    consumer.unsubscribe().then(function() {
-      console.log("Unsubcribe successfull")
-    });
+  $scope.$on('$locationChangeStart', function() {
+    consumer.unsubscribe().then(function() {});
   });
 
   getCurrentContext();
   isEligible();
-
 }
