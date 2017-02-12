@@ -6,10 +6,10 @@
 	border-radius: 50%;
 	position: relative;
 	cursor: default;
-	box-shadow: 
+	box-shadow:
 		inset 0 0 0 8px rgba(255,255,255,0.6),
 		0 1px 2px rgba(0,0,0,0.1);
-		
+
 	-webkit-transition: all 0.4s ease-in-out;
 	-moz-transition: all 0.4s ease-in-out;
 	-o-transition: all 0.4s ease-in-out;
@@ -26,19 +26,19 @@
 	height: inherit;
 	border-radius: 50%;
 	opacity: 0;
-	
+
 	-webkit-transition: all 0.4s ease-in-out;
 	-moz-transition: all 0.4s ease-in-out;
 	-o-transition: all 0.4s ease-in-out;
 	-ms-transition: all 0.4s ease-in-out;
 	transition: all 0.4s ease-in-out;
-	
+
 	-webkit-transform: scale(0);
 	-moz-transform: scale(0);
 	-o-transform: scale(0);
 	-ms-transform: scale(0);
 	transform: scale(0);
-	
+
 	-webkit-backface-visibility: hidden;
 
 }
@@ -52,21 +52,16 @@
 	padding: 45px 0 0 0;
 	height: 140px;
 	font-family: 'Open Sans', Arial, sans-serif;
-	text-shadow: 
-		0 0 1px #fff, 
+	text-shadow:
+		0 0 1px #fff,
 		0 1px 2px rgba(0,0,0,0.3);
 }
 
 .ch-info p {
 	color: #fff;
 	padding: 10px 5px;
-	font-style: italic;
-	margin: 0 30px;
-	font-size: 12px;
-	border-top: 1px solid rgba(255,255,255,0.5);
-	opacity: 0;
-	-webkit-transition: all 1s ease-in-out 0.4s;
-	-moz-transition: all 1s ease-in-out 0.4s;
+	font-style: italiOraș
+Bizoi Alexandru	l 1s ease-in-out 0.4s;
 	-o-transition: all 1s ease-in-out 0.4s;
 	-ms-transition: all 1s ease-in-out 0.4s;
 	transition: all 1s ease-in-out 0.4s;
@@ -91,7 +86,7 @@
 }
 
 .ch-item:hover {
-	box-shadow: 
+	box-shadow:
 		inset 0 0 0 1px rgba(255,255,255,0.1),
 		0 1px 2px rgba(0,0,0,0.1);
 }
@@ -138,4 +133,12 @@
 	height: 220px;
 	display: inline-block;
 	margin: 20px;
+}
+
+.mentor-list {
+	font-size: 20px;
+}
+
+.mentor-city{
+	text-align: center;
 }

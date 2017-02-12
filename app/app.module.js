@@ -8,7 +8,6 @@ angular.module('mentors4me',[
   'ngActionCable',
   'ui.bootstrap',
   'luegg.directives',
-  'multipleSelect',
-  'ngMaterial'
+  'multipleSelect'
   ]
 );
