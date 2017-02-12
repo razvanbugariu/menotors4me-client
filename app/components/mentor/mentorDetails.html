@@ -6,8 +6,8 @@
       </span>
       <h1>{{selectedMentor.first_name}} {{selectedMentor.last_name}}</h1>
       <h2>{{selectedMentor.city}}</h2>
-      <a ng-click="goToInvitation()" class="btn btn-md" ng-show="isOrganization()">{{ "send_invitation" | translate }}</a>
-      <a ng-click="edit()" class="btn btn-md" ng-show="isCurrentMentor"> {{ "edit" | translate }} </a>
+      <a ng-click="goToInvitation()" class="btn profile-btn btn-md btn-primary" ng-show="isOrganization()">{{ "send_invitation" | translate }}</a>
+      <a ng-click="edit()" class="btn profile-btn btn-md btn-primary" ng-show="isCurrentMentor"> {{ "edit" | translate }} </a>
     </header>
     <div class="profile-bio">
       <div class="content-center">
