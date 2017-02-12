@@ -1,19 +1,32 @@
 <div class="body-container">
-  <section class="mentors">
-    <md-list-item ng-repeat="mentor in mentors" ng-click="goToDetails(mentor)" class="noright">
-      <div>
-        <img alt="{{ person.name }}" ng-src="{{ person.img }}" class="md-avatar" />
-        <span>{{ mentor.first_name }} {{mentor.last_name}}</span>
-      </div>
-      <div class="md-secondary">
-        <span class="glyphicon glyphicon-globe"></span>
-        <span>{{mentor.city}}</span>
-      </div>
-    </md-list-item>
-    <ul style="list-style-type: none;">
-      <li ng-repeat="error in errors">
-        <span class="errorMessage">{{ error | translate }}</span>
-      </li>
-    </ul>
-  </section>
-</div>
+  <div class="row">
+    <div class="content mentors-list">
+      <uib-tabset active="active">
+        <table class="table table-hover text-ellipsis">
+          <thead>
+            <tr>
+              <th class="col-lg-6 col-md-6 col-sm-6">{{ "last_name" | translate }}</th>
+              <th class="mentor-city">{{ "city" | translate }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="mentor in mentors" ng-click="goToDetails(mentor)">
+              <td class="col-lg-6 col-md-6 col-sm-6 wrap-text ">
+                <ng-letter-avatar charCount = "2" height="25px" width="25px" fontSize="20px" shape="round" data="{{mentor.first_name}} {{mentor.last_name}}"></ng-letter-avatar>
+                <span>{{ mentor.first_name }} {{mentor.last_name}}</span>
+              </td>
+              <td class="mentor-city">
+                <span class="glyphicon glyphicon-map-marker"></span>
+                <span>{{mentor.city}}</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </uib-tabset>
+      <ul style="list-style-type: none;">
+        <li ng-repeat="error in errors">
+          <span class="errorMessage">{{ error | translate }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
