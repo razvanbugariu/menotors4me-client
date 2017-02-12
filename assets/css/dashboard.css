@@ -21,7 +21,7 @@
 }
 
 .nav {
-  overflow-y: hidden;
+  overflow-y: auto;
   border: 0;
 }
 
