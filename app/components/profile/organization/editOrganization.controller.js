@@ -24,8 +24,8 @@ function editOrganizationController($scope, editOrganizationService, $location, 
   }
 
   function handleUpdateSuccess() {
-    growl.info("Profilul dumneavoastra a fost salvat cu succes!");
-    $location.path(Constants.PROFILE_ORGANIZATION + $cookies.get("userId"));
+    growl.info("profile_update_success");
+    $location.path(Constants.PROFILE_ORGANIZATION + $cookies.get(Constants.USER_ID));
   }
 
   function handleErrors(responseError) {
@@ -33,7 +33,7 @@ function editOrganizationController($scope, editOrganizationService, $location, 
   }
 
   function edit() {
-    $location.path(Constants.PROFILE_ORGANIZATION + $cookies.get("userId") + Constants.EDIT);
+    $location.path(Constants.PROFILE_ORGANIZATION + $cookies.get(Constants.USER_ID) + Constants.EDIT);
   }
 
   getCurrentOrganization();

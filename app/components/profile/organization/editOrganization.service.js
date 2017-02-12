@@ -8,9 +8,9 @@ angular
       editOrganizationService.getCurrentOrganization = function() {
         var req = {
           method: 'GET',
-          url: Constants.DOMAIN + Constants.ORGANIZATIONS + "/" + $cookies.get("userId"),
+          url: Constants.DOMAIN + Constants.API + Constants.ORGANIZATIONS + "/" + $cookies.get(Constants.USER_ID),
           headers: {
-            'Authorization': $cookies.get("token")
+            'Authorization': $cookies.get(Constants.TOKEN)
           }
         };
         return $http(req);
@@ -19,9 +19,9 @@ angular
       editOrganizationService.updateOrganization = function(organization) {
         var req = {
           method: 'PUT',
-          url: Constants.DOMAIN + Constants.ORGANIZATIONS + "/" + $cookies.get("userId"),
+          url: Constants.DOMAIN + Constants.API + Constants.ORGANIZATIONS + "/" + $cookies.get(Constants.USER_ID),
           headers: {
-            'Authorization': $cookies.get("token")
+            'Authorization': $cookies.get(Constants.TOKEN)
           },
           data: organization
         };

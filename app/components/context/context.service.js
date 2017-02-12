@@ -8,9 +8,9 @@ angular
     contextsService.inviteToEvent = function(context) {
       var req = {
         method: 'POST',
-        url: Constants.DOMAIN + "/api/contexts",
+        url: Constants.DOMAIN + Constants.API + Constants.CONTEXTS,
         headers: {
-          'Authorization': $cookies.get("token")
+          'Authorization': $cookies.get(Constants.TOKEN)
         },
         data: context
       };
@@ -20,9 +20,9 @@ angular
     contextsService.getContextById = function(contextId) {
       var req = {
         method: 'GET',
-        url: Constants.DOMAIN + "/api/contexts/" + contextId,
+        url: Constants.DOMAIN + Constants.API + Constants.CONTEXTS + "/" + contextId,
         headers: {
-          'Authorization': $cookies.get("token")
+          'Authorization': $cookies.get(Constants.TOKEN)
         },
       };
       return $http(req);

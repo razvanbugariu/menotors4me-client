@@ -8,9 +8,9 @@ angular
       organizationService.getAllOrganizations = function() {
         var req = {
           method: 'GET',
-          url: Constants.DOMAIN + Constants.ORGANIZATIONS,
+          url: Constants.DOMAIN + Constants.API + Constants.ORGANIZATIONS,
           headers: {
-            'Authorization': $cookies.get("token")
+            'Authorization': $cookies.get(Constants.TOKEN)
           },
         };
         return $http(req);
@@ -19,9 +19,9 @@ angular
       organizationService.deleteOrganization = function(organizationId) {
         var req = {
           method: 'DELETE',
-          url: Constants.DOMAIN + Constants.ORGANIZATIONS + "/" + organizationId,
+          url: Constants.DOMAIN + Constants.API + Constants.ORGANIZATIONS + "/" + organizationId,
           headers: {
-            'Authorization': $cookies.get("token")
+            'Authorization': $cookies.get(Constants.TOKEN)
           },
         };
         return $http(req);

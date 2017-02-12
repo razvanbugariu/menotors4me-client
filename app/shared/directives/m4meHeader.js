@@ -42,11 +42,11 @@ angular
         $scope.goToRegister = goToRegister;
 
         function goToRegister() {
-          $location.path("/register");
+          $location.path(Constants.REGISTER);
         }
 
         function goToProfile() {
-          var path = Constants.PROFILE + $cookies.get("userRole") + '/' + $cookies.get("userId");
+          var path = Constants.PROFILE + "/" + $cookies.get(Constants.USER_ROLE) + '/' + $cookies.get(Constants.USER_ID);
           $location.path(path);
         }
 
@@ -55,7 +55,7 @@ angular
         }
 
         function goToDashboard() {
-          $location.path(Constants.DASHBOARD + "/" + $cookies.get("userRole"));
+          $location.path(Constants.DASHBOARD + "/" + $cookies.get(Constants.USER_ROLE));
         }
 
         function goToSuggestMentor() {

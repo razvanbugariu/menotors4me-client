@@ -2,9 +2,8 @@
 
 angular
   .module('mentors4me')
-  .factory('homeService', ['$http', function($http) {
+  .factory('homeService', function() {
       var homeService = {};
-
       return homeService;
     }
-  ]);
+  );

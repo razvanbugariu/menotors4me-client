@@ -2,13 +2,12 @@
 
 angular
   .module('mentors4me')
-  .factory('skillsService', ['$http', function($http) {
+  .factory('skillsService', function($http, Constants) {
       var skillsService = {};
-      var URL = "https://mentors4me-api.herokuapp.com/";
       skillsService.getAllSkills = function() {
         var req = {
           method: 'GET',
-          url: URL + "api/skills",
+          url: Constants.DOMAIN + Constants.API + Constants.SKILLS,
         };
         return $http(req);
       };
@@ -16,4 +15,4 @@ angular
       return skillsService;
     }
 
-  ]);
+  );
