@@ -1,15 +1,15 @@
 <div class="body-container">
   <section class="mentors">
-    <ul class="ch-grid" id="mentorsList" >
-      <li ng-repeat="mentor in mentors">
-        <div class="ch-item" style="background-image: url(../../../assets/images/img.png)">
-          <div class="ch-info">
-            <h3>{{mentor.first_name}} {{mentor.last_name}}</h3>
-            <p><a ng-click="goToDetails(mentor)">{{ "view_details" | translate }}</a></p>
-          </div>
-        </div>
-      </li>
-    </ul>
+    <md-list-item ng-repeat="mentor in mentors" ng-click="goToDetails(mentor)" class="noright">
+      <div>
+        <img alt="{{ person.name }}" ng-src="{{ person.img }}" class="md-avatar" />
+        <span>{{ mentor.first_name }} {{mentor.last_name}}</span>
+      </div>
+      <div class="md-secondary">
+        <span class="glyphicon glyphicon-globe"></span>
+        <span>{{mentor.city}}</span>
+      </div>
+    </md-list-item>
     <ul style="list-style-type: none;">
       <li ng-repeat="error in errors">
         <span class="errorMessage">{{ error | translate }}</span>
