@@ -1,8 +1,8 @@
 <div class="body-container">
   <aside class="profile-card">
     <header>
-      <span>
-        <img src="http://lorempixel.com/150/150/people/" class="hoverZoomLink">
+      <span ng-if="selectedMentor">
+        <ng-letter-avatar charCount = "2" data="{{selectedMentor.first_name}} {{selectedMentor.last_name}}"></ng-letter-avatar>
       </span>
       <h1>{{selectedMentor.first_name}} {{selectedMentor.last_name}}</h1>
       <h2>{{selectedMentor.city}}</h2>
