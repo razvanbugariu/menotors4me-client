@@ -12,7 +12,7 @@ function mentorDetailsController($scope, $location, $routeParams, mentorService,
   $scope.goToInvitation = goToInvitation;
   $scope.sendInvitation = sendInvitation;
   $scope.edit = edit;
-  $scope.isOrganization = isOrganization
+  $scope.isOrganization = isOrganization;
 
   function isOrganization() {
     return authorizationService.isOrganization();

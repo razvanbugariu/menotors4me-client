@@ -1,53 +1,38 @@
 <div class="body-container">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xs-offset-0 col-sm-offset-0 col-md-offset-2 col-lg-offset-2 toppad" >
-        <div class="panel panel-info">
-          <div class="panel-heading">
-            <h3 class="panel-title"> {{ "profile" | translate }} </h3>
-          </div>
-          <div class="panel-body">
-            <div class="row">
-              <div class="col-md-3 col-lg-3 " align="center"> <img alt="mentor Pic" src="../../../assets/images/img.png" class="img-circle img-responsive"> </div>
-              <div class=" col-md-6 col-lg-9">
-                <table class="table table-mentor-information">
-                  <tbody>
-                    <tr>
-                      <td>{{ "name" | translate }}</td>
-                      <td> {{selectedMentor.first_name}} {{selectedMentor.last_name}}</td>
-                    </tr>
-                    <tr>
-                      <td>{{ "email" | translate }}</td>
-                      <td>{{selectedMentor.email}}</td>
-                    </tr>
-                    <tr>
-                      <td>{{ "city" | translate }}</td>
-                      <td>{{selectedMentor.city}}</td>
-                    </tr>
-                    <tr>
-                      <td>{{ "skills" | translate }}</td>
-                      <td>
-                        <span class="skills" ng-repeat="skill in selectedMentor.skills">
-                          {{skill}}
-                        </span>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <a ng-click="goToInvitation()" class="btn btn-primary" ng-show="isOrganization()">
-                  {{ "send_invitation" | translate }} <i class="glyphicon glyphicon-send"></i>
-                </a>
-                <a ng-click="edit()" class="btn btn-primary" ng-show="isCurrentMentor"> {{ "edit" | translate }} </a>
-              </div>
-            </div>
-          </div>
-        </div>
+  <aside class="profile-card">
+    <header>
+      <span ng-if="selectedMentor">
+        <ng-letter-avatar charCount = "2" data="{{selectedMentor.first_name}} {{selectedMentor.last_name}}"></ng-letter-avatar>
+      </span>
+      <h1>{{selectedMentor.first_name}} {{selectedMentor.last_name}}</h1>
+      <h2>{{selectedMentor.city}}</h2>
+      <a ng-click="goToInvitation()" class="btn profile-btn btn-md btn-primary" ng-show="isOrganization()">{{ "send_invitation" | translate }}</a>
+      <a ng-click="edit()" class="btn profile-btn btn-md btn-primary" ng-show="isCurrentMentor"> {{ "edit" | translate }} </a>
+    </header>
+    <div class="profile-bio">
+      <div class="content-center">
+        <span>
+          <label>{{ "email" | translate }}: </label>
+          {{selectedMentor.email}}
+        </span>
+        <span>
+          <label>{{ "phone_number" | translate }}: </label>
+          {{selectedMentor.phone_number}}
+        </span>
+        <span>
+          <label>{{ "skills" | translate }}: </label>
+          {{selectedMentor.skills.join(', ')}}
+        </span>
+        <span>
+          <label>{{ "description" | translate }}: </label>
+          {{selectedMentor.description}}
+        </span>
+        <ul style="list-style-type: none;">
+          <li ng-repeat="error in errors">
+            <span class="errorMessage">{{ error | translate }}</span>
+          </li>
+        </ul>
       </div>
     </div>
-    <ul style="list-style-type: none;">
-      <li ng-repeat="error in errors">
-        <span class="errorMessage">{{ error | translate }}</span>
-      </li>
-    </ul>
-  </div>
+  </aside>
 </div>

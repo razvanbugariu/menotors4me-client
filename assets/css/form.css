@@ -9,7 +9,7 @@
   z-index: 1;
   background: #FFFFFF;
   margin: 0 auto 100px;
-  padding: 5px 45px  45px 45px;
+  padding: 15px 45px  25px 45px;
   text-align: left;
 }
 
@@ -45,7 +45,7 @@
   min-height: 100px;
 }
 
-.form button {
+.form button, .profile-btn {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
@@ -59,8 +59,13 @@
   transition: all 0.3 ease;
   cursor: pointer;
   border-radius: 2px;
+  text-decoration: none;
 }
-.form button:hover,.form button:active,.form button:focus {
+
+.form button:hover,
+.form button:active,
+.form button:focus,
+.profile-btn:hover {
   background: #2980b9;
 }
 

@@ -17,7 +17,8 @@
     "angular-actioncable": "^1.1.1",
     "angular-bootstrap": "^2.5.0",
     "angular-scroll-glue": "*",
-    "angular-multiple-select": "*"
+    "angular-multiple-select": "*",
+    "ngletteravatar": "4.0.4"
   },
   "resolutions": {
     "angular": "1.6.1"

@@ -1,0 +1,434 @@
+.profile-card h1,
+.profile-card h2 {
+  font-weight: 500;
+  margin: 0px 0px 5px 0px;
+}
+
+.profile-card h1 {
+  font-size: 24px;
+}
+
+.profile-card h2 {
+  font-size: 16px;
+}
+
+.profile-card p {
+  margin: 0px;
+}
+
+.profile-card {
+  background: #3498db;
+  width: 56px;
+  height: 56px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 2;
+  overflow: hidden;
+  opacity: 0;
+  margin-top: 70px;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16), 0px 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16), 0px 3px 6px rgba(0, 0, 0, 0.23);
+
+  animation: init 0.5s 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards, materia 0.5s 1.1s cubic-bezier(0.86, 0, 0.07, 1) forwards;
+}
+
+.profile-card header {
+  width: 179px;
+  height: 380px;
+  padding: 40px 20px 30px 20px;
+  display: inline-block;
+  float: left;
+  border-right: 2px dashed #EEEEEE;
+  background: #FFFFFF;
+  color: #000000;
+  margin-top: 50px;
+  opacity: 0;
+  text-align: center;
+
+  animation: moveIn 0.5s 1.5s ease forwards;
+}
+
+.profile-card header h1 {
+  color: #3498db;
+}
+
+.profile-card header h2 {
+  color: #7f8c8d;
+}
+
+.profile-card header span {
+  display: inline-block;
+  text-align: center;
+  position: relative;
+  margin: 25px 30px;
+}
+
+.profile-card header span > img {
+  width: 120px;
+  max-width: 100%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-transition: -webkit-box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease;
+  -webkit-box-shadow: 0px 0px 0px 8px rgba(0, 0, 0, 0.06);
+  box-shadow: 0px 0px 0px 8px rgba(0, 0, 0, 0.06);
+}
+
+.profile-card header span:hover > img {
+  -webkit-box-shadow: 0px 0px 0px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 12px rgba(0, 0, 0, 0.1);
+}
+
+.profile-card header .btn {
+  position: fixed;
+  left: 14px;
+  margin-bottom: 10px;
+  bottom: 10px;
+  padding: 10px 0px;
+  max-width: 150px;
+}
+
+.profile-card .profile-bio {
+  padding-top: 40px;
+  width: 600px;
+  height: 410px;
+  display: inline;
+  float: right;
+  background: #FFFFFF;
+  color: #333333;
+  opacity: 0;
+
+  animation: moveIn 0.5s 1.5s ease forwards;
+}
+
+.profile-card .profile-bio .content-center {
+  position: relative;
+  display: block;
+  padding: 20px;
+}
+.profile-card .profile-bio .content-center span {
+  display: block;
+  margin-top: 10px;
+}
+
+@-webkit-keyframes init {
+  0% {
+    width: 0px;
+    height: 0px;
+  }
+  100% {
+    width: 56px;
+    height: 56px;
+    margin-top: 0px;
+    opacity: 1;
+  }
+}
+
+@keyframes init {
+  0% {
+    width: 0px;
+    height: 0px;
+  }
+  100% {
+    width: 56px;
+    height: 56px;
+    margin-top: 0px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes puff {
+  0% {
+    top: 100%;
+    height: 0px;
+    padding: 0px;
+  }
+  100% {
+    top: 50%;
+    height: 100%;
+    padding: 0px 100%;
+  }
+}
+
+@keyframes puff {
+  0% {
+    top: 100%;
+    height: 0px;
+    padding: 0px;
+  }
+  100% {
+    top: 50%;
+    height: 100%;
+    padding: 0px 100%;
+  }
+}
+
+@-webkit-keyframes borderRadius {
+  0% {
+    -webkit-border-radius: 50%;
+  }
+  100% {
+    -webkit-border-radius: 0px;
+  }
+}
+
+@keyframes borderRadius {
+  0% {
+    -webkit-border-radius: 50%;
+  }
+  100% {
+    border-radius: 0px;
+  }
+}
+
+@-webkit-keyframes moveDown {
+  0% {
+    top: 50%;
+  }
+  50% {
+    top: 40%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes moveDown {
+  0% {
+    top: 50%;
+  }
+  50% {
+    top: 40%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+@-webkit-keyframes moveUp {
+  0% {
+    background: #3498db;
+    top: 100%;
+  }
+  50% {
+    top: 40%;
+  }
+  100% {
+    top: 50%;
+    background: #ecf0f1;
+  }
+}
+
+@keyframes moveUp {
+  0% {
+    background: #3498db;
+    top: 100%;
+  }
+  50% {
+    top: 40%;
+  }
+  100% {
+    top: 50%;
+    background: #ecf0f1;
+  }
+}
+
+@-webkit-keyframes materia {
+  0% {
+    background: #ecf0f1;
+  }
+  50% {
+    -webkit-border-radius: 4px;
+  }
+  100% {
+    width: 780px;
+    height: 340px;
+    background: #FFFFFF;
+    -webkit-border-radius: 4px;
+  }
+}
+
+@keyframes materia {
+  0% {
+    background: #ecf0f1;
+  }
+  50% {
+    border-radius: 4px;
+  }
+  100% {
+    width: 780px;
+    height: 340px;
+    background: #FFFFFF;
+    border-radius: 4px;
+  }
+}
+
+@-webkit-keyframes moveIn {
+  0% {
+    margin-top: 50px;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    margin-top: -20px;
+  }
+}
+
+@keyframes moveIn {
+  0% {
+    margin-top: 50px;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    margin-top: -20px;
+  }
+}
+
+@-webkit-keyframes scaleIn {
+  0% {
+    -webkit-transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@-webkit-keyframes ripple {
+  0% {
+    transform: scale3d(0, 0, 0);
+  }
+  50%,
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale3d(0, 0, 0);
+  }
+  50%,
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@media screen and (min-aspect-ratio: 4/3) {
+  body {
+    background-size: cover;
+  }
+  body:before {
+    width: 0px;
+  }
+  @-webkit-keyframes puff {
+    0% {
+      top: 100%;
+      width: 0px;
+      padding-bottom: 0px;
+    }
+    100% {
+      top: 50%;
+      width: 100%;
+      padding-bottom: 100%;
+    }
+  }
+  @keyframes puff {
+    0% {
+      top: 100%;
+      width: 0px;
+      padding-bottom: 0px;
+    }
+    100% {
+      top: 50%;
+      width: 100%;
+      padding-bottom: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .profile-card header {
+    width: auto;
+    height: auto;
+    padding: 15px 20px 0px 20px;
+    display: block;
+    float: none;
+    border-right: none;
+  }
+  .profile-card .profile-bio {
+    width: auto;
+    height: auto;
+    padding: 15px 20px 30px 20px;
+    display: block;
+    float: none;
+  }
+
+  .profile-card header .btn {
+    position: relative;
+    margin-top: 25px;
+    padding: 10px 0px;
+    max-width: 150px;
+  }
+
+  @keyframes moveIn {
+    0% {
+      margin-top: 70px;
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+      margin-top: 0px;
+    }
+  }
+
+  @-webkit-keyframes materia {
+    0% {
+      background: #ecf0f1;
+    }
+    50% {
+      -webkit-border-radius: 4px;
+    }
+    100% {
+      height: 88vh;
+      width: 95vw;
+      background: #FFFFFF;
+      -webkit-border-radius: 4px;
+    }
+  }
+  @keyframes materia {
+    0% {
+      background: #ecf0f1;
+    }
+    50% {
+      border-radius: 4px;
+    }
+    100% {
+      height: 88vh;
+      overflow-y: auto;
+      width: 95vw;
+      background: #FFFFFF;
+      border-radius: 4px;
+    }
+  }
+}
