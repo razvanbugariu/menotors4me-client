@@ -24,6 +24,10 @@
   font-size: 5.0vw;
 }
 
+.nav {
+  overflow-y:scroll;
+}
+
 .margins {
   margin-right: 20px;
 }
