@@ -45,7 +45,7 @@
   min-height: 100px;
 }
 
-.form button {
+.form button, .btn {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
