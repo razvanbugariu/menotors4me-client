@@ -86,7 +86,7 @@
   "chat": "Chat",
   "login_success": "Autentificare realizată cu succes!",
   "login_failed":"Operațiunea de autentificare a eșuat!",
-  "logout_success":"Deconectare realizat cu succes!",
+  "logout_success":"Deconectare realizată cu succes!",
   "logout_failed":"Operațiunea de deconectare a eșuat!",
   "approve_mentor":"Aprobarea a fost efectuată cu succes!",
   "reject_mentor":"Mentorul a fost respins cu succes!",
