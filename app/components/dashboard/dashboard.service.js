@@ -20,10 +20,7 @@ angular
       function getContextsByStatus(status) {
         var req = {
           method: 'GET',
-          url: Constants.DOMAIN + Constants.API + Constants.CONTEXTS + Constants.FILTER_BY_STATUS + status,
-          headers: {
-            'Authorization': $cookies.get(Constants.TOKEN)
-          },
+          url: Constants.DOMAIN + Constants.API + Constants.CONTEXTS + Constants.FILTER_BY_STATUS + status
         };
         return $http(req);
       }
