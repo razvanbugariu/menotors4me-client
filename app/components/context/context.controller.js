@@ -92,7 +92,7 @@ function contextController($scope, Constants, $routeParams, $rootScope, ActionCa
     var acceptedContexts = [];
     acceptedContexts = response.data.data;
     if (checkContext(acceptedContexts)) {
-      growl.error("not_authorized");
+      growl.error("unauthorized");
       $window.history.back();
     }
   }
