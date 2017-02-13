@@ -6,7 +6,7 @@ angular
       responseError: function(rejection) {
         if (rejection && rejection.status === 401) {
           $rootScope.$broadcast(AUTH_EVENTS.received401);
-          $location.path(Constants.LOGIN);
+          // $location.path(Constants.LOGIN);
         }
         return $q.reject(rejection);
       }

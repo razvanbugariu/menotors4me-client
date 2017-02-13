@@ -79,6 +79,11 @@ angular
           $location.path(Constants.HOME);
         });
 
+        $rootScope.$on(AUTH_EVENTS.received401notifyHeader, function(event, args) {
+          checkCredentials();
+          $location.path(Constants.LOGIN);
+        });
+
         function checkIfIsLoggedIn() {
           $scope.isAuth = authorizationService.isLoggedIn();
         }
