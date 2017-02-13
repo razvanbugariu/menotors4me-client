@@ -10,18 +10,18 @@
             </tr>
           </thead>
           <tbody>
-            <tr ng-repeat="mentor in mentors">
+            <tr ng-repeat="mentor in mentors" ng-click="goToDetails(mentor)">
               <td class="col-lg-5 col-md-5 col-sm-5 wrap-text ">
                 <ng-letter-avatar charCount = "2" height="35px" width="35px" fontSize="28px" avatarboard="true" avatarcustomborder="border:7px solid white" shape="round" data="{{mentor.first_name}} {{mentor.last_name}}"></ng-letter-avatar>
                 <span>{{ mentor.first_name }} {{mentor.last_name}}</span>
               </td>
-              <td class="col-lg-5 col-md-5 col-sm-5 wrap-text mentor-city">
+              <td class="col-lg-5 col-md-5 col-sm-5 wrap-text details-mentors-list">
                 <div>
                   <span class="glyphicon glyphicon-map-marker"></span>
                   <span>{{mentor.city}}</span>
                 </div>
               </td>
-              <td class="details-mentors-list">
+              <td class="col-lg-2 col-md-2 col-sm-2 details-mentors-list text-info wrap-text">
                 <span>{{ "click_mentors_list" | translate }}</span>
               </td>
             </tr>
