@@ -95,5 +95,6 @@
   "invite_mentor_success":"Acest mentor a fost invitat cu succes!",
   "propose_mentor_success":"Mentorul a fost recomandat cu succes",
   "profile_update_success":"Profilul dumneavoastra a fost salvat cu succes!",
-  "click_mentors_list":"Click pentru mai multe detalii"
+  "click_mentors_list":"Click pentru mai multe detalii",
+  "personal_details": "Detalii personale"
 }
