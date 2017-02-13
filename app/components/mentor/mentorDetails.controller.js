@@ -8,7 +8,6 @@ function mentorDetailsController($scope, $location, $routeParams, mentorService,
 
   $scope.errors = [];
 
-  $scope.inviteMentorToEvent = inviteMentorToEvent;
   $scope.goToInvitation = goToInvitation;
   $scope.sendInvitation = sendInvitation;
   $scope.edit = edit;
@@ -16,14 +15,6 @@ function mentorDetailsController($scope, $location, $routeParams, mentorService,
 
   function isOrganization() {
     return authorizationService.isOrganization();
-  }
-
-  function inviteMentorToEvent() {
-    var objBody = {
-      profile_id: $scope.selectedMentor.id,
-      organization_id: $cookies.get(Constants.USER_ID),
-      description: $scope
-    }
   }
 
   function getSelectedMentor() {
@@ -42,7 +33,7 @@ function mentorDetailsController($scope, $location, $routeParams, mentorService,
     var context = {
       mentor_id: $routeParams.mentorId,
       organization_id: $cookies.get(Constants.USER_ID),
-      description: $scope.invitation.address + "\n" + $scope.invitation.description
+      description:$scope.invitation.description
     }
     mentorService.inviteToEvent(context, $cookies.get(Constants.TOKEN)).then(handleSuccess, handleErrors);
   }
