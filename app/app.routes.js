@@ -36,8 +36,8 @@ angular
         controller: 'mentorDetailsController'
       })
       .when('/propose', {
-        templateUrl: 'app/components/mentor/proposal.html',
-        controller: 'mentorProposalController'
+        templateUrl: 'app/components/proposal/proposal.html',
+        controller: 'proposalController'
       })
       .when('/mentors/register/:token', {
         templateUrl: 'app/components/mentor/createMentor.html',
