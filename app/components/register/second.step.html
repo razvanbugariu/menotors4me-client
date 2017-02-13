@@ -3,7 +3,9 @@
     <input name="organizationName" placeholder="{{ 'organisation_name' | translate }}" required class="form-control input-lg" ng-model="organization.name" />
     <input name="city" placeholder="{{ 'city' | translate }}" required class="form-control input-lg" ng-model="organization.city" />
     <textarea name="form-about-yourself" placeholder="{{ 'about_organization' | translate }}" class="form-control input-lg" id="form-about-yourself" ng-model="organization.description" ></textarea>
-    <button type="submit" class="btn btn-lg btn-primary btn-block">{{ "create_account" | translate }}</button>
-    <button ng-click="goBack(0)" class="btn btn-lg btn-primary btn-block">{{ "previous_step" | translate }}</button>
+    <div>
+      <button ng-click="goBack(0)" class="btn btn-lg btn-primary btn-block">{{ "previous_step" | translate }}</button>
+      <button type="submit" class="btn btn-lg btn-primary btn-block">{{ "create_account" | translate }}</button>
+    </div>
 </form>
 </div>
