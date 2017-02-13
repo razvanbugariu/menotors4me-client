@@ -24,7 +24,7 @@ angular.module('mentors4me').value('Constants', {
    "PENDING": "pending",
    "REJECTED": "rejected",
    "EDIT": "/edit",
-   "PROFILE": "/profile/",
+   "PROFILE": "/profile",
    "PROFILE_MENTOR": "/profile/mentor/",
    "PROFILE_ORGANIZATION": "/profile/organization/",
    "TOKEN":"token",
