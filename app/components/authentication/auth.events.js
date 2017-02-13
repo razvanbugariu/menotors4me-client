@@ -8,5 +8,6 @@ angular
 	  logoutFailed: 'auth-logout-failed',
 	  notAuthenticated: 'auth-not-authenticated',
 	  notAuthorized: 'auth-not-authorized',
-		received401: 'received-error-401'
+		received401: 'received-error-401',
+		received401notifyHeader: 'received-error-401-header-notification'
 })

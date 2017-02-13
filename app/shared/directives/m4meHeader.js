@@ -30,7 +30,7 @@ angular
     return {
       restrict: "EA",
       templateUrl: "app/shared/templates/m4meHeader.html",
-      controller: function($scope, $location, $rootScope, loginService, $cookies, Constants, AUTH_EVENTS, authorizationService) {
+      controller: function($scope, $location, $rootScope, loginService, $cookies, Constants, growl, AUTH_EVENTS, authorizationService) {
 
         $scope.isAuth = false;
         $scope.goToMentors = goToMentors;
@@ -77,6 +77,12 @@ angular
         $rootScope.$on(AUTH_EVENTS.logoutSuccess, function(event, args) {
           checkCredentials();
           $location.path(Constants.HOME);
+        });
+
+        $rootScope.$on(AUTH_EVENTS.received401notifyHeader, function(event, args) {
+          growl.warning("unauthorized")
+          checkCredentials();
+          $location.path(Constants.LOGIN);
         });
 
         function checkIfIsLoggedIn() {
