@@ -4,10 +4,24 @@ angular
   .module('mentors4me')
   .controller('registerController', registerController);
 
-function registerController($scope, $location, registerService, growl, Constants) {
+function registerController($scope, $location, registerService, growl, Constants, $translate) {
 
   $scope.errors = [];
   $scope.register = register;
+  $scope.setActiveStep = setActiveStep;
+
+  $scope.activeStep = 0;
+
+  $scope.tabs = [
+    {
+      title: $translate.instant('first_step'),
+      templateUrl: 'app/components/register/first.step.html'
+    },
+    {
+      title: $translate.instant('second_step'),
+      templateUrl: 'app/components/register/second.step.html'
+    }
+  ];
 
   function register() {
     var obj = {
@@ -20,7 +34,6 @@ function registerController($scope, $location, registerService, growl, Constants
       password_confirmation: $scope.user.confirm_password,
       description: $scope.user.description
     };
-    console.log(obj);
     registerService.register(obj).then(handleCreateSuccess, handleErrors);
   }
 
@@ -32,4 +45,9 @@ function registerController($scope, $location, registerService, growl, Constants
   function handleErrors(responseErrors) {
     $scope.errors = responseErrors.data.errors;
   }
+
+  function setActiveStep(step){
+    $scope.activeStep = step;
+  }
+
 }

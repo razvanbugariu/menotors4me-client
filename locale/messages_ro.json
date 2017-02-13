@@ -94,6 +94,9 @@
   "accout_created_success":"Contul dumneavoastra a fost creat cu succes!",
   "invite_mentor_success":"Acest mentor a fost invitat cu succes!",
   "propose_mentor_success":"Mentorul a fost recomandat cu succes",
-  "profile_update_success":"Profilul dumneavoastra a fost salvat cu succes!"
-
+  "profile_update_success":"Profilul dumneavoastra a fost salvat cu succes!",
+  "first_step":"Reprezentant",
+  "second_step":"Organizație",
+  "next_step":"Următorul pas",
+  "previous_step":"Înapoi"
 }
