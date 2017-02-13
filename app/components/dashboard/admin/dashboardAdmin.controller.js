@@ -22,11 +22,11 @@ function dashboardAdminController($scope, $location, $cookies, $translate, dashb
       templateUrl: 'app/components/dashboard/admin/pendingRequests.html'
     },
     {
-      title: $translate.instant('active_mentors'),
+      title: $translate.instant('mentors'),
       templateUrl: 'app/components/dashboard/admin/mentors.html'
     },
     {
-      title: $translate.instant('active_organizations'),
+      title: $translate.instant('organizations'),
       templateUrl: 'app/components/dashboard/admin/organizations.html'
     },
   ];
