@@ -5,17 +5,16 @@
 .main-content-about p {
   font-family: Helvetica;
   font-style: bold;
-  font-weight: 20px;
-}
-.col-centered{
-  float: none;
-  margin: 0 auto;
-}
-
-.content-paragraf{
   font-style:italic;
   font-size: 1.3em;
   text-align: justify;
+  text-indent: 2.5em;
+  margin: 0px;
+}
+
+.col-centered{
+  float: none;
+  margin: 0 auto;
 }
 
 .main-content h1 {
