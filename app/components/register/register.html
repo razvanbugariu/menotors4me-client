@@ -3,7 +3,7 @@
     <div class="form">
       <h1>{{ "create_account" | translate }}</h1>
       <uib-tabset active="activeStep">
-      <uib-tab ng-repeat="tab in tabs" heading="{{tab.title}}">
+      <uib-tab ng-repeat="tab in tabs" heading="{{tab.title}}" disable="tab.disable">
       <div ng-include="tab.templateUrl"></div>
       </uib-tab>
       </uib-tabset>
