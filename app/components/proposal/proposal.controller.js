@@ -7,8 +7,9 @@ angular
 function mentorProposalController($scope, $location, proposalService, Constants, growl, $translate) {
 
 
-  $scope.proposeMentor = proposeMentor;
   $scope.saveUserAndGoNext = saveUserAndGoNext;
+  $scope.goToStep = goToStep;
+  $scope.finish = finish;
 
   $scope.activeStep = 0;
   $scope.errors = [];
@@ -24,10 +25,10 @@ function mentorProposalController($scope, $location, proposalService, Constants,
      disable: true
    }];
 
-  function proposeMentor() {
+  function proposeMentor(user, mentor) {
     var proposal = {
-      email: $scope.proposal.email,
-      description: $scope.proposal.description
+      user: user,
+      mentor: mentor
     }
     proposalService.proposeMentor(proposal).then(handleProposalSuccess, handleErrors);
   }
@@ -43,7 +44,15 @@ function mentorProposalController($scope, $location, proposalService, Constants,
 
   function saveUserAndGoNext(user){
     $scope.user = user;
-    $scope.activeStep = 1;
+    goToStep(1);
+  }
+
+  function goToStep(step){
+    $scope.activeStep = step;
+  }
+
+  function finish(mentor){
+    proposeMentor($scope.user, mentor);
   }
 
 }

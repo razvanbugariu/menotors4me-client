@@ -96,5 +96,6 @@
   "propose_mentor_success":"Mentorul a fost recomandat cu succes",
   "profile_update_success":"Profilul dumneavoastra a fost salvat cu succes!",
   "click_mentors_list":"Click pentru mai multe detalii",
-  "personal_details": "Detalii personale"
+  "personal_details": "Detalii personale",
+  "mentor_organizations": "Organizații din care face parte..."
 }
