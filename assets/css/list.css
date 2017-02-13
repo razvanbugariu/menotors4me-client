@@ -141,9 +141,10 @@
 }
 
 .mentors-list{
-	font-size: 18px;
+	font-size: 15px;
+	cursor: pointer;
 }
 
-.mentor-city{
-	text-align: center;
+.details-mentors-list{
+	color: gray;
 }
