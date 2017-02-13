@@ -2,9 +2,9 @@
 
 angular
   .module('mentors4me')
-  .controller('mentorProposalController', mentorProposalController);
+  .controller('proposalController', mentorProposalController);
 
-function mentorProposalController($scope, $location, mentorService, Constants, growl) {
+function mentorProposalController($scope, $location, proposalService, Constants, growl) {
 
   $scope.errors = [];
 
@@ -15,7 +15,7 @@ function mentorProposalController($scope, $location, mentorService, Constants, g
       email: $scope.proposal.email,
       description: $scope.proposal.description
     }
-    mentorService.proposeMentor(proposal).then(handleProposalSuccess, handleErrors);
+    proposalService.proposeMentor(proposal).then(handleProposalSuccess, handleErrors);
   }
 
   function handleProposalSuccess(response) {
@@ -26,11 +26,4 @@ function mentorProposalController($scope, $location, mentorService, Constants, g
   function handleErrors(responseError) {
     $scope.errors = responseError.data.errors;
   }
-
-  $scope.send = send;
-
-  function send() {
-    chatService.sendMessage();
-  }
-
 }
