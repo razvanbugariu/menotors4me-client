@@ -95,7 +95,11 @@
   "invite_mentor_success":"Acest mentor a fost invitat cu succes!",
   "propose_mentor_success":"Mentorul a fost recomandat cu succes",
   "profile_update_success":"Profilul dumneavoastra a fost salvat cu succes!",
+<<<<<<< HEAD
   "click_mentors_list":"Click pentru mai multe detalii",
   "personal_details": "Detalii personale",
   "mentor_organizations": "Organizații din care face parte..."
+=======
+  "click_mentors_list":"Click pentru mai multe detalii"
+>>>>>>> parent of 6a6aff7... added tabs and some field in propose mentor form
 }
