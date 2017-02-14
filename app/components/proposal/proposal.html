@@ -3,9 +3,9 @@
     <div class="form">
       <h1>{{ "suggest_mentor" | translate }}</h1>
       <uib-tabset active="activeStep">
-      <uib-tab ng-repeat="tab in tabs" heading="{{tab.title}}" disable="tab.disable">
-      <div ng-include="tab.templateUrl"></div>
-      </uib-tab>
+        <uib-tab ng-repeat="tab in tabs" heading="{{tab.title}}" disable="tab.disable">
+          <div ng-include="tab.templateUrl"></div>
+        </uib-tab>
       </uib-tabset>
       <ul style="list-style-type: none;">
         <li ng-repeat="error in errors">
