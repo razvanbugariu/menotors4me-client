@@ -27,8 +27,18 @@ function mentorProposalController($scope, $location, proposalService, Constants,
 
   function proposeMentor(user, mentor) {
     var proposal = {
-      user: user,
-      mentor: mentor
+      proposer_first_name: user.first_name,
+      proposer_last_name: user.last_name,
+      proposer_email: user.email,
+      proposer_phone_number: user.phone_number,
+      mentor_first_name: mentor.first_name,
+      mentor_last_name: mentor.last_name,
+      mentor_organization: mentor.organizations,
+      mentor_email: mentor.email,
+      mentor_phone_number: mentor.phone_number,
+      mentor_facebook: mentor.facebook,
+      mentor_linkedin: mentor.linkedin,
+      reason: mentor.motivation
     }
     proposalService.proposeMentor(proposal).then(handleProposalSuccess, handleErrors);
   }
