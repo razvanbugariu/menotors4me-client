@@ -4,23 +4,39 @@ angular
   .module('mentors4me')
   .controller('registerController', registerController);
 
-function registerController($scope, $location, registerService, growl, Constants) {
+function registerController($scope, $location, registerService, growl, Constants, $translate) {
 
   $scope.errors = [];
-  $scope.register = register;
+  $scope.activeStep = 0;
+  $scope.user={};
 
-  function register() {
+  $scope.goToNextStep = goToNextStep;
+  $scope.goBack = goBack;
+  $scope.finish = finish;
+  $scope.tabs = [
+    {
+      title: $translate.instant('first_step'),
+      templateUrl: 'app/components/register/first.step.html',
+      disable: true
+    },
+    {
+      title: $translate.instant('second_step'),
+      templateUrl: 'app/components/register/second.step.html',
+      disable: true
+    }
+  ];
+
+  function register(user, organization) {
     var obj = {
-      email: $scope.user.email,
-      name: $scope.user.organization.name,
-      asignee: $scope.user.first_name + " " + $scope.user.last_name,
-      city: $scope.user.city,
-      phone_number: $scope.user.phone_number + "",
-      password: $scope.user.password,
-      password_confirmation: $scope.user.confirm_password,
-      description: $scope.user.description
+      email: user.email,
+      name: organization.name,
+      asignee: user.first_name + " " + user.last_name,
+      city: organization.city,
+      phone_number: user.phone_number + "",
+      password: user.password,
+      password_confirmation: user.confirm_password,
+      description: organization.description
     };
-    console.log(obj);
     registerService.register(obj).then(handleCreateSuccess, handleErrors);
   }
 
@@ -32,4 +48,22 @@ function registerController($scope, $location, registerService, growl, Constants
   function handleErrors(responseErrors) {
     $scope.errors = responseErrors.data.errors;
   }
+
+  function goToNextStep(user){
+    saveUser(user);
+    $scope.activeStep = 1;
+  }
+
+  function goBack(){
+    $scope.activeStep = 0;
+  }
+
+  function finish(organization){
+    register($scope.user, organization);
+  }
+
+  function saveUser(user){
+    $scope.user = user;
+  }
+
 }
