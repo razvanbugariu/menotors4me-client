@@ -5,7 +5,8 @@
     <textarea name="form-mentor-organizations" placeholder="{{ 'mentor_organizations' | translate }}" class="form-control input-lg" ng-model="mentor.organizations" ></textarea>
     <input type="email" name="email" placeholder="{{ 'email' | translate }}" required class="form-control input-lg" ng-model="mentor.email" />
     <input name="phoneNumber" placeholder="{{ 'phone_number' | translate }}" required class="form-control input-lg" ng-model="mentor.phone_number" />
-    <textarea name="form-social-networks-links" placeholder="{{ 'social_netowrks_links' | translate }}" class="form-control input-lg" ng-model="mentor.social_networks" ></textarea>
+    <input type="text" name="mentor-facebook" placeholder="{{ 'facebook' | translate }}" class="form-control input-lg" ng-model="mentor.facebook" />
+    <input type="text" name="mentor-linkedin" placeholder="{{ 'linkedin' | translate }}" class="form-control input-lg" ng-model="mentor.linkedin" />
     <textarea name="form-motivation" placeholder="{{ 'motivation' | translate }}" class="form-control input-lg" ng-model="mentor.motivation" ></textarea>
     <button ng-click="goToStep(0)" class="btn btn-lg btn-primary btn-block">{{ "previous_step" | translate }}</button>
     <button type="submit" class="btn btn-lg btn-primary btn-block">{{ "submit" | translate }}</button>
