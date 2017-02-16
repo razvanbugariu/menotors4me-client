@@ -2,7 +2,7 @@
   <div class="form-page">
     <div class="form">
       <h1> {{ "edit_profile" | translate }}</h1>
-      <form ng-submit="edit()">
+      <form>
         <input name="email" placeholder="{{ 'email' | translate }}" required class="form-control input-lg input-profile-res" ng-model="currentMentor.email" disabled />
         <input name="name" placeholder="{{ 'first_name' | translate }}" required class="form-control input-lg input-profile-res" ng-model="currentMentor.first_name" />
         <input name="surname" placeholder="{{ 'last_name' | translate }}" required class="form-control input-lg input-profile-res" ng-model="currentMentor.last_name" />
@@ -16,7 +16,7 @@
         </multiple-autocomplete>
         <textarea name="form-about-yourself" placeholder="{{ 'about_yourself' | translate }}"
         class="form-control input-lg input-profile-res" id="form-about-yourself" ng-model="currentMentor.description" ></textarea>
-        <button type="submit" class="btn btn-lg btn-primary btn-block"> {{ "save" | translate }} </button>
+        <button type="button" ng-click="edit()" class="btn btn-lg btn-primary btn-block"> {{ "save" | translate }} </button>
         <ul style="list-style-type: none;">
           <li ng-repeat="error in errors">
             <span class="errorMessage">{{ error | translate }}</span>
