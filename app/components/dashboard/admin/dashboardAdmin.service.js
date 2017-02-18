@@ -7,32 +7,10 @@ angular
       dashboardAdminService.getPendingProposals = function(token) {
         var req = {
           method: 'GET',
-          url: Constants.DOMAIN + Constants.PROPOSALS + Constants.FILTER_BY_STATUS + Constants.PENDING,
+          url: Constants.DOMAIN + Constants.API + Constants.PROPOSALS + Constants.FILTER_BY_STATUS + Constants.PENDING,
           headers: {
             'Authorization': token
           },
-        };
-        return $http(req);
-      };
-
-      dashboardAdminService.approveMentor = function(id, token) {
-        var req = {
-          method: 'POST',
-          url: Constants.DOMAIN + Constants.PROPOSALS + "/" + id + "/" + Constants.ACCEPT,
-          headers: {
-            'Authorization': token
-          }
-        };
-        return $http(req);
-      };
-
-      dashboardAdminService.rejectMentor = function(id, token) {
-        var req = {
-          method: 'POST',
-          url: Constants.DOMAIN + Constants.PROPOSALS + "/" + id + "/" + Constants.REJECT,
-          headers: {
-            'Authorization': token
-          }
         };
         return $http(req);
       };

@@ -39,6 +39,13 @@ angular
         templateUrl: 'app/components/proposal/proposal.html',
         controller: 'proposalController'
       })
+      .when('/proposals/:proposalId', {
+        templateUrl: 'app/components/proposal/proposal.details.html',
+        controller: 'proposalDetailsController',
+        data: {
+          authorizedRoles: [USER_ROLES.ADMIN]
+        }
+      })
       .when('/mentors/register/:token', {
         templateUrl: 'app/components/mentor/createMentor.html',
         controller: 'createMentorController'

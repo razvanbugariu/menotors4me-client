@@ -11,10 +11,9 @@ function dashboardAdminController($scope, $location, $cookies, $translate, dashb
   $scope.proposals = [] ;
   $scope.errors = [];
 
-  $scope.approveMentor = approveMentor;
-  $scope.rejectMentor = rejectMentor;
   $scope.deleteOrganization = deleteOrganization;
   $scope.deleteMentor = deleteMentor;
+  $scope.goToDetails = goToDetails;
 
   $scope.tabs = [
     {
@@ -34,13 +33,6 @@ function dashboardAdminController($scope, $location, $cookies, $translate, dashb
   function getPendingProposals(){
     dashboardAdminService.getPendingProposals($cookies.get(Constants.TOKEN)).then(handleGetProposalsSuccess, handleErrors);
   }
-  function approveMentor(proposal){
-    dashboardAdminService.approveMentor(proposal.id, $cookies.get(Constants.TOKEN)).then(handleApproveSuccess, handleErrors);
-  }
-
-  function rejectMentor(proposal){
-    dashboardAdminService.rejectMentor(proposal.id, $cookies.get(Constants.TOKEN)).then(handleRejectSuccess, handleErrors);
-  }
 
   function deleteFromProposals(proposal){
     $scope.proposals.remove(proposal);
@@ -48,16 +40,6 @@ function dashboardAdminController($scope, $location, $cookies, $translate, dashb
 
   function handleGetProposalsSuccess(responseData){
     $scope.proposals = responseData.data.data;
-  }
-
-  function handleApproveSuccess(response){
-    growl.info("approve_mentor");
-    getPendingProposals();
-  }
-
-  function handleRejectSuccess(response){
-    growl.info("reject_mentor");
-    getPendingProposals();
   }
 
   function getAllMentors(){
@@ -81,7 +63,6 @@ function dashboardAdminController($scope, $location, $cookies, $translate, dashb
   }
 
   function deleteMentor(mentorId){
-
     dashboardAdminService.deleteMentor(mentorId).then(handleDeleteMentorSuccess, handleErrors);
   }
 
@@ -101,6 +82,10 @@ function dashboardAdminController($scope, $location, $cookies, $translate, dashb
 
   function displayDeleteEntry(){
     growl.info("delete_entry");
+  }
+
+  function goToDetails(proposalId){
+    $location.path(Constants.PROPOSALS + "/" + proposalId);
   }
 
   getPendingProposals();

@@ -5,7 +5,7 @@ angular.module('mentors4me').value('Constants', {
    "USERS": "/users",
    "ME": "/me",
    "PASWORD": "/password",
-   "PROPOSALS": "/api/proposals",
+   "PROPOSALS": "/proposals",
    "INVITATION": "api/invitations",
    "REJECT": "reject",
    "ACCEPT": "accept",

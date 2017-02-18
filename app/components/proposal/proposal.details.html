@@ -1,0 +1,58 @@
+<div class="body-container">
+  <div class="form-page">
+    <h3>{{"who_proposed" || translate}}</h3>
+    <span>
+      <label>{{ "first_name" | translate }}: </label>
+      {{currentProposal.proposer_first_name}}
+    </span>
+    <span>
+      <label>{{ "last_name" | translate }}: </label>
+      {{currentProposal.proposer_last_name}}
+    </span>
+    <span>
+      <label>{{ "email" | translate }}: </label>
+      {{currentProposal.proposer_email}}
+    </span>
+    <span>
+      <label>{{ "phone_number" | translate }}: </label>
+      {{currentProposal.proposer_phone_number}}
+    </span>
+    <h3>{{"whom_proposed" || translate}}</h3>
+    <span>
+      <label>{{ "first_name" | translate }}: </label>
+      {{currentProposal.mentor_first_name}}
+    </span>
+    <span>
+      <label>{{ "last_name" | translate }}: </label>
+      {{currentProposal.mentor_last_name}}
+    </span>
+    <span>
+      <label>{{ "email" | translate }}: </label>
+      {{currentProposal.mentor_email}}
+    </span>
+    <span>
+      <label>{{ "phone_number" | translate }}: </label>
+      {{currentProposal.mentor_phone_number}}
+    </span>
+    <span>
+      <label>{{ "facebook" | translate }}: </label>
+      {{currentProposal.mentor_facebook}}
+    </span>
+    <span>
+      <label>{{ "linkedin" | translate }}: </label>
+      {{currentProposal.mentor_linkedin}}
+    </span>
+    <span>
+      <label>{{ "active_organizations" | translate }}: </label>
+      {{currentProposal.mentor_organization}}
+    </span>
+    <span>
+      <label>{{ "motivation" | translate }}: </label>
+      {{currentProposal.reason}}
+    </span>
+
+      <button class="btn bt-primary" ng-click="approveMentor()">Accept</button>
+      <button class="btn bt-primary" ng-click="rejectMentor()">Decline</button>
+
+  </div>
+</div>
