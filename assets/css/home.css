@@ -3,25 +3,23 @@
 }
 
 .main-content-about p {
-  font-size: 100%;
   font-family: Helvetica;
   font-style: bold;
-  font-weight: 20px;
-  padding: 20px;
+  font-style:italic;
+  font-size: 1.3em;
+  text-align: justify;
+  text-indent: 2.5em;
+  margin: 0px;
 }
+
 .col-centered{
   float: none;
   margin: 0 auto;
 }
 
-.content-paragraf{
-  font-style:italic;
-  font-size: 1.4em;
-  text-align: justify;
-}
-
 .main-content h1 {
   font-size: 5.0vw;
+  padding-bottom: 20px;
 }
 
 .nav {
