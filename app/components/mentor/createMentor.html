@@ -5,11 +5,11 @@
       <form ng-submit="register()" autocomplete="on">
         <input name="name"  placeholder="{{ 'first_name' | translate }}" required class="form-control input-lg" ng-model="user.first_name" />
         <input name="surname" placeholder="{{ 'last_name' | translate }}" required class="form-control input-lg" ng-model="user.last_name" />
+        <input name="phoneNumber" placeholder="{{ 'phone_number' | translate }}" required class="form-control input-lg" ng-model="user.phone_number" />
         <input name="city" placeholder="{{ 'city' | translate }}" required class="form-control input-lg" ng-model="user.city" />
         <input type="email" name="email" placeholder="{{ 'email' | translate }}" required class="form-control input-lg" ng-model="user.email" />
         <input type="password" name="password" placeholder="{{ 'password' | translate }}" required class="form-control input-lg" ng-model="user.password"/>
         <input type="password" name="passwordConfirmation" placeholder="{{ 'confirm_password' | translate }}" required class="form-control input-lg" ng-model="user.confirm_password"/>
-        <input name="phoneNumber" placeholder="{{ 'phone_number' | translate }}" required class="form-control input-lg" ng-model="user.phone_number" />
         </br>
         <label>{{'skills' | translate}}:</label>
         <multiple-autocomplete ng-model="selectedSkills"
