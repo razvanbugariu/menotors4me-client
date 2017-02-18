@@ -56,5 +56,16 @@ angular
       return $http(req);
     };
 
+    proposalService.getPendingProposals = function(token) {
+      var req = {
+        method: 'GET',
+        url: Constants.DOMAIN + Constants.API + Constants.PROPOSALS + Constants.FILTER_BY_STATUS + Constants.PENDING,
+        headers: {
+          'Authorization': token
+        },
+      };
+      return $http(req);
+    };
+
     return proposalService;
   });

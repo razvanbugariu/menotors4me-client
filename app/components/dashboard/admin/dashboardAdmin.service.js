@@ -2,17 +2,10 @@
 
 angular
   .module('mentors4me')
-  .factory('dashboardAdminService', function($http, Constants, mentorService, organizationService) {
+  .factory('dashboardAdminService', function($http, Constants, mentorService, organizationService, proposalService) {
       var dashboardAdminService = {};
       dashboardAdminService.getPendingProposals = function(token) {
-        var req = {
-          method: 'GET',
-          url: Constants.DOMAIN + Constants.API + Constants.PROPOSALS + Constants.FILTER_BY_STATUS + Constants.PENDING,
-          headers: {
-            'Authorization': token
-          },
-        };
-        return $http(req);
+        return proposalService.getPendingProposals(token);
       };
 
       dashboardAdminService.getAllMentors = function() {
