@@ -2,9 +2,9 @@
   <div class="form-page">
     <div class="form">
       <h1>{{ "login" | translate }}</h1>
-      <form autocomplete="on" ng-submit="login()">
-        <input autocomplete="on" type="email" name="email" placeholder="{{ 'email' | translate }}" required class="form-control input-lg" ng-model="user.email"/>
-        <input autocomplete="on" type="password" name="password" placeholder="{{ 'password' | translate }}" required class="form-control input-lg" ng-model="user.password" />
+      <form ng-submit="login()">
+        <input type="email" name="email" placeholder="{{ 'email' | translate }}" required class="form-control input-lg" ng-model="user.email"/>
+        <input type="password" name="password" placeholder="{{ 'password' | translate }}" required class="form-control input-lg" ng-model="user.password" />
         <button type="submit" class="btn btn-lg btn-primary btn-block">{{ "login" | translate }}</button>
       </form>
       <ul style="list-style-type: none;">
