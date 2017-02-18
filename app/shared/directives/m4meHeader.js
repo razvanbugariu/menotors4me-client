@@ -80,7 +80,9 @@ angular
         });
 
         $rootScope.$on(AUTH_EVENTS.received401notifyHeader, function(event, args) {
-          growl.warning("unauthorized")
+          if(args === "unauthorized"){
+            growl.warning("unauthorized");
+          }
           checkCredentials();
           $location.path(Constants.LOGIN);
         });
