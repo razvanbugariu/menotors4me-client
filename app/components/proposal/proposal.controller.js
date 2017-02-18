@@ -4,26 +4,16 @@ angular
   .module('mentors4me')
   .controller('proposalController', mentorProposalController);
 
-function mentorProposalController($scope, $location, proposalService, Constants, growl, $translate) {
+function mentorProposalController($scope, $location, proposalService, Constants, growl, $translate, USER_ROLES) {
 
 
   $scope.saveUserAndGoNext = saveUserAndGoNext;
   $scope.goToStep = goToStep;
   $scope.finish = finish;
 
-  $scope.activeStep = 0;
+  $scope.displayBackButton = true;
   $scope.errors = [];
-  $scope.tabs = [
-   {
-     title: $translate.instant('personal_details'),
-     templateUrl: 'app/components/proposal/personal.tab.html',
-     disable: true
-   },
-   {
-     title: $translate.instant('mentor_details'),
-     templateUrl: 'app/components/proposal/mentor.tab.html',
-     disable: true
-   }];
+  $scope.tabs = [];
 
   function proposeMentor(user, mentor) {
     var proposal = {
@@ -65,4 +55,57 @@ function mentorProposalController($scope, $location, proposalService, Constants,
     proposeMentor($scope.user, mentor);
   }
 
+  function checkIfLoggedIn(){
+    proposalService.checkIfLoggedIn().then(getCurrentUser, displayTwoSteps);
+  }
+
+  function getCurrentUser(){
+    //if this function is called than the user is loggedin so get user and disply secondStep
+    proposalService.getCurrentUser().then(handleGetCurrentUserSuccess, displayTwoSteps)
+  }
+
+  function handleGetCurrentUserSuccess(response){
+    if(response.data.data.role[0] === USER_ROLES.ADMIN){
+      handleAdminUser();
+    } else {
+      handleNormalUser(response.data.data);
+    }
+  }
+
+  function handleAdminUser(){
+    displayTwoSteps();
+  }
+
+  function handleNormalUser(currentUser){
+    $scope.user = currentUser;
+    displayOneStep();
+  }
+
+  function displayOneStep(){
+    goToStep(0);
+    $scope.tabs = [
+     {
+       title: $translate.instant('mentor_details'),
+       templateUrl: 'app/components/proposal/mentor.tab.html',
+       disable: true
+     }];
+     $scope.displayBackButton = false;
+  }
+
+  function displayTwoSteps(){
+    goToStep(0);
+    $scope.tabs = [
+     {
+       title: $translate.instant('personal_details'),
+       templateUrl: 'app/components/proposal/personal.tab.html',
+       disable: true
+     },
+     {
+       title: $translate.instant('mentor_details'),
+       templateUrl: 'app/components/proposal/mentor.tab.html',
+       disable: true
+     }];
+  }
+
+  checkIfLoggedIn();
 }

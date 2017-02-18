@@ -8,7 +8,7 @@
     <input type="text" name="mentor-facebook" placeholder="{{ 'facebook' | translate }}" class="form-control input-lg" ng-model="mentor.facebook" />
     <input type="text" name="mentor-linkedin" placeholder="{{ 'linkedin' | translate }}" class="form-control input-lg" ng-model="mentor.linkedin" />
     <textarea name="form-motivation" placeholder="{{ 'motivation' | translate }}" class="form-control input-lg" ng-model="mentor.motivation" ></textarea>
-    <button ng-click="goToStep(0)" class="btn btn-lg btn-primary btn-block">{{ "previous_step" | translate }}</button>
+    <button ng-click="goToStep(0)" ng-show="displayBackButton" class="btn btn-lg btn-primary btn-block">{{ "previous_step" | translate }}</button>
     <button type="submit" class="btn btn-lg btn-primary btn-block">{{ "submit" | translate }}</button>
   </form>
 </div>
