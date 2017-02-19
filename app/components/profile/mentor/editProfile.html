@@ -8,6 +8,8 @@
         <input name="surname" placeholder="{{ 'last_name' | translate }}" required class="form-control input-lg input-profile-res" ng-model="currentMentor.last_name" />
         <input name="city" placeholder="{{ 'city' | translate }}" required class="form-control input-lg input-profile-res" ng-model="currentMentor.city" />
         <input name="number" placeholder="{{ 'phone_number' | translate }}" required class="form-control input-lg input-profile-res" ng-model="currentMentor.phone_number" />
+        <input name="facebook" placeholder="{{'facebook' | translate}}" pattern="http://www\.facebook\.com\/(.+)|https://www\.facebook\.com\/(.+)" class="form-control input-lg input-profile-res" ng-model="currentMentor.facebook" />
+        <input type="text" name="linkedin" pattern="http://www\.linkedin\.com\/(.+)|https://www\.linkedin\.com\/(.+)" placeholder="{{'linkedin' | translate}}" class="form-control input-lg" ng-model="user.linkedin"/>
         </br>
         <label>{{'skills' | translate}}:</label>
         <multiple-autocomplete ng-model="selectedSkills"

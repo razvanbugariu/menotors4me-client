@@ -21,7 +21,9 @@ function createMentorController($scope, $location, registerService, skillsServic
       phone_number: $scope.user.phone_number,
       password: $scope.user.password,
       password_confirmation: $scope.user.confirm_password,
-      skills: selectIds($scope.selectedSkills)
+      skills: selectIds($scope.selectedSkills),
+      facebook: $scope.user.facebook,
+      linkedin: $scope.user.linkedin
     };
     registerService.registerMentor(obj, $routeParams.token).then(handleCreateSuccess, handleErrors);
   }

@@ -2,6 +2,7 @@
   <form ng-submit="finish(organization)">
     <input name="organizationName" placeholder="{{ 'organisation_name' | translate }}" required class="form-control input-lg" ng-model="organization.name" />
     <input name="city" placeholder="{{ 'city' | translate }}" required class="form-control input-lg" ng-model="organization.city" />
+    <input type="text" name="facebook" pattern="http://www\.facebook\.com\/(.+)|https://www\.facebook\.com\/(.+)" placeholder="{{'facebook' | translate}}" class="form-control input-lg" ng-model="organizationer.facebook"/>
     <textarea name="form-about-yourself" placeholder="{{ 'about_organization' | translate }}" class="form-control input-lg" id="form-about-yourself" ng-model="organization.description" ></textarea>
     <div>
       <button ng-click="goBack(0)" class="btn btn-lg btn-primary btn-block">{{ "previous_step" | translate }}</button>
