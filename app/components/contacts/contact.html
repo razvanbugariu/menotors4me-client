@@ -2,11 +2,11 @@
   <div class="form-page">
     <div class="form">
       <h1>De pus traduceri{{ "contact_us" | translate }}</h1>
-      <form ng-submit="smth" autocomplete="on">
-        <input name="name"  placeholder="{{ 'first_name' | translate }}" required class="form-control input-lg" ng-model="smth.first_name" />
-        <input name="surname" placeholder="{{ 'last_name' | translate }}" required class="form-control input-lg" ng-model="smyh.last_name" />
-        <input type="email" name="email" placeholder="{{ 'email' | translate }}" required class="form-control input-lg" ng-model="smth.email"/>
-         <textarea name="message" placeholder="{{ 'message' | translate }}" class="form-control input-lg" id="message" ng-model="smth" autocomplete="off" ></textarea>
+      <form ng-submit="contactUs()" autocomplete="on">
+        <input name="name"  placeholder="{{ 'first_name' | translate }}" required class="form-control input-lg" ng-model="info.first_name" />
+        <input name="surname" placeholder="{{ 'last_name' | translate }}" required class="form-control input-lg" ng-model="info.last_name" />
+        <input type="email" name="email" placeholder="{{ 'email' | translate }}" required class="form-control input-lg" ng-model="info.email"/>
+        <textarea name="message" placeholder="{{ 'message' | translate }}" class="form-control input-lg" id="message" ng-model="info.description"></textarea>
         <button type="submit" class="btn btn-lg btn-primary btn-block">{{ "submit" | translate }}</button>
         <span ng-show="errorMessage">{{errorMessage}}</span>
       </form>

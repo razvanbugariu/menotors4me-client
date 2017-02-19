@@ -4,7 +4,7 @@ angular
   .module('mentors4me')
   .controller('contactController', contactController);
 
-function contactService($scope, $location, contactService, Constants, growl) {
+function contactController($scope, $location, contactService, Constants, growl) {
 
   $scope.errors = [];
 
@@ -17,11 +17,11 @@ function contactService($scope, $location, contactService, Constants, growl) {
       last_name: $scope.info.last_name,
       description: $scope.info.description
     }
-    contactService.contactUs(info).then(handleContactSuccess, handleErrors);
+    contactService.sendFeedback(info).then(handleContactSuccess, handleErrors);
   }
 
   function handleContactSuccess(response) {
-    growl.info("propose_mentor_success");
+    growl.info("feedback_sent");
     $location.path(Constants.HOME);
   }
 
