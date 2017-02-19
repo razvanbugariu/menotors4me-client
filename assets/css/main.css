@@ -115,3 +115,8 @@ a, li {
   white-space:normal;
   word-break: break-all;
 }
+
+.title {
+  text-align: center;
+  color: #337ab7;
+}

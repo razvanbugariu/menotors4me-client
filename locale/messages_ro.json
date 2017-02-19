@@ -111,5 +111,6 @@
   "previous_step": "Înapoi",
   "next_step":"Pasul următor",
   "who_proposed":"Cine a propus",
-  "whom_proposed":"Cine a fost propus"
+  "whom_proposed":"Cine a fost propus",
+  "reason": "Motiv"
 }

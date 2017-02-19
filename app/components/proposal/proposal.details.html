@@ -1,58 +1,62 @@
 <div class="body-container">
   <div class="form-page">
-    <h3>{{"who_proposed" || translate}}</h3>
-    <span>
+
+    <h1 class="title">{{"who_proposed" | translate}}</h1>
+
+    <div>
       <label>{{ "first_name" | translate }}: </label>
       {{currentProposal.proposer_first_name}}
-    </span>
-    <span>
+    </div>
+    <div>
       <label>{{ "last_name" | translate }}: </label>
       {{currentProposal.proposer_last_name}}
-    </span>
-    <span>
+    </div>
+    <div>
       <label>{{ "email" | translate }}: </label>
       {{currentProposal.proposer_email}}
-    </span>
-    <span>
+    </div>
+    <div>
       <label>{{ "phone_number" | translate }}: </label>
       {{currentProposal.proposer_phone_number}}
-    </span>
-    <h3>{{"whom_proposed" || translate}}</h3>
-    <span>
+    </div>
+
+    <h1 class="title">{{ "whom_proposed" | translate}}</h1>
+
+    <div>
       <label>{{ "first_name" | translate }}: </label>
-      {{currentProposal.mentor_first_name}}
-    </span>
-    <span>
+      {{currentProposal.mentor_first_name}}v
+    </div>
+    <div>
       <label>{{ "last_name" | translate }}: </label>
       {{currentProposal.mentor_last_name}}
-    </span>
-    <span>
+    </div>
+    <div>
       <label>{{ "email" | translate }}: </label>
       {{currentProposal.mentor_email}}
-    </span>
-    <span>
+    </div>
+    <div>
       <label>{{ "phone_number" | translate }}: </label>
       {{currentProposal.mentor_phone_number}}
-    </span>
-    <span>
+    </div>
+    <div>
       <label>{{ "facebook" | translate }}: </label>
       {{currentProposal.mentor_facebook}}
-    </span>
-    <span>
+    </div>
+    <div>
       <label>{{ "linkedin" | translate }}: </label>
       {{currentProposal.mentor_linkedin}}
-    </span>
-    <span>
+    </div>
+    <div>
       <label>{{ "active_organizations" | translate }}: </label>
       {{currentProposal.mentor_organization}}
-    </span>
-    <span>
-      <label>{{ "motivation" | translate }}: </label>
+    </div>
+    <div>
+      <label>{{ "reason" | translate }}: </label>
       {{currentProposal.reason}}
-    </span>
+    </div>
 
-      <button class="btn bt-primary" ng-click="approveMentor()">Accept</button>
-      <button class="btn bt-primary" ng-click="rejectMentor()">Decline</button>
+      <button class="btn btn-lg btn-primary btn-block" ng-click="approveMentor()">Accept</button>
+      <button class="btn btn-lg btn-primary btn-block" ng-click="rejectMentor()">Decline</button>
 
   </div>
 </div>
