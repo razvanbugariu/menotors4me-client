@@ -6,7 +6,7 @@ angular
     var contactService = {};
 
     contactService.sendFeedback = function(feedback){
-      return $http.post(Constants.DOMAIN + Constants.CONTACTS, feedback);
+      return $http.post(Constants.DOMAIN + Constants.API + Constants.CONTACTS, feedback);
     }
     return contactService;
   });

@@ -15,7 +15,7 @@ function contactController($scope, $location, contactService, Constants, growl) 
       email: $scope.info.email,
       first_name: $scope.info.first_name,
       last_name: $scope.info.last_name,
-      description: $scope.info.description
+      message: $scope.info.description
     }
     contactService.sendFeedback(info).then(handleContactSuccess, handleErrors);
   }
