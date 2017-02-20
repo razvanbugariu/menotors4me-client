@@ -1,5 +1,5 @@
 <div class="tab-content table-responsive">
-  <form ng-submit="finish(organization)">
+  <form ng-submit="finish(organization)" autocomplete="on">
     <input name="organizationName" placeholder="{{ 'organisation_name' | translate }}" required class="form-control input-lg" ng-model="organization.name" />
     <input name="city" placeholder="{{ 'city' | translate }}" required class="form-control input-lg" ng-model="organization.city" />
     <input type="text" name="facebook" pattern="http://www\.facebook\.com\/(.+)|https://www\.facebook\.com\/(.+)" placeholder="{{'facebook' | translate}}" class="form-control input-lg" ng-model="organizationer.facebook"/>

@@ -1,11 +1,11 @@
 <div class="tab-content table-responsive">
-  <form ng-submit="goToNextStep(user)">
-    <input type="email" name="email" placeholder="{{ 'email' | translate }}" required class="form-control input-lg" ng-model="user.email" />
+  <form ng-submit="goToNextStep(user)" autocomplete="on">
     <input name="name"  placeholder="{{ 'first_name' | translate }}" required class="form-control input-lg" ng-model="user.first_name" />
     <input name="surname" placeholder="{{ 'last_name' | translate }}" required class="form-control input-lg" ng-model="user.last_name" />
+    <input name="phoneNumber" placeholder="{{ 'phone_number' | translate }}" required class="form-control input-lg" ng-model="user.phone_number" />
+    <input type="email" name="email" placeholder="{{ 'email' | translate }}" required class="form-control input-lg" ng-model="user.email" />
     <input type="password" name="password" placeholder="{{ 'password' | translate }}" required class="form-control input-lg" ng-model="user.password"/>
     <input type="password" name="passwordConfirmation" placeholder="{{ 'confirm_password' | translate }}" required class="form-control input-lg" ng-model="user.confirm_password"/>
-    <input name="phoneNumber" placeholder="{{ 'phone_number' | translate }}" required class="form-control input-lg" ng-model="user.phone_number" />
     <button type="submit" class="btn btn-lg btn-primary btn-block">{{ "next_step" | translate }}</button>
   </form>
 </div>
