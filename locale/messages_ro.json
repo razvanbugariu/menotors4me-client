@@ -103,6 +103,7 @@
   "next_step":"Următorul pas",
   "previous_step":"Înapoi",
   "about_organization":"Despre organizație...",
+  "click_mentors_list":"Click pentru mai multe detalii",
   "click_for_details":"Click pentru mai multe detalii",
   "personal_details": "Detalii personale",
   "mentor_organizations": "Organizații din care face parte...",
@@ -112,5 +113,6 @@
   "next_step":"Pasul următor",
   "who_proposed":"Cine a propus",
   "whom_proposed":"Cine a fost propus",
-  "reason": "Motiv"
+  "reason": "Motiv",
+  "feedback_sent": "Feedback-ul dumneavostră a fost trimis cu succes!"
 }
