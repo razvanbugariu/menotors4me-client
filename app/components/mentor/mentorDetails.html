@@ -27,6 +27,14 @@
           <label>{{ "description" | translate }}: </label>
           {{selectedMentor.description}}
         </span>
+        <span ng-show="selectedMentor.facebook">
+          <label>{{ "facebook" | translate }}: </label>
+          {{selectedMentor.facebook}}
+        </span>
+        <span ng-show="selectedMentor.linkedin">
+          <label>{{ "linkedin" | translate }}: </label>
+          {{selectedMentor.linkedin}}
+        </span>
         <ul style="list-style-type: none;">
           <li ng-repeat="error in errors">
             <span class="errorMessage">{{ error | translate }}</span>

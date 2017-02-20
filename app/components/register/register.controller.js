@@ -35,7 +35,8 @@ function registerController($scope, $location, registerService, growl, Constants
       phone_number: user.phone_number + "",
       password: user.password,
       password_confirmation: user.confirm_password,
-      description: organization.description
+      description: organization.description,
+      facebook: organization.facebook
     };
     registerService.register(obj).then(handleCreateSuccess, handleErrors);
   }

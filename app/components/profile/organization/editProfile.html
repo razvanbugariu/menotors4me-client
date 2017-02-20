@@ -8,6 +8,7 @@
         <input name="name" placeholder="{{ 'organisation_name' | translate }}" required class="form-control input-lg input-profile-res" ng-model="currentUser.name" />
         <input name="city" placeholder="{{ 'city' | translate }}" required class="form-control input-lg input-profile-res" ng-model="currentUser.city" />
         <input name="phoneNumber" placeholder="{{ 'phone_number' | translate }}" required class="form-control input-lg" ng-model="currentUser.phone_number" />
+        <input name="facebook" pattern="http://www\.facebook\.com\/(.+)|https://www\.facebook\.com\/(.+)" placeholder="{{'facebook' | translate}}" class="form-control input-lg input-profile-res" ng-model="currentUser.facebook" />
         <textarea name="form-about-yourself" placeholder="{{ 'about_yourself' | translate }}"
         class="form-control input-lg input-profile-res" id="form-about-yourself" ng-model="currentUser.description" ></textarea>
         <button type="submit" class="btn btn-lg btn-primary btn-block"> {{ "save" | translate }} </button>

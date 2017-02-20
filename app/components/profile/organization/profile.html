@@ -22,6 +22,10 @@
           <label>{{ "description" | translate }}: </label>
           {{currentUser.description}}
         </span>
+        <span ng-show="currentUser.facebook">
+          <label>{{ "facebook" | translate }}: </label>
+          {{currentUser.facebook}}
+        </span>
         <ul style="list-style-type: none;">
           <li ng-repeat="error in errors">
             <span class="errorMessage">{{ error | translate }}</span>
