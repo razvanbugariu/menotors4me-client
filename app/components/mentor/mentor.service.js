@@ -13,10 +13,6 @@ angular
         return $http.get(Constants.DOMAIN + Constants.API + Constants.MENTORS + "/" + mentorId);
       };
 
-      mentorService.proposeMentor = function(proposal) {
-        return $http.post(Constants.DOMAIN + Constants.PROPOSALS, proposal);
-      };
-
       mentorService.inviteToEvent = function(context, token) {
         return contextsService.inviteToEvent(context);
       };
