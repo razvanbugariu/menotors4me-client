@@ -1,7 +1,7 @@
 <div class="body-container">
   <div class="form-page">
     <div class="form">
-      <h1>De pus traduceri{{ "contact_us" | translate }}</h1>
+      <h1>{{ "contact_us" | translate }}</h1>
       <form ng-submit="contactUs()" autocomplete="on">
         <input name="name"  placeholder="{{ 'first_name' | translate }}" required class="form-control input-lg" ng-model="info.first_name" />
         <input name="surname" placeholder="{{ 'last_name' | translate }}" required class="form-control input-lg" ng-model="info.last_name" />
