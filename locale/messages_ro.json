@@ -114,5 +114,7 @@
   "who_proposed":"Cine a propus",
   "whom_proposed":"Cine a fost propus",
   "reason": "Motiv",
-  "feedback_sent": "Feedback-ul dumneavostră a fost trimis cu succes!"
+  "feedback_sent": "Feedback-ul dumneavostră a fost trimis cu succes!",
+  "contact_us": "Contactează-ne",
+  "message": "Mesajul dumneavoastră pentru noi..."
 }
