@@ -41,5 +41,7 @@ angular.module('mentors4me').value('Constants', {
    "REGISTER":"/register",
    "CONTACTS":"/contacts",
    "ACTIVE":"active",
-   "INACTIVE":"inactive"
+   "INACTIVE":"inactive",
+   "ACTIVATE":"activate",
+   "DEACTIVATE":"deactivate"
 });

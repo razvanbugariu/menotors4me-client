@@ -14,6 +14,8 @@ function dashboardAdminController($scope, $location, $cookies, $translate, dashb
   $scope.deleteOrganization = deleteOrganization;
   $scope.deleteMentor = deleteMentor;
   $scope.goToDetails = goToDetails;
+  $scope.getActionForUser = getActionForUser;
+  $scope.changeUserStatus = changeUserStatus;
 
   $scope.tabs = [
     {
@@ -86,6 +88,25 @@ function dashboardAdminController($scope, $location, $cookies, $translate, dashb
 
   function goToDetails(proposalId){
     $location.path(Constants.PROPOSALS + "/" + proposalId);
+  }
+
+  function getActionForUser(user){
+    if(user.active){
+      return Constants.DEACTIVATE;
+    } else {
+      return Constants.ACTIVATE;
+    }
+  }
+
+  function changeUserStatus(user){
+    user.status = !user.status;
+    var futureStatus = getActionForUser(user);
+    dashboardAdminService.changeUserStatus(user.id, futureStatus).then(handleChangeStatusSuccess, handleErrors);
+  }
+
+  function handleChangeStatusSuccess(){
+    getAllMentors();
+    getAllOrganizations();
   }
 
   getPendingProposals();

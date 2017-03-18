@@ -2,17 +2,29 @@
 
 angular
   .module('mentors4me')
-  .factory('userService', ['$http', 'Constants', function($http, Constants) {
+  .factory('userService', function($http, Constants, $cookies) {
     var userService = {};
-    userService.getCurrentUser = function(token) {
+    userService.getCurrentUser = function() {
       var req = {
         method: 'GET',
-        url: Constants.DOMAIN + Constants.API + Constants.USERS  + Constants.ME,
+        url: Constants.DOMAIN + Constants.API + Constants.USERS + Constants.ME,
         headers: {
-          'Authorization': token
+          'Authorization': $cookies.get(Constants.TOKEN)
         }
       };
       return $http(req);
     };
+
+    userService.changeUserStatus = function(userId, futureStatus) {
+      var req = {
+        method: 'PUT',
+        url: Constants.DOMAIN + Constants.API + Constants.USERS + "/" + userId + "/" + futureStatus,
+        headers: {
+          'Authorization': $cookies.get(Constants.TOKEN)
+        }
+      };
+      return $http(req);
+    };
+
     return userService;
-  }]);
+  });

@@ -116,5 +116,7 @@
   "reason": "Motiv",
   "feedback_sent": "Feedback-ul dumneavostră a fost trimis cu succes!",
   "contact_us": "Contactează-ne",
-  "message": "Mesajul dumneavoastră pentru noi..."
+  "message": "Mesajul dumneavoastră pentru noi...",
+  "activate": "Activați",
+  "deactivate": "Dezactivați"
 }

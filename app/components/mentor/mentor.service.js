@@ -21,16 +21,9 @@ angular
         return authorizationService.isMentor();
       };
 
-      mentorService.deleteMentor = function(mentorId) {
-        var req = {
-          method: 'DELETE',
-          url: Constants.DOMAIN + Constants.API + Constants.MENTORS + "/" + mentorId,
-          headers: {
-            'Authorization': $cookies.get(Constants.TOKEN)
-          },
-        };
-        return $http(req);
-      };
+      mentorService.getMentorsByStatus = function(status) {
+        return $http.get(Constants.DOMAIN + Constants.API + Constants.MENTORS + Constants.FILTER_BY_STATUS + status);
+      }
 
       return mentorService;
     }

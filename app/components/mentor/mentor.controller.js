@@ -11,11 +11,11 @@ function mentorController($scope, $location, mentorService, Constants) {
 
   $scope.goToDetails = goToDetails;
 
-  function getMentors() {
-    mentorService.getAllMentors().then(handleGetAllMentorsSuccess, handleErrors);
+  function getActiveMentors() {
+    mentorService.getMentorsByStatus(Constants.ACTIVE).then(handleGetActiveMentorsSuccess, handleErrors);
   };
 
-  function handleGetAllMentorsSuccess(response) {
+  function handleGetActiveMentorsSuccess(response) {
     $scope.mentors = response.data.data;
   };
 
@@ -27,6 +27,6 @@ function mentorController($scope, $location, mentorService, Constants) {
     $location.path(Constants.PROFILE_MENTOR + mentor.id);
   };
 
-  getMentors();
+  getActiveMentors();
 
 }

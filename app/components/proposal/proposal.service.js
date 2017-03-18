@@ -20,7 +20,7 @@ angular
     }
 
     proposalService.getCurrentUser = function(){
-      return userService.getCurrentUser($cookies.get(Constants.TOKEN));
+      return userService.getCurrentUser();
     }
 
     proposalService.getProposalById = function(proposalId){

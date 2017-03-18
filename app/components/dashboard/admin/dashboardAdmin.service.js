@@ -2,7 +2,7 @@
 
 angular
   .module('mentors4me')
-  .factory('dashboardAdminService', function($http, Constants, mentorService, organizationService, proposalService) {
+  .factory('dashboardAdminService', function($http, Constants, mentorService, organizationService, proposalService, userService) {
       var dashboardAdminService = {};
       dashboardAdminService.getPendingProposals = function(token) {
         return proposalService.getPendingProposals(token);
@@ -16,13 +16,12 @@ angular
         return organizationService.getAllOrganizations();
       };
 
-      dashboardAdminService.deleteMentor = function(mentorId) {
-        return mentorService.deleteMentor(mentorId);
-      };
-
       dashboardAdminService.deleteOrganization = function(organizationId) {
         return organizationService.deleteOrganization(organizationId);
       };
+      dashboardAdminService.changeUserStatus = function(userId, futureStatus) {
+        return userService.changeUserStatus(userId, futureStatus);
+      }
 
       return dashboardAdminService;
     }
