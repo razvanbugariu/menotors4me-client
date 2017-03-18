@@ -2,9 +2,9 @@
 
 angular
   .module('mentors4me')
-  .controller('createMentorController', createMentorController);
+  .controller('registerMentorController', registerMentorController);
 
-function createMentorController($scope, $location, registerService, skillsService, $routeParams, Constants, growl) {
+function registerMentorController($scope, $location, registerService, skillsService, $routeParams, Constants, growl) {
 
   $scope.errors = [];
 
