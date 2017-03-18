@@ -39,5 +39,9 @@ angular.module('mentors4me').value('Constants', {
    "ORGANIZATION":"organization",
    "MENTOR":"mentor",
    "REGISTER":"/register",
-   "CONTACTS":"/contacts"
+   "CONTACTS":"/contacts",
+   "ACTIVE":"active",
+   "INACTIVE":"inactive",
+   "ACTIVATE":"activate",
+   "DEACTIVATE":"deactivate"
 });

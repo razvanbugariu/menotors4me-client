@@ -2,7 +2,7 @@
 
 angular
   .module('mentors4me')
-  .controller('registerController', registerController);
+  .controller('registerOrganizationController', registerController);
 
 function registerController($scope, $location, registerService, growl, Constants, $translate) {
 
@@ -16,12 +16,12 @@ function registerController($scope, $location, registerService, growl, Constants
   $scope.tabs = [
     {
       title: $translate.instant('first_step'),
-      templateUrl: 'app/components/register/first.step.html',
+      templateUrl: 'app/components/register/organization/first.step.html',
       disable: true
     },
     {
       title: $translate.instant('second_step'),
-      templateUrl: 'app/components/register/second.step.html',
+      templateUrl: 'app/components/register/organization/second.step.html',
       disable: true
     }
   ];

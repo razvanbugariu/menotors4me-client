@@ -32,8 +32,8 @@ angular
         controller: 'loginController'
       })
       .when('/register', {
-        templateUrl: 'app/components/register/register.html',
-        controller: 'registerController'
+        templateUrl: 'app/components/register/organization/register.html',
+        controller: 'registerOrganizationController'
       })
       .when('/mentors/:mentorId/invite', {
         templateUrl: 'app/components/mentor/invitation.html',
@@ -51,8 +51,8 @@ angular
         }
       })
       .when('/mentors/register/:token', {
-        templateUrl: 'app/components/mentor/createMentor.html',
-        controller: 'createMentorController'
+        templateUrl: 'app/components/register/mentor/register.html',
+        controller: 'registerMentorController'
       })
       .when('/dashboard/organization', {
         templateUrl: 'app/components/dashboard/organization/dashboardOrganization.html',

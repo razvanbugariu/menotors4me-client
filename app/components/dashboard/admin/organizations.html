@@ -12,7 +12,7 @@
         <td class="col-lg-4 col-md-4 col-sm-4 wrap-text">{{organization.email}}</td>
         <td>{{organization.description}}</td>
         <td class="col-lg-1 col-md-1 col-sm-1 col-xs-2 text-center">
-          <span class="glyphicon glyphicon-remove" aria-hidden="true" title="{{ 'decline' | translate }}" ng-click="deleteOrganization(organization.id)"></span>
+          <button type="button" ng-click="changeUserStatus(organization)" class="btn btn-primary">{{getActionForUser(organization) | translate}}</button>
         </td>
       </tr>
     </tbody>

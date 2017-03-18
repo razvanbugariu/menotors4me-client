@@ -14,7 +14,7 @@ angular
 
       function getCurrentUser(token) {
         saveToken(token);
-        userService.getCurrentUser(token).then(handleGetCurrentUserSuccess, handleGetCurrentUserError);
+        userService.getCurrentUser().then(handleGetCurrentUserSuccess, handleGetCurrentUserError);
       }
 
       function saveToken(token) {
