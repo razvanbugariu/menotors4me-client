@@ -132,8 +132,12 @@ function contextController($scope, Constants, $routeParams, $compile, $rootScope
       return undefined;
     }
     for(var i = $scope.messages.length - 1 ; i >= 0 ; i--){
-      if($scope.messages[i].sender_id != $cookies.get(Constants.USER_ID) && $scope.messages[i].seen == false){
-        return $scope.messages[i];
+      if($scope.messages[i].sender_id != $cookies.get(Constants.USER_ID)){
+        if($scope.messages[i].seen == false){
+          return $scope.messages[i];
+        } else {
+          return undefined;
+        }
       }
     }
     return undefined;
