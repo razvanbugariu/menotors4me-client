@@ -11,21 +11,25 @@
     </header>
     <div class="profile-bio">
       <div class="content-center">
-        <span>
+        <span ng-show="displayBasedOnRoles(['mentor', 'admin'])">
           <label>{{ "email" | translate }}: </label>
           {{selectedMentor.email}}
         </span>
-        <span>
+        <span ng-show="displayBasedOnRoles(['mentor', 'admin'])">
           <label>{{ "phone_number" | translate }}: </label>
           {{selectedMentor.phone_number}}
         </span>
         <span>
+          <label>{{ "description" | translate }}: </label>
+          {{selectedMentor.description}}
+        </span>
+        <span ng-show="displayBasedOnRoles(['mentor', 'admin', 'organization'])">
           <label>{{ "skills" | translate }}: </label>
           {{selectedMentor.skills.join(', ')}}
         </span>
-        <span>
-          <label>{{ "description" | translate }}: </label>
-          {{selectedMentor.description}}
+        <span ng-show="displayBasedOnRoles(['mentor', 'admin', 'organization'])">
+          <label>{{ "availability" | translate }}: </label>
+          {{selectedMentor.availability}}
         </span>
         <span ng-show="selectedMentor.facebook">
           <label>{{ "facebook" | translate }}: </label>
@@ -34,6 +38,18 @@
         <span ng-show="selectedMentor.linkedin">
           <label>{{ "linkedin" | translate }}: </label>
           {{selectedMentor.linkedin}}
+        </span>
+        <span ng-show="selectedMentor.occupation && displayBasedOnRoles(['mentor', 'admin', 'organization'])">
+          <label>{{ "occupation" | translate }}: </label>
+          {{selectedMentor.occupation}}
+        </span>
+        <span ng-show="selectedMentor.organization">
+          <label>{{ "organization" | translate }}: </label>
+          {{selectedMentor.organization}}
+        </span>
+        <span ng-show="selectedMentor.position">
+          <label>{{ "organization_position" | translate }}: </label>
+          {{selectedMentor.position}}
         </span>
         <ul style="list-style-type: none;">
           <li ng-repeat="error in errors">

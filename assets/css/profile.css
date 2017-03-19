@@ -104,6 +104,7 @@
   opacity: 0;
 
   animation: moveIn 0.5s 1.5s ease forwards;
+  overflow-y: scroll;
 }
 
 .profile-card .profile-bio .content-center {
