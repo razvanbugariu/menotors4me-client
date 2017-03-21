@@ -119,5 +119,10 @@
   "message": "Mesajul dumneavoastră pentru noi...",
   "activate": "Activați",
   "deactivate": "Dezactivați",
+  "availability": "Disponibilitate (h)",
+  "mentor_organization": "Organizația din care face parte...",
+  "organization_position": "Poziția in organizație",
+  "occupation": "Profesie",
+  "organization": "Organizație",
   "seen" : "văzut"
 }

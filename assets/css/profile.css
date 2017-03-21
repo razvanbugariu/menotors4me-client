@@ -94,7 +94,8 @@
 }
 
 .profile-card .profile-bio {
-  padding-top: 40px;
+  padding-top: 20px;
+  padding-bottom: 40px;
   width: 600px;
   height: 410px;
   display: inline;
@@ -102,14 +103,16 @@
   background: #FFFFFF;
   color: #333333;
   opacity: 0;
+  overflow-y: auto;
 
   animation: moveIn 0.5s 1.5s ease forwards;
+  
 }
 
 .profile-card .profile-bio .content-center {
   position: relative;
   display: block;
-  padding: 20px;
+  padding: 10px 20px 10px 20px;
 }
 .profile-card .profile-bio .content-center span {
   display: block;

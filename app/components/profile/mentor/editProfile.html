@@ -8,6 +8,10 @@
         <input name="surname" placeholder="{{ 'last_name' | translate }}" required class="form-control input-lg input-profile-res" ng-model="currentMentor.last_name" />
         <input name="city" placeholder="{{ 'city' | translate }}" required class="form-control input-lg input-profile-res" ng-model="currentMentor.city" />
         <input name="number" placeholder="{{ 'phone_number' | translate }}" required class="form-control input-lg input-profile-res" ng-model="currentMentor.phone_number" />
+        <input type="number" placeholder="{{ 'availability' | translate }}" step="0.1" required class="form-control input-lg" ng-model="currentMentor.availability">
+        <input type="text" name="organization" placeholder="{{'mentor_organization' | translate}}" class="form-control input-lg" ng-model="currentMentor.organization"/>
+        <input type="text" name="position" placeholder="{{'organization_position' | translate}}" class="form-control input-lg" ng-model="currentMentor.position"/>
+        <input type="text" name="occupation" placeholder="{{'occupation' | translate}}" class="form-control input-lg" ng-model="currentMentor.occupation"/>
         <input name="facebook" placeholder="{{'facebook' | translate}}" class="form-control input-lg input-profile-res" ng-model="currentMentor.facebook" />
         <input type="text" name="linkedin" placeholder="{{'linkedin' | translate}}" class="form-control input-lg" ng-model="currentMentor.linkedin"/>
         </br>

@@ -8,6 +8,10 @@
         <input name="phoneNumber" placeholder="{{ 'phone_number' | translate }}" required class="form-control input-lg" ng-model="user.phone_number" />
         <input name="city" placeholder="{{ 'city' | translate }}" required class="form-control input-lg" ng-model="user.city" />
         <input type="email" name="email" placeholder="{{ 'email' | translate }}" required class="form-control input-lg" ng-model="user.email" />
+        <input type="number" placeholder="{{ 'availability' | translate }}" step="0.1" required class="form-control input-lg" ng-model="user.availability">
+        <input type="text" name="organization" placeholder="{{'mentor_organization' | translate}}" class="form-control input-lg" ng-model="user.organization"/>
+        <input type="text" name="position" placeholder="{{'organization_position' | translate}}" class="form-control input-lg" ng-model="user.position"/>
+        <input type="text" name="occupation" placeholder="{{'occupation' | translate}}" class="form-control input-lg" ng-model="user.occupation"/>
         <input type="password" name="password" placeholder="{{ 'password' | translate }}" required class="form-control input-lg" ng-model="user.password"/>
         <input type="password" name="passwordConfirmation" placeholder="{{ 'confirm_password' | translate }}" required class="form-control input-lg" ng-model="user.confirm_password"/>
         <input type="text" name="facebook" placeholder="{{'facebook' | translate}}" class="form-control input-lg" ng-model="user.facebook"/>

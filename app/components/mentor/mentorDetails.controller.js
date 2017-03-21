@@ -12,6 +12,7 @@ function mentorDetailsController($scope, $location, $routeParams, mentorService,
   $scope.sendInvitation = sendInvitation;
   $scope.edit = edit;
   $scope.isOrganization = isOrganization;
+  $scope.displayBasedOnRoles = displayBasedOnRoles;
 
   function isOrganization() {
     return authorizationService.isOrganization();
@@ -53,6 +54,13 @@ function mentorDetailsController($scope, $location, $routeParams, mentorService,
 
   function checkIfCurrentMentor() {
     $scope.isCurrentMentor = mentorService.checkIfMentor() && $routeParams.mentorId === $cookies.get(Constants.USER_ID);
+  }
+
+  function displayBasedOnRoles(roles){
+    if($routeParams.mentorId === $cookies.get(Constants.USER_ID)){
+      return true;
+    }
+    return roles.indexOf($cookies.get(Constants.USER_ROLE)) != -1;
   }
 
   checkIfCurrentMentor();
