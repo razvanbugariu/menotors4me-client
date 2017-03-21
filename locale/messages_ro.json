@@ -100,7 +100,7 @@
   "profile_update_success":"Profilul dumneavoastră a fost salvat cu succes!",
   "first_step":"Reprezentant",
   "second_step":"Organizație",
-  "next_step":"Următorul pas",
+  "next_step":"Urmātorul pas",
   "previous_step":"Înapoi",
   "about_organization":"Despre organizație...",
   "click_mentors_list":"Click pentru mai multe detalii",
@@ -123,5 +123,6 @@
   "mentor_organization": "Organizația din care face parte...",
   "organization_position": "Poziția in organizație",
   "occupation": "Profesie",
-  "organization": "Organizație"
+  "organization": "Organizație",
+  "seen" : "văzut"
 }

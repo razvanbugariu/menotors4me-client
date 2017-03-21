@@ -43,5 +43,6 @@ angular.module('mentors4me').value('Constants', {
    "ACTIVE":"active",
    "INACTIVE":"inactive",
    "ACTIVATE":"activate",
-   "DEACTIVATE":"deactivate"
+   "DEACTIVATE":"deactivate",
+   "MESSAGES_CHANNEL":"MessageChannel"
 });
