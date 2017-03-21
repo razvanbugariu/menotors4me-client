@@ -9,14 +9,16 @@
                 <small class="text-muted timestamp">{{message.sent_at}}</small>
               </span>
             </p>
-            <p class="message">{{message.message}}</p>
+            <p class="message"> {{message.message}}
+              <span ng-show="message.message_id == lastReadMessageId" class="seen text-muted" >{{ "seen" | translate }}</span>
+            </p>
           </div>
         </div>
       </div>
       <div class="send-message">
         <form class= "chat-form" ng-submit="sendMessage()">
           <div class="input-group">
-            <input type="text" class="form-control" id="chat-input" ng-model="inputMessage">
+            <input ng-focus="sendLastNotReadMessage()" type="text" class="form-control" id="chat-input" ng-model="inputMessage">
             <span class="input-group-btn">
               <button class="btn btn-primary" id="send-message" type="button" ng-click="sendMessage()">{{ "send" | translate }}</button>
             </span>

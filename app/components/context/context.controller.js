@@ -4,14 +4,23 @@ angular
   .module('mentors4me')
   .controller('contextController', contextController);
 
-function contextController($scope, Constants, $routeParams, $rootScope, ActionCableChannel, contextsService, authorizationService, $location, growl, $cookies, $window) {
+function contextController($scope, Constants, $routeParams, $compile, $rootScope, ActionCableChannel, contextsService, authorizationService, $location, growl, $cookies, $window) {
 
   var senderId;
   var receiverId;
   $scope.messages = [];
   $scope.goToMentorDetails = goToMentorDetails;
+  $scope.sendLastNotReadMessage = sendLastNotReadMessage;
 
-  console.log($location.$$path);
+  var consumerReadMessages = new ActionCableChannel(Constants.MESSAGES_CHANNEL, {
+    context_id: $routeParams.id,
+    user_id: $cookies.get(Constants.USER_ID)
+  });
+
+  consumerReadMessages.subscribe(function(data) {
+    $scope.lastReadMessageId = JSON.parse(data).uuid;
+    $scope.$digest()
+  });
 
   var consumer = new ActionCableChannel(Constants.CHAT_CHANNEL, {
     context_id: $routeParams.id
@@ -109,6 +118,30 @@ function contextController($scope, Constants, $routeParams, $rootScope, ActionCa
   $scope.$on('$locationChangeStart', function() {
     consumer.unsubscribe().then(function() {});
   });
+
+  function sendLastNotReadMessage() {
+    var messageToSend = getLastUnreadMessage();
+    if(messageToSend != undefined){
+      messageToSend.seen = true;
+      consumerReadMessages.send(messageToSend);
+    }
+  }
+
+  function getLastUnreadMessage() {
+    if($scope.messages === 0){
+      return undefined;
+    }
+    for(var i = $scope.messages.length - 1 ; i >= 0 ; i--){
+      if($scope.messages[i].sender_id != $cookies.get(Constants.USER_ID)){
+        if($scope.messages[i].seen == false){
+          return $scope.messages[i];
+        } else {
+          return undefined;
+        }
+      }
+    }
+    return undefined;
+  }
 
   getCurrentContext();
   isEligible();
