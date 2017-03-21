@@ -20,7 +20,7 @@ function dashboardMentorController($scope, $location, $translate, dashboardMento
       templateUrl: 'app/components/dashboard/mentor/activeEvents.html'
     },
     {
-      title: $translate.instant('pending_events'),
+      title: $translate.instant('waiting_events'),
       templateUrl: 'app/components/dashboard/mentor/pendingEvents.html'
     },
   ];
